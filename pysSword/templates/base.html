@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <title>{% block title %}Base page{% endblock %} - pysSword Manager</title>
+</head>
+<body>
+<header>
+    <img src="{% static 'img/logo_black.svg' %}" alt="pysSword Manager" width="200px">
+    <ul>
+        <li><a href="{% url 'index' %}">Main page</a></li>
+        {% if user.is_authenticated %}
+{#            <li><a href="{% url 'my_passwords' %}">My passwords</a></li>#}
+            <li><a href="{% url 'user_profile' %}">My profile</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+    </ul>
+</header>
+<main>
+    {% block content %}
+        Содержимое сайта
+    {% endblock %}
+</main>
+<footer>
+    <p><em>© Copyright 2023</em></p>
+</footer>
+</body>
+</html>
