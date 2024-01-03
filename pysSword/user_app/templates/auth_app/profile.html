@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Welcome, {{ user.username }}!</h2>
+    <h2>Welcome, {{ user.first_name }}!</h2>
 
     <!-- Display user information -->
     <p>Email: {{ user.email }}</p>
@@ -18,7 +18,7 @@
     {% endif %}
 
     <!-- Form for updating profile information -->
-    <form method="post" action="{% url 'user_profile' %}">
+    <form method="post" action="{% url 'profile' %}">
         {% csrf_token %}
         <h3>Update Profile Information</h3>
 
