@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
-from .forms import UserProfileUpdateForm, EmailUserCreationForm, EmailAuthenticationForm
+from .forms import *
 
 
 def register(request):
@@ -27,7 +27,6 @@ def user_login(request):
 
         if form.is_valid():
             email = form.cleaned_data.get('email')
-            print(email)
             password = form.cleaned_data.get('password')
             user = authenticate(request, email=email, password=password)
             if user:
@@ -35,7 +34,6 @@ def user_login(request):
                 messages.success(request, f'Welcome, {email}!')
                 return redirect('profile')
             else:
-                print('error')
                 messages.error(request, 'Invalid username or password.')
 
     else:
@@ -53,29 +51,28 @@ def user_logout(request):
 @login_required
 def user_profile(request):
     if request.method == 'POST':
-        # Обработка формы обновления профиля
-        profile_form = UserProfileUpdateForm(request.POST, instance=request.user)
-        if profile_form.is_valid():
-            profile_form.save()
+        form_type = request.POST.get('form_type')
+        match form_type:
+            case 'first_name':
+                form = EditFirstNameForm(request.POST, instance=request.user)
+            case 'last_name':
+                form = EditLastNameForm(request.POST, instance=request.user)
+            case 'phone_number':
+                form = EditPhoneNumberForm(request.POST, instance=request.user)
+            case 'password':
+                form = PasswordChangeForm(request.user, request.POST)
+            case _:
+                form = None
+
+        if form is not None and form.is_valid():
+            user = form.save()
+            if form_type == 'password':
+                update_session_auth_hash(request, user)  # Обновляем сессию после изменения пароля
             messages.success(request, 'Your profile has been updated successfully.')
             return redirect('profile')
         else:
             messages.error(request, 'Error updating profile. Please correct the errors.')
 
-        # Обработка формы изменения пароля
-        password_form = PasswordChangeForm(request.user, request.POST)
-        if password_form.is_valid():
-            user = password_form.save()
-            update_session_auth_hash(request, user)  # Обновляем сессию после изменения пароля
-            messages.success(request, 'Your password was successfully updated.')
-            return redirect('profile')
-        else:
-            messages.error(request, 'Error updating password. Please correct the errors.')
-    else:
-        profile_form = UserProfileUpdateForm(instance=request.user)
-        password_form = PasswordChangeForm(request.user)
-
     return render(request, 'auth_app/profile.html', {
-        'profile_form': profile_form,
-        'password_form': password_form,
+        'password_form': PasswordChangeForm(request.user),
     })

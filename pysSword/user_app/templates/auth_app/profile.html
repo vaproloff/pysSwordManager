@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Welcome, {{ user.first_name }}!</h2>
-
-    <!-- Display user information -->
-    <p>Email: {{ user.email }}</p>
-    <p>First Name: {{ user.first_name }}</p>
-    <p>Last Name: {{ user.last_name }}</p>
-    <p>Phone Number: {{ user.phone_number }}</p>
+    <h2>
+        Welcome,
+        {% if user.first_name %}
+            {{ user.first_name }}!
+        {% else %}
+            {{ user.email }}!
+        {% endif %}
+    </h2>
 
     {% if messages %}
         <ul class="messages">
@@ -17,33 +18,73 @@
         </ul>
     {% endif %}
 
-    <!-- Form for updating profile information -->
-    <form method="post" action="{% url 'profile' %}">
-        {% csrf_token %}
-        <h3>Update Profile Information</h3>
+    <div id="profile-info">
+        <p>Email: {{ user.email }}</p>
 
-        <!-- Fields for updating profile information -->
-        <label for="id_first_name">First Name:</label>
-        <input type="text" name="first_name" id="id_first_name" value="{{ user.first_name }}" required><br>
+        <p>
+            First Name: {{ user.first_name }}
+            <button onclick="showEditField('profile-first-name-form', 'id_first_name', '{{ user.first_name }}')">Edit
+            </button>
+        </p>
+        <div id="profile-first-name-form" style="display: none;">
+            <form method="post" action="{% url 'profile' %}" id="update-first-name-form">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="first_name">
 
-        <label for="id_last_name">Last Name:</label>
-        <input type="text" name="last_name" id="id_last_name" value="{{ user.last_name }}" required><br>
+                <label for="id_first_name">First Name:</label>
+                <input type="text" name="first_name" id="id_first_name" value="{{ user.first_name }}" required><br>
 
-        <label for="id_phone_number">Phone Number:</label>
-        <input type="text" name="phone_number" id="id_phone_number" value="{{ user.phone_number }}" required><br>
+                <button type="submit">Save</button>
+            </form>
+        </div>
 
-        <!-- Fields for updating password -->
-        <h3>Change Password</h3>
-        <label for="id_old_password">Old Password:</label>
-        <input type="password" name="old_password" id="id_old_password" required><br>
+        <p>
+            Last name: {{ user.last_name }}
+            <button onclick="showEditField('profile-last-name-form', 'id_last_name', '{{ user.last_name }}')">Edit
+            </button>
+        </p>
+        <div id="profile-last-name-form" style="display: none;">
+            <form method="post" action="{% url 'profile' %}" id="update-last-name-form">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="last_name">
 
-        <label for="id_new_password1">New Password:</label>
-        <input type="password" name="new_password1" id="id_new_password1" required><br>
+                <label for="id_last_name">First Name:</label>
+                <input type="text" name="last_name" id="id_last_name" value="{{ user.last_name }}" required><br>
 
-        <label for="id_new_password2">Confirm New Password:</label>
-        <input type="password" name="new_password2" id="id_new_password2" required><br>
+                <button type="submit">Save</button>
+            </form>
+        </div>
 
-        <!-- Submit button -->
-        <input type="submit" value="Update Profile">
-    </form>
+        <p>
+            Phone Number: {{ user.phone_number }}
+            <button onclick="showEditField('profile-phone-number-form', 'id_phone_number', '{{ user.phone_number }}')">
+                Edit
+            </button>
+        </p>
+        <div id="profile-phone-number-form" style="display: none;">
+            <form method="post" action="{% url 'profile' %}" id="update-phone-number-form">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="phone_number">
+
+                <label for="id_phone_number">First Name:</label>
+                <input type="text" name="phone_number" id="id_phone_number" value="{{ user.phone_number }}"
+                       required><br>
+
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <button type="button" onclick="showChangePasswordForm()">Change Password</button>
+    <div id="password-form" style="display: none;">
+        <form method="post" action="{% url 'profile' %}" id="change-password-form">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="password">
+
+            {{ password_form.as_p }}
+
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
 {% endblock %}
