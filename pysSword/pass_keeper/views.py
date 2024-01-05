@@ -23,7 +23,9 @@ def password_list(request):
 @login_required
 def password_detail(request, entry_id):
     entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
-    return render(request, 'pass_keeper/password_detail.html', {'entry': entry})
+    decrypted_password = entry.decrypt_password()
+    return render(request, 'pass_keeper/password_detail.html',
+                  {'entry': entry, 'decrypted_password': decrypted_password})
 
 
 @login_required
