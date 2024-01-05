@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,6 +25,12 @@ SECRET_KEY = 'django-insecure-8%dssgf-0%jo62hchu)tjap3p*%@ifp#93j6#k^p3e49jw$im4
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+if DEBUG:
+    load_dotenv()
+
+# Ключ шифрования для паролей
+CRYPTO_KEY = os.getenv('CRYPTO_KEY').encode('utf-8')
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -43,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main_app',
     'user_app',
+    'pass_keeper',
 ]
 
 MIDDLEWARE = [
