@@ -42,8 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main_app',
-    'auth_app',
-    'user_profile',
+    'user_app',
 ]
 
 MIDDLEWARE = [
@@ -78,13 +77,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pysSword.wsgi.application'
 
+# Подключение кастомного бекенда аутентификации по email
+AUTHENTICATION_BACKENDS = [
+    'user_app.backends.EmailAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 # Модель для авторизации пользователя
-AUTH_USER_MODEL = 'user_profile.User'
+AUTH_USER_MODEL = 'user_app.User'
 
 # Пути для авторизации и выхода
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'user_profile'
+LOGIN_REDIRECT_URL = 'profile'
 
 # Срок действия сессии (1 час - 3600 секунд)
 SESSION_COOKIE_AGE = 3600

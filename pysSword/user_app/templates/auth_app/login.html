@@ -13,7 +13,15 @@
 
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        <p>
+            <label for="{{ form.email.id_for_label }}">Email:</label>
+            {{ form.email }}
+        </p>
+        <p>
+            <label for="{{ form.password.id_for_label }}">Password:</label>
+            {{ form.password }}
+        </p>
         <button type="submit">Login</button>
+        <span>or <a href="{% url 'register' %}">sign up</a></span>
     </form>
 {% endblock %}
