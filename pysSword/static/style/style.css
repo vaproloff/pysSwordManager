@@ -3,8 +3,12 @@
     padding: 0;
 }
 
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .container {
-    width: 1140px;
+    width: 900px;
     margin: 0 auto;
 }
 
@@ -13,7 +17,6 @@
 }
 
 .footer {
-    min-height: 50px;
     background-color: black;
     color: white;
 }
@@ -44,4 +47,15 @@
 .menu-list a:hover {
     background-color: black;
     color: white;
+}
+
+.content .container {
+    padding: 25px 0;
+    min-height: 300px;
+}
+
+.footer .container {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
 }
