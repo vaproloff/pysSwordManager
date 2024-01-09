@@ -3,8 +3,9 @@ from string import digits, ascii_lowercase, ascii_uppercase, punctuation
 from django.utils.crypto import get_random_string
 
 
-def generate_passwords(pass_quantity, pass_length, include_digits, include_lowercase, include_uppercase,
-                       include_symbols, symbols=punctuation):
+def generate_passwords(pass_quantity=1, pass_length=12,
+                       include_digits=True, include_lowercase=True, include_uppercase=True, include_symbols=True,
+                       symbols=punctuation):
     all_chars = ''
 
     if include_digits:

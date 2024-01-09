@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 from .forms import PasswordGeneratorForm
 from utils.pass_generator import generate_passwords
 
@@ -26,3 +28,8 @@ def password_generator(request):
         form = PasswordGeneratorForm()
 
     return render(request, 'pass_gen/generator.html', {'form': form, 'passwords': None})
+
+
+@login_required
+def pass_gen_api(request):
+    return JsonResponse({'password': generate_passwords().pop()})

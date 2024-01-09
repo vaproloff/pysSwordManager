@@ -5,3 +5,12 @@ function copyToClipboard(text) {
         console.error('Unable to copy text to clipboard.', err);
     });
 }
+
+function generatePassword() {
+    fetch(`/generator/generate/`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('id_password').value = data.password;
+        })
+        .catch(error => console.error('Error:', error));
+}
