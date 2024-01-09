@@ -18,12 +18,12 @@
             <img src="{% static 'img/logo_black.svg' %}" alt="pysSword Manager" width="200px">
         </a>
         <ul class="menu-list">
+            <li><a href="{% url 'generator' %}">Generator</a></li>
             {% if user.is_authenticated %}
                 <li><a href="{% url 'password_list' %}">My passwords</a></li>
                 <li><a href="{% url 'profile' %}">My profile</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
-                <li><a href="{% url 'generator' %}">Generator</a></li>
                 <li><a href="{% url 'login' %}">Login</a></li>
             {% endif %}
         </ul>
