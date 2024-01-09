@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-    width: 900px;
+    width: 1140px;
     margin: 0 auto;
 }
 
@@ -37,7 +37,7 @@ body {
 
 .menu-list a {
     display: block;
-    padding: 15px 50px;
+    padding: 15px 15px;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.2em;
