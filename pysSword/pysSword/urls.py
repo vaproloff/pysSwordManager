@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('main_app.urls')),
     path('user/', include('user_app.urls')),
     path('passwords/', include('pass_keeper.urls')),
+    path('generator/', include('pass_gen.urls')),
 ]
 
 if settings.DEBUG:
