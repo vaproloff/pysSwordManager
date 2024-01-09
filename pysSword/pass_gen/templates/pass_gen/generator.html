@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>Password Generator</h2>
+    <form method="post" action="{% url 'generator' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Generate</button>
+    </form>
+
+    {% if passwords %}
+        <h3>Generated Passwords:</h3>
+        <ul>
+            {% for password in passwords %}
+                <li>{{ password }}
+                    <button onclick="copyToClipboard('{{ password | escapejs }}')">Copy</button>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <script src="{% static 'script/pass_gen.js' %}"></script>
+{% endblock %}
