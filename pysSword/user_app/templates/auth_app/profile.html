@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     <h2>
@@ -86,5 +87,7 @@
             <button type="submit">Save</button>
         </form>
     </div>
+
+    <script src="{% static 'script/user_profile.js' %}"></script>
 
 {% endblock %}
