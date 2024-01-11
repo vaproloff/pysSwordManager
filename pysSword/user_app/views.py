@@ -4,6 +4,12 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.views import (
+    PasswordResetView,
+    PasswordResetDoneView,
+    PasswordResetConfirmView,
+    PasswordResetCompleteView
+)
 from .forms import *
 
 
@@ -18,7 +24,7 @@ def register(request):
     else:
         form = EmailUserCreationForm()
 
-    return render(request, 'auth_app/register.html', {'form': form})
+    return render(request, 'user_app/register.html', {'form': form})
 
 
 def user_login(request):
@@ -39,7 +45,7 @@ def user_login(request):
     else:
         form = EmailAuthenticationForm()
 
-    return render(request, 'auth_app/login.html', {'form': form})
+    return render(request, 'user_app/login.html', {'form': form})
 
 
 def user_logout(request):
@@ -73,6 +79,22 @@ def user_profile(request):
         else:
             messages.error(request, 'Error updating profile. Please correct the errors.')
 
-    return render(request, 'auth_app/profile.html', {
+    return render(request, 'user_app/profile.html', {
         'password_form': PasswordChangeForm(request.user),
     })
+
+
+class CustomPasswordResetView(PasswordResetView):
+    template_name = 'user_app/password_reset_form.html'
+
+
+class CustomPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'user_app/password_reset_done.html'
+
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'user_app/password_reset_confirm.html'
+
+
+class CustomPasswordResetCompleteView(PasswordResetCompleteView):
+    template_name = 'user_app/password_reset_complete.html'

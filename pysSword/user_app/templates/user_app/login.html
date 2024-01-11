@@ -20,6 +20,7 @@
         <p>
             <label for="{{ form.password.id_for_label }}">Password:</label>
             {{ form.password }}
+            <a href="{% url 'password_reset' %}">Forgot password?</a>
         </p>
         <button type="submit">Login</button>
         <span>or <a href="{% url 'register' %}">sign up</a></span>
