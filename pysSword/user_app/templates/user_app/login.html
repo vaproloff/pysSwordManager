@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block content %}
-    <h2>Login</h2>
+{% block left_content %}
+    <img class="img-login" src="{% static 'img/login.png' %}" alt="Login image">
+{% endblock %}
+
+{% block right_content %}
+    <h1>Авторизация</h1><br>
 
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
             {% endfor %}
         </ul>
     {% endif %}
@@ -14,15 +19,15 @@
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
         <p>
-            <label for="{{ form.email.id_for_label }}">Email:</label>
+            <label for="{{ form.email.id_for_label }}">Логин (Email):</label>
             {{ form.email }}
         </p>
         <p>
-            <label for="{{ form.password.id_for_label }}">Password:</label>
+            <label for="{{ form.password.id_for_label }}">Пароль:</label>
             {{ form.password }}
-            <a href="{% url 'password_reset' %}">Forgot password?</a>
+            <a href="{% url 'password_reset' %}">Забыли пароль?</a>
         </p>
-        <button type="submit">Login</button>
-        <span>or <a href="{% url 'register' %}">sign up</a></span>
+        <button type="submit">Войти</button>
+<!--        <span>or <a href="{% url 'register' %}">sign up</a></span>-->
     </form>
 {% endblock %}

@@ -8,17 +8,23 @@ body {
 }
 
 .container {
-    width: 1140px;
+    width: 80vw;
     margin: 0 auto;
 }
 
 .header {
     background-color: lightgrey;
+    position:fixed;
+    width: 100vw;
 }
 
 .footer {
     background-color: black;
-    color: white;
+    color: lightgrey;
+    position:fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100vw;
 }
 
 .header .container {
@@ -28,6 +34,7 @@ body {
     justify-content: space-between;
 }
 
+/*
 .menu-list {
     display: flex;
     justify-content: space-between;
@@ -46,16 +53,64 @@ body {
 
 .menu-list a:hover {
     background-color: black;
-    color: white;
+    color: lightgrey;
+}*/
+
+/*Модификация меню*/
+.menu {width: 60vw;}
+.menu ul.main-menu {
+    list-style: none;
+	color: black;
+	text-transform: uppercase;
+	font-size: 1.2em;
+	overflow: hidden;
+}
+
+.menu ul.main-menu li.first {float: left;}
+.menu ul.main-menu li.last {float: right;}
+
+.menu ul.main-menu li a {
+    padding: 15px 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: black;
+}
+.menu ul.main-menu li a:hover {
+	background-color: black;
+    color: lightgrey;
+}
+
+
+.content {
+    padding-top: 87px;
+    padding-bottom: 42px;
 }
 
 .content .container {
     padding: 25px 0;
-    min-height: 300px;
+    /* min-height: 300px;*/
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    box-sizing: border-box;
 }
 
+.sub-content {width: 39vw;}
+
+img {
+    max-width: 100%;
+}
+
+.img-main {width: 39vw;}
+.img-login {width: 30vw;}
+
+
 .footer .container {
-    padding: 20px 0;
+    padding: 10px 0;
     display: flex;
     justify-content: space-around;
 }

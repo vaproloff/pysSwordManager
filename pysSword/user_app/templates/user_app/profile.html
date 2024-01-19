@@ -1,15 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
-    <h2>
-        Welcome,
+{% block title%}Профиль пользователя{% endblock%}
+
+{% block left_content %}
+<!--    <img class="img-main" src="{% static 'img/passwd.png' %}" alt="Password image">-->
+    <h1>и тут пока пусто...</h1>
+{% endblock %}
+
+{% block right_content %}
+    <h1>
+        Добро пожаловать,
         {% if user.first_name %}
             {{ user.first_name }}!
         {% else %}
             {{ user.email }}!
         {% endif %}
-    </h2>
+    </h1><br>
 
     {% if messages %}
         <ul class="messages">
@@ -23,8 +30,8 @@
         <p>Email: {{ user.email }}</p>
 
         <p>
-            First Name: {{ user.first_name }}
-            <button onclick="showEditField('profile-first-name-form', 'id_first_name', '{{ user.first_name }}')">Edit
+            Имя: {{ user.first_name }}
+            <button onclick="showEditField('profile-first-name-form', 'id_first_name', '{{ user.first_name }}')">Изменить
             </button>
         </p>
         <div id="profile-first-name-form" style="display: none;">
@@ -32,16 +39,16 @@
                 {% csrf_token %}
                 <input type="hidden" name="form_type" value="first_name">
 
-                <label for="id_first_name">First Name:</label>
+                <label for="id_first_name">Имя:</label>
                 <input type="text" name="first_name" id="id_first_name" value="{{ user.first_name }}" required><br>
 
-                <button type="submit">Save</button>
+                <button type="submit">Сохранить</button>
             </form>
         </div>
 
         <p>
-            Last name: {{ user.last_name }}
-            <button onclick="showEditField('profile-last-name-form', 'id_last_name', '{{ user.last_name }}')">Edit
+            Фамилия: {{ user.last_name }}
+            <button onclick="showEditField('profile-last-name-form', 'id_last_name', '{{ user.last_name }}')">Изменить
             </button>
         </p>
         <div id="profile-last-name-form" style="display: none;">
@@ -49,17 +56,17 @@
                 {% csrf_token %}
                 <input type="hidden" name="form_type" value="last_name">
 
-                <label for="id_last_name">First Name:</label>
+                <label for="id_last_name">Фамилия:</label>
                 <input type="text" name="last_name" id="id_last_name" value="{{ user.last_name }}" required><br>
 
-                <button type="submit">Save</button>
+                <button type="submit">Сохранить</button>
             </form>
         </div>
 
         <p>
-            Phone Number: {{ user.phone_number }}
+            Телефон: {{ user.phone_number }}
             <button onclick="showEditField('profile-phone-number-form', 'id_phone_number', '{{ user.phone_number }}')">
-                Edit
+                Изменить
             </button>
         </p>
         <div id="profile-phone-number-form" style="display: none;">
@@ -67,7 +74,7 @@
                 {% csrf_token %}
                 <input type="hidden" name="form_type" value="phone_number">
 
-                <label for="id_phone_number">First Name:</label>
+                <label for="id_phone_number">Телефон:</label>
                 <input type="text" name="phone_number" id="id_phone_number" value="{{ user.phone_number }}"
                        required><br>
 
@@ -76,7 +83,7 @@
         </div>
     </div>
 
-    <button type="button" onclick="showChangePasswordForm()">Change Password</button>
+    <button type="button" onclick="showChangePasswordForm()">Изменить пароль</button>
     <div id="password-form" style="display: none;">
         <form method="post" action="{% url 'profile' %}" id="change-password-form">
             {% csrf_token %}
@@ -84,7 +91,7 @@
 
             {{ password_form.as_p }}
 
-            <button type="submit">Save</button>
+            <button type="submit">Сохранить</button>
         </form>
     </div>
 

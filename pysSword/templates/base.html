@@ -3,7 +3,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -11,36 +13,43 @@
 </head>
 <body>
 
-
 <div class="header">
     <div class="container">
-        <a href="{% url 'index' %}">
-            <img src="{% static 'img/logo_black.svg' %}" alt="pysSword Manager" width="200px">
-        </a>
-        <ul class="menu-list">
-            <li><a href="{% url 'generator' %}">Generator</a></li>
-            {% if user.is_authenticated %}
-                <li><a href="{% url 'password_list' %}">My passwords</a></li>
-                <li><a href="{% url 'profile' %}">My profile</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-            {% endif %}
-        </ul>
+        <div class="menu-logo">
+            <a href="{% url 'index' %}"><img src="{% static 'img/logo_black.svg' %}" alt="pysSword Manager" width="200px"></a>
+        </div>
+        <div class="menu">
+            <ul class="main-menu">
+                <li class="first"><a  href="{% url 'generator' %}">Генератор</a></li>
+                {% if user.is_authenticated %}
+                <li class="first"><a href="{% url 'password_list' %}">Пароли</a></li>
+                <li class="last"><a href="{% url 'logout' %}">Выход</a></li><li class="last"><a href="{% url 'profile' %}">{{user.email}}</a>|
+                {% else %}
+                <li class="last"><a href="{% url 'login' %}">Вход</a>|<a href="{% url 'register' %}">Регистрация</a></li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
 </div>
 
 <div class="content">
     <div class="container">
-        {% block content %}
-            Содержимое сайта
-        {% endblock %}
+        <div class="sub-content">
+            {% block left_content %}
+            Содержимое левой части контента
+            {% endblock %}
+        </div>
+        <div class="sub-content">
+            {% block right_content %}
+            Содержимое правой части контента
+            {% endblock %}
+        </div>
     </div>
 </div>
 
 <div class="footer">
     <div class="container">
-        <p><em>© Copyright 2023</em></p>
+        <p><em>© PySword manager. Все права защищены. 2023 г. </em></p>
     </div>
 </div>
 

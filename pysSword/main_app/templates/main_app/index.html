@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}
-    {{ block.super }} - {{ title }}
+{% block title%}Главная страница{% endblock%}
+
+{% block left_content %}
+    <img class="img-main" src="{% static 'img/passwd.png' %}" alt="Password image">
 {% endblock %}
 
-{% block content %}
-    <h1>Main Page</h1>
+{% block right_content %}
+    <h1>Пароль – это ваш пропуск в безопасность, его лучше нигде не писать, а хранить в надежном месте!</h1>
 {% endblock %}
