@@ -118,19 +118,3 @@ def user_profile(request):
     return render(request, 'user_app/profile.html', {
         'password_form': PasswordChangeForm(request.user),
     })
-
-
-class CustomPasswordResetView(PasswordResetView):
-    template_name = 'user_app/password_reset_form.html'
-
-
-class CustomPasswordResetDoneView(PasswordResetDoneView):
-    template_name = 'user_app/password_reset_done.html'
-
-
-class CustomPasswordResetConfirmView(PasswordResetConfirmView):
-    template_name = 'user_app/password_reset_confirm.html'
-
-
-class CustomPasswordResetCompleteView(PasswordResetCompleteView):
-    template_name = 'user_app/password_reset_complete.html'
