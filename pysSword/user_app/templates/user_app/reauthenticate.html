@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{ user.email }}, please enter your password</h2>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post" action="{% url 'reauthenticate' %}">
+        {% csrf_token %}
+        <label for="id_password">Password:</label>
+        <input type="password" name="password" id="id_password" required>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

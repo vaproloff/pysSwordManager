@@ -12,6 +12,7 @@ from django.contrib.sites.shortcuts import get_current_site
 
 from .forms import *
 from .tokens import account_activation_token
+from .decorators import reauthenticate_required
 
 
 def register(request):
@@ -85,6 +86,7 @@ def user_logout(request):
 
 
 @login_required
+@reauthenticate_required
 def user_profile(request):
     if request.method == 'POST':
         form_type = request.POST.get('form_type')
@@ -112,3 +114,18 @@ def user_profile(request):
     return render(request, 'user_app/profile.html', {
         'password_form': PasswordChangeForm(request.user),
     })
+
+
+@login_required
+def reauthenticate(request):
+    if request.method == 'POST':
+        password = request.POST.get('password')
+        user = authenticate(request, email=request.user.email, password=password)
+
+        if user.email == request.user.email:
+            request.session.pop('reauthenticate', False)
+            return redirect(request.session.pop('forward', 'profile'))
+        else:
+            messages.error(request, 'Invalid password.')
+
+    return render(request, 'user_app/reauthenticate.html')

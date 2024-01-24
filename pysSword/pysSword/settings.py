@@ -63,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'user_app.middleware.ShortTermSessionMiddleware',
 ]
 
 ROOT_URLCONF = 'pysSword.urls'
@@ -101,8 +102,10 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'profile'
 
-# Срок действия сессии (1 час - 3600 секунд)
-SESSION_COOKIE_AGE = 3600
+# Срок действия долгосрочной сессии (7 дней)
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 7
+# Срок действия краткосрочной сессии (10 минут)
+SHORT_SESSION_COOKIE_AGE = 1 * 60
 # Обновление срока действия сессии при каждом запросе
 SESSION_SAVE_EVERY_REQUEST = True
 

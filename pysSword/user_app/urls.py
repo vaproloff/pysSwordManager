@@ -6,7 +6,7 @@ from .views import (
     user_login,
     user_logout,
     user_profile,
-    activate,
+    activate, reauthenticate,
 )
 
 urlpatterns = [
@@ -15,6 +15,7 @@ urlpatterns = [
     path('logout/', user_logout, name='logout'),
     path('profile/', user_profile, name='profile'),
     path('activate/<uidb64>/<token>/', activate, name='activate'),
+    path('reauthenticate/', reauthenticate, name='reauthenticate'),
     path('password_reset/',
          PasswordResetView.as_view(template_name='user_app/password_reset_form.html'),
          name='password_reset'),
