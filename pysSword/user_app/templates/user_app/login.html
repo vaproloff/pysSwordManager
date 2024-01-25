@@ -12,6 +12,7 @@
     {% endif %}
 
     <form method="post" action="{% url 'login' %}">
+        <input type="hidden" name="next" value="{{ next }}" />
         {% csrf_token %}
         <p>
             <label for="{{ form.email.id_for_label }}">Email:</label>

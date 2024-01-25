@@ -69,14 +69,15 @@ def user_login(request):
             if user and user.is_active:
                 login(request, user, backend='user_app.backends.EmailAuthBackend')
                 messages.success(request, f'Welcome, {email}!')
-                return redirect('profile')
+                return redirect(request.POST.get('next', 'profile'))
             else:
                 messages.error(request, 'Invalid username or password or user is not active.')
 
     else:
         form = EmailAuthenticationForm()
 
-    return render(request, 'user_app/login.html', {'form': form})
+    return render(request, 'user_app/login.html',
+                  {'form': form, 'next': request.GET.get('next', 'profile')})
 
 
 def user_logout(request):
