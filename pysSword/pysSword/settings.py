@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
     'allauth',
     'allauth.account',
+    'allauth.mfa',
 
     'main_app',
     'user_app',
@@ -98,6 +99,8 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+MFA_ADAPTER = "allauth.mfa.adapter.DefaultMFAAdapter"
 
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
