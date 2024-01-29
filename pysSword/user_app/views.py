@@ -2,7 +2,6 @@ from allauth.mfa import app_settings
 from allauth.account.decorators import reauthentication_required
 from allauth.account.forms import ChangePasswordForm
 from allauth.mfa.models import Authenticator
-from allauth.mfa.utils import is_mfa_enabled
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
