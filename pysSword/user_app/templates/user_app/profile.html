@@ -56,24 +56,6 @@
             </form>
         </div>
 
-        <p>
-            Phone Number: {{ user.phone_number }}
-            <button onclick="showEditField('profile-phone-number-form', 'id_phone_number', '{{ user.phone_number }}')">
-                Edit
-            </button>
-        </p>
-        <div id="profile-phone-number-form" style="display: none;">
-            <form method="post" action="{% url 'profile' %}" id="update-phone-number-form">
-                {% csrf_token %}
-                <input type="hidden" name="form_type" value="phone_number">
-
-                <label for="id_phone_number">First Name:</label>
-                <input type="text" name="phone_number" id="id_phone_number" value="{{ user.phone_number }}"
-                       required><br>
-
-                <button type="submit">Save</button>
-            </form>
-        </div>
     </div>
 
     <button type="button" onclick="showChangePasswordForm()">Change Password</button>
@@ -81,9 +63,7 @@
         <form method="post" action="{% url 'profile' %}" id="change-password-form">
             {% csrf_token %}
             <input type="hidden" name="form_type" value="password">
-
             {{ password_form.as_p }}
-
             <button type="submit">Save</button>
         </form>
     </div>

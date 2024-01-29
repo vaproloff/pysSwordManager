@@ -100,25 +100,15 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-MFA_ADAPTER = "allauth.mfa.adapter.DefaultMFAAdapter"
-
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_REAUTHENTICATION_REQUIRED = True
 ACCOUNT_REAUTHENTICATION_TIMEOUT = 60
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-ACCOUNT_USERNAME_REQUIRED = False
 
-# Пути для авторизации и выхода
-# LOGIN_URL = 'login'
-# LOGOUT_URL = 'logout'
-# LOGIN_REDIRECT_URL = 'profile'
-
-# Срок действия сессии (1 час - 3600 секунд)
-# SESSION_COOKIE_AGE = 3600
-# Обновление срока действия сессии при каждом запросе
-# SESSION_SAVE_EVERY_REQUEST = True
+MFA_ADAPTER = "allauth.mfa.adapter.DefaultMFAAdapter"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
