@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load allauth %}
+{% load i18n %}
 
 {% block content %}
     <h2>
@@ -55,7 +57,17 @@
                 <button type="submit">Save</button>
             </form>
         </div>
+    </div>
 
+    <div>
+        {% if "totp" in MFA_SUPPORTED_TYPES %}
+            {% if authenticators.totp %}
+                <p>Двухфакторная аутентификация активна</p>
+            {% else %}
+                <p>Двухфакторная аутентификация не настроена</p>
+            {% endif %}
+        {% endif %}
+        <a href="{% url 'mfa_index' %}">Настроить</a>
     </div>
 
     <button type="button" onclick="showChangePasswordForm()">Change Password</button>

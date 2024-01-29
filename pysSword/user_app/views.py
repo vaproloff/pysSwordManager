@@ -1,5 +1,8 @@
+from allauth.mfa import app_settings
 from allauth.account.decorators import reauthentication_required
 from allauth.account.forms import ChangePasswordForm
+from allauth.mfa.models import Authenticator
+from allauth.mfa.utils import is_mfa_enabled
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -34,4 +37,10 @@ def user_profile(request):
 
     return render(request, 'user_app/profile.html', {
         'password_form': ChangePasswordForm(request.user),
+        'authenticators':
+            {
+                auth.type: auth.wrap()
+                for auth in Authenticator.objects.filter(user=request.user)
+            },
+        'MFA_SUPPORTED_TYPES': app_settings.SUPPORTED_TYPES,
     })
