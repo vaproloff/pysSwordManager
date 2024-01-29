@@ -1,5 +1,5 @@
+from django.contrib.auth.models import User
 from django.db import models
-from user_app.models import User
 from cryptography.fernet import Fernet, InvalidToken
 from django.conf import settings
 

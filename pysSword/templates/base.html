@@ -16,16 +16,19 @@
 <div class="header">
     <div class="container">
         <div class="menu-logo">
-            <a href="{% url 'index' %}"><img src="{% static 'img/logo_black.svg' %}" alt="pysSword Manager" width="200px"></a>
+            <a href="{% url 'index' %}">
+                <img src="{% static 'img/logo_black.svg' %}" alt="pysSword Manager" width="200px">
+            </a>
         </div>
         <div class="menu">
             <ul class="main-menu">
                 <li class="first"><a  href="{% url 'generator' %}">Генератор</a></li>
                 {% if user.is_authenticated %}
-                <li class="first"><a href="{% url 'password_list' %}">Пароли</a></li>
-                <li class="last"><a href="{% url 'logout' %}">Выход</a></li><li class="last"><a href="{% url 'profile' %}">{{user.email}}</a>|
+                    <li class="first"><a href="{% url 'password_list' %}">Мои пароли</a></li>
+                    <li class="last"><a href="{% url 'account_logout' %}">Выход</a></li>
+                    <li class="last"><a href="{% url 'profile' %}">{{user.email}}</a>
                 {% else %}
-                <li class="last"><a href="{% url 'login' %}">Вход</a>|<a href="{% url 'register' %}">Регистрация</a></li>
+                    <li class="last"><a href="{% url 'account_login' %}">Вход</a></li>
                 {% endif %}
             </ul>
         </div>
@@ -34,22 +37,15 @@
 
 <div class="content">
     <div class="container">
-        <div class="sub-content">
-            {% block left_content %}
-            Содержимое левой части контента
-            {% endblock %}
-        </div>
-        <div class="sub-content">
-            {% block right_content %}
-            Содержимое правой части контента
-            {% endblock %}
-        </div>
+        {%  block content %}
+            Main page content
+        {% endblock %}
     </div>
 </div>
 
 <div class="footer">
     <div class="container">
-        <p><em>© 2023 PysSword manager все права защищены</em></p>
+        <p><em>© 2023 PysSword Manager. Все права защищены</em></p>
     </div>
 </div>
 

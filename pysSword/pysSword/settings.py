@@ -49,6 +49,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'allauth',
+    'allauth.account',
+    'allauth.mfa',
+
     'main_app',
     'user_app',
     'pass_keeper',
@@ -63,6 +68,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'pysSword.urls'
@@ -89,22 +96,19 @@ WSGI_APPLICATION = 'pysSword.wsgi.application'
 
 # Подключение кастомного бекенда аутентификации по email
 AUTHENTICATION_BACKENDS = [
-    'user_app.backends.EmailAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-# Модель для авторизации пользователя
-AUTH_USER_MODEL = 'user_app.User'
+ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_REAUTHENTICATION_REQUIRED = True
+ACCOUNT_REAUTHENTICATION_TIMEOUT = 10 * 60
 
-# Пути для авторизации и выхода
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'profile'
-
-# Срок действия сессии (1 час - 3600 секунд)
-SESSION_COOKIE_AGE = 3600
-# Обновление срока действия сессии при каждом запросе
-SESSION_SAVE_EVERY_REQUEST = True
+MFA_ADAPTER = "allauth.mfa.adapter.DefaultMFAAdapter"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -162,10 +166,10 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-EMAIL_HOST_USER = 'pyssword@gmail.com'
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = 'pyssword@gmail.com'
+DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')

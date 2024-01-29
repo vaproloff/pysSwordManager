@@ -1,14 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load allauth %}
+{% load i18n %}
 
-{% block title%}Профиль пользователя{% endblock%}
+{% block title %}Профиль пользователя{% endblock %}
 
-{% block left_content %}
-<!--    <img class="img-main" src="{% static 'img/passwd.png' %}" alt="Password image">-->
-    <h1>и тут пока пусто...</h1>
-{% endblock %}
-
-{% block right_content %}
+{% block content %}
     <h1>
         Добро пожаловать,
         {% if user.first_name %}
@@ -31,7 +28,8 @@
 
         <p>
             Имя: {{ user.first_name }}
-            <button onclick="showEditField('profile-first-name-form', 'id_first_name', '{{ user.first_name }}')">Изменить
+            <button onclick="showEditField('profile-first-name-form', 'id_first_name', '{{ user.first_name }}')">
+                Изменить
             </button>
         </p>
         <div id="profile-first-name-form" style="display: none;">
@@ -62,25 +60,17 @@
                 <button type="submit">Сохранить</button>
             </form>
         </div>
+    </div>
 
-        <p>
-            Телефон: {{ user.phone_number }}
-            <button onclick="showEditField('profile-phone-number-form', 'id_phone_number', '{{ user.phone_number }}')">
-                Изменить
-            </button>
-        </p>
-        <div id="profile-phone-number-form" style="display: none;">
-            <form method="post" action="{% url 'profile' %}" id="update-phone-number-form">
-                {% csrf_token %}
-                <input type="hidden" name="form_type" value="phone_number">
-
-                <label for="id_phone_number">Телефон:</label>
-                <input type="text" name="phone_number" id="id_phone_number" value="{{ user.phone_number }}"
-                       required><br>
-
-                <button type="submit">Save</button>
-            </form>
-        </div>
+    <div>
+        {% if "totp" in MFA_SUPPORTED_TYPES %}
+            {% if authenticators.totp %}
+                <p>Двухфакторная аутентификация активна</p>
+            {% else %}
+                <p>Двухфакторная аутентификация не настроена</p>
+            {% endif %}
+        {% endif %}
+        <a href="{% url 'mfa_index' %}">Настроить</a>
     </div>
 
     <button type="button" onclick="showChangePasswordForm()">Изменить пароль</button>
@@ -88,9 +78,7 @@
         <form method="post" action="{% url 'profile' %}" id="change-password-form">
             {% csrf_token %}
             <input type="hidden" name="form_type" value="password">
-
             {{ password_form.as_p }}
-
             <button type="submit">Сохранить</button>
         </form>
     </div>

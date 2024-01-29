@@ -1,3 +1,4 @@
+from allauth.account.decorators import reauthentication_required
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import PasswordEntry
 from .forms import PasswordEntryForm, PasswordEntrySearchForm, PasswordEditEntryForm
@@ -5,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required
+@reauthentication_required
 def password_list(request):
     entries = PasswordEntry.objects.filter(user=request.user)
     search_form = PasswordEntrySearchForm(request.GET)
@@ -21,6 +23,7 @@ def password_list(request):
 
 
 @login_required
+@reauthentication_required
 def password_detail(request, entry_id):
     pass_entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
     decrypted_password = pass_entry.decrypt_password()
@@ -29,6 +32,7 @@ def password_detail(request, entry_id):
 
 
 @login_required
+@reauthentication_required
 def create_password(request):
     if request.method == 'POST':
         form = PasswordEntryForm(request.POST)
@@ -44,6 +48,7 @@ def create_password(request):
 
 
 @login_required
+@reauthentication_required
 def edit_password(request, entry_id):
     password_entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
 
@@ -68,6 +73,7 @@ def edit_password(request, entry_id):
 
 
 @login_required
+@reauthentication_required
 def delete_password(request, entry_id):
     password_entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
     password_entry.delete()
