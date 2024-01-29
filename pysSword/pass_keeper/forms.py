@@ -3,11 +3,19 @@ from .models import PasswordEntry
 
 
 class PasswordEntryForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput())
+    password = forms.CharField(label='Пароль', required=True, widget=forms.PasswordInput())
 
     class Meta:
         model = PasswordEntry
-        fields = ['title', 'username', 'password', 'notes', 'website']
+        fields = ['title', 'website', 'username', 'password', 'notes']
+        labels = {'title': 'Наименование', 'website': 'Веб-сайт',
+                  'username': 'Логин', 'notes': 'Заметка'}
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Наименование'}),
+            'website': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Веб-сайт'}),
+            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Имя пользователя'}),
+            'notes': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Текст заметки'}),
+        }
 
     def save(self, commit=True):
         instance = super().save(commit=False)
@@ -23,19 +31,3 @@ class PasswordEntrySearchForm(forms.Form):
     search_term = forms.CharField(label='Search', required=False,
                                   widget=forms.TextInput(attrs={'placeholder': 'Enter search term'}))
 
-
-class PasswordEditEntryForm(forms.ModelForm):
-    password = forms.CharField(label='Password', required=True, widget=forms.TextInput())
-
-    class Meta:
-        model = PasswordEntry
-        fields = ['title', 'username', 'password', 'notes', 'website']
-
-    def save(self, commit=True):
-        instance = super().save(commit=False)
-        instance.encrypted_password = instance.encrypt_password(self.cleaned_data['password'].encode('utf-8'))
-
-        if commit:
-            instance.save()
-
-        return instance

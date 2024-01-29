@@ -1,7 +1,7 @@
 from allauth.account.decorators import reauthentication_required
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import PasswordEntry
-from .forms import PasswordEntryForm, PasswordEntrySearchForm, PasswordEditEntryForm
+from .forms import PasswordEntryForm, PasswordEntrySearchForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -53,7 +53,7 @@ def edit_password(request, entry_id):
     password_entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
 
     if request.method == 'POST':
-        form = PasswordEditEntryForm(request.POST, instance=password_entry)
+        form = PasswordEntryForm(request.POST, instance=password_entry)
         if form.is_valid():
             form.save()
             return redirect('password_detail', entry_id=password_entry.id)
@@ -66,7 +66,7 @@ def edit_password(request, entry_id):
             'password': decrypted_password,
             'notes': password_entry.notes,
         }
-        form = PasswordEditEntryForm(instance=password_entry, initial=initial_data)
+        form = PasswordEntryForm(instance=password_entry, initial=initial_data)
 
     return render(request, 'pass_keeper/edit_password.html',
                   {'form': form, 'password_entry': password_entry})

@@ -7,7 +7,7 @@ from django.conf import settings
 class PasswordEntry(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    website = models.URLField(blank=True, null=True)
+    website = models.URLField(blank=True)
     username = models.CharField(max_length=255)
     encrypted_password = models.BinaryField()
     notes = models.TextField(blank=True, null=True)
