@@ -96,9 +96,32 @@ img {
     border-radius: 10px;
     box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.5);
 }
+.messages {
+    padding: 5px;
+    background: #ccc;
+    border-radius: 10px;
+    text-align: center;
+
+
+
+}
 .profile-info-text {
+
     font-size: 1.2em;
 
+}
+.change-passwd-button {
+    padding: 5px;
+    margin-left: 30px;
+    background: #ccc;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 700;
+}
+.change-passwd-button:hover {
+    background: black;
+    color: white;
 }
 
 .fa-pen {
@@ -114,7 +137,7 @@ img {
 
 
 }
-.profile-first-name {
+.profile-info-display {
     display: flex;
 }
 #id_first_name {
@@ -124,6 +147,14 @@ img {
     color: black;
     border-radius: 5px;
 }
+.profile-info-input {
+    background: lightgrey;
+    font-size: 1.2em;
+    font-style: italic;
+    color: black;
+    border-radius: 5px;
+}
+
 .profile-info-save {
     background: white;
     padding-left: 3px;
@@ -168,6 +199,14 @@ img {
     color: white;
     border-radius: 5px;
 }
+
+
+
+#password-form {
+    padding-top: 20px;
+}
+
+
 
 .content_columns {
     display: flex;
