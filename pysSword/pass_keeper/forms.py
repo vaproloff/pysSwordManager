@@ -3,7 +3,9 @@ from .models import PasswordEntry
 
 
 class PasswordEntryForm(forms.ModelForm):
-    password = forms.CharField(label='Пароль', required=True, widget=forms.PasswordInput())
+    password = forms.CharField(label='Пароль', required=True,
+                               widget=forms.PasswordInput(render_value=True,
+                                                          attrs={'class': 'form-control', 'placeholder': 'Пароль'}))
 
     class Meta:
         model = PasswordEntry
@@ -28,6 +30,5 @@ class PasswordEntryForm(forms.ModelForm):
 
 
 class PasswordEntrySearchForm(forms.Form):
-    search_term = forms.CharField(label='Search', required=False,
-                                  widget=forms.TextInput(attrs={'placeholder': 'Enter search term'}))
-
+    search_term = forms.CharField(label='Поиск', required=False,
+                                  widget=forms.TextInput(attrs={'placeholder': 'Текст поиска'}))

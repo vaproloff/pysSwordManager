@@ -1,5 +1,8 @@
 from allauth.account.decorators import reauthentication_required
+from allauth.account.reauthentication import record_authentication
+from django.http import JsonResponse, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404, redirect
+
 from .models import PasswordEntry
 from .forms import PasswordEntryForm, PasswordEntrySearchForm
 from django.contrib.auth.decorators import login_required
@@ -8,6 +11,8 @@ from django.contrib.auth.decorators import login_required
 @login_required
 @reauthentication_required
 def password_list(request):
+    record_authentication(request, request.user)
+
     entries = PasswordEntry.objects.filter(user=request.user)
     search_form = PasswordEntrySearchForm(request.GET)
 
@@ -23,41 +28,48 @@ def password_list(request):
 
 
 @login_required
-@reauthentication_required
 def password_detail(request, entry_id):
+    record_authentication(request, request.user)
     pass_entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
-    decrypted_password = pass_entry.decrypt_password()
-    return render(request, 'pass_keeper/password_detail.html',
-                  {'password': pass_entry, 'decrypted_password': decrypted_password})
+    if pass_entry.user != request.user:
+        return HttpResponseForbidden()
+    elif request.headers.get('Sec-Fetch-Mode') == 'cors':
+        return render(request, 'pass_keeper/password_detail.html',
+                      {'password': pass_entry})
 
 
 @login_required
-@reauthentication_required
 def create_password(request):
     if request.method == 'POST':
+        record_authentication(request, request.user)
         form = PasswordEntryForm(request.POST)
         if form.is_valid():
             entry = form.save(commit=False)
             entry.user = request.user
             entry.save()
             return redirect('password_list')
-    else:
+    elif request.headers.get('Sec-Fetch-Mode') == 'cors':
+        record_authentication(request, request.user)
         form = PasswordEntryForm()
-
-    return render(request, 'pass_keeper/create_password.html', {'form': form})
+        return render(request, 'pass_keeper/create_password.html', {'form': form})
+    else:
+        return HttpResponseForbidden()
 
 
 @login_required
-@reauthentication_required
 def edit_password(request, entry_id):
     password_entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
+    if password_entry.user != request.user:
+        return HttpResponseForbidden()
 
     if request.method == 'POST':
+        record_authentication(request, request.user)
         form = PasswordEntryForm(request.POST, instance=password_entry)
         if form.is_valid():
             form.save()
-            return redirect('password_detail', entry_id=password_entry.id)
-    else:
+            return redirect('password_list')
+    elif request.headers.get('Sec-Fetch-Mode') == 'cors':
+        record_authentication(request, request.user)
         decrypted_password = password_entry.decrypt_password()
         initial_data = {
             'title': password_entry.title,
@@ -68,13 +80,34 @@ def edit_password(request, entry_id):
         }
         form = PasswordEntryForm(instance=password_entry, initial=initial_data)
 
-    return render(request, 'pass_keeper/edit_password.html',
-                  {'form': form, 'password_entry': password_entry})
+        return render(request, 'pass_keeper/edit_password.html',
+                      {'form': form, 'password_entry': password_entry})
+    else:
+        return HttpResponseForbidden()
 
 
 @login_required
-@reauthentication_required
 def delete_password(request, entry_id):
     password_entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
-    password_entry.delete()
-    return redirect('password_list')
+    if password_entry.user != request.user:
+        return HttpResponseForbidden()
+
+    if request.headers.get('Sec-Fetch-Mode') == 'cors':
+        record_authentication(request, request.user)
+        password_entry.delete()
+        return redirect('password_list')
+    else:
+        return HttpResponseForbidden()
+
+
+@login_required
+def get_password(request, entry_id):
+    pass_entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
+    if pass_entry.user != request.user:
+        return HttpResponseForbidden()
+
+    if request.headers.get('Sec-Fetch-Mode') == 'cors':
+        record_authentication(request, request.user)
+        return JsonResponse({'password': pass_entry.decrypt_password()})
+    else:
+        return HttpResponseForbidden()

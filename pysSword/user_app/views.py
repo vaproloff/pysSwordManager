@@ -1,3 +1,4 @@
+from allauth.account.reauthentication import record_authentication
 from allauth.mfa import app_settings
 from allauth.account.decorators import reauthentication_required
 from allauth.account.forms import ChangePasswordForm
@@ -13,6 +14,8 @@ from .forms import *
 @login_required
 @reauthentication_required
 def user_profile(request):
+    record_authentication(request, request.user)
+
     if request.method == 'POST':
         form_type = request.POST.get('form_type')
         match form_type:
