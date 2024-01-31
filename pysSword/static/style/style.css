@@ -12,7 +12,7 @@ img {
 }
 
 .container {
-    width: 80vw;
+    width: 60vw;
     margin: 0 auto;
 }
 
@@ -84,6 +84,76 @@ img {
     box-sizing: border-box;
     min-height: 300px;
 }
+.profile-info-text {
+    font-size: 1.3em;
+
+}
+
+.fa-pen {
+    font-size: 1.3em;
+    background: white;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.fa-pen:hover {
+    background: black;
+    color: white;
+
+
+}
+.profile-first-name {
+    display: flex;
+}
+#id_first_name {
+    background: lightgrey;
+    font-size: 1.3em;
+    color: black;
+    border-radius: 5px;
+}
+.profile-info-save {
+    background: white;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 5px;
+}
+.profile-info-save:hover {
+    background: black;
+}
+
+.fa-floppy-disk {
+    font-size: 1.3em;
+    background: none;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.fa-floppy-disk:hover {
+    color: white;
+    background: black;
+}
+
+
+
+.two-factor-auth {
+    display: flex;
+    justify-content: left;
+}
+.two-factor-auth-text {
+    font-size: 1.3em;
+}
+
+.two-factor-auth-settings {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 1.3em;
+    color: black;
+
+}
+.two-factor-auth-settings:hover {
+    background: black;
+    color: white;
+    border-radius: 5px;
+}
 
 .content_columns {
     display: flex;
@@ -94,11 +164,11 @@ img {
 }
 
 .sub-content {
-    width: 39vw;
+    width: 30vw;
 }
 
 .img-main {
-    width: 39vw;
+    width: 30vw;
 }
 
 .img-login {
