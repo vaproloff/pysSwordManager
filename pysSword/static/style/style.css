@@ -97,12 +97,12 @@ img {
     box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.5);
 }
 .profile-info-text {
-    font-size: 1.3em;
+    font-size: 1.2em;
 
 }
 
 .fa-pen {
-    font-size: 1.3em;
+    font-size: 1.2em;
     background: white;
     padding-left: 3px;
     padding-right: 3px;
@@ -119,7 +119,8 @@ img {
 }
 #id_first_name {
     background: lightgrey;
-    font-size: 1.3em;
+    font-size: 1.2em;
+    font-style: italic;
     color: black;
     border-radius: 5px;
 }
@@ -132,9 +133,12 @@ img {
 .profile-info-save:hover {
     background: black;
 }
+.profile-info-save:hover .fa-floppy-disk {
+    color: white;
+}
 
 .fa-floppy-disk {
-    font-size: 1.3em;
+    font-size: 1.2em;
     background: none;
     padding-left: 3px;
     padding-right: 3px;
@@ -144,20 +148,18 @@ img {
     background: black;
 }
 
-
-
 .two-factor-auth {
     display: flex;
     justify-content: left;
 }
 .two-factor-auth-text {
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
 
 .two-factor-auth-settings {
     padding-left: 5px;
     padding-right: 5px;
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: black;
 
 }
