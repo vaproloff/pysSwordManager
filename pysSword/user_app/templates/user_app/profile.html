@@ -6,14 +6,16 @@
 {% block title %}Профиль пользователя{% endblock %}
 
 {% block content %}
-    <h1>
+<div class="single-center-box">
+<div class="single-box">
+    <h2>
         Добро пожаловать,
         {% if user.first_name %}
             {{ user.first_name }}!
         {% else %}
             {{ user.email }}!
         {% endif %}
-    </h1><br>
+    </h2><br>
 
     {% if messages %}
         <ul class="messages">
@@ -84,7 +86,8 @@
             <button type="submit">Сохранить</button>
         </form>
     </div>
-
+</div>
+</div>
     <script src="{% static 'script/user_profile.js' %}"></script>
 
 {% endblock %}

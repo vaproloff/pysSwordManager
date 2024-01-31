@@ -84,6 +84,18 @@ img {
     box-sizing: border-box;
     min-height: 300px;
 }
+.single-center-box {
+    display: flex;
+    justify-content: center;
+}
+
+.single-box {
+    padding: 20px;
+    width: 30vw;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.5);
+}
 .profile-info-text {
     font-size: 1.3em;
 
