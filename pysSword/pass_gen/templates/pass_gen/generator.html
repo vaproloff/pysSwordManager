@@ -11,6 +11,9 @@
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit">Сгенерировать</button>
+                {% if settings_saved %}
+                    <span>Настройки сохранены.</span>
+                {% endif %}
             </form>
         </div>
         <div class="sub-content">
