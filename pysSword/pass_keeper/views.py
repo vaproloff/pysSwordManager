@@ -106,14 +106,11 @@ def delete_password(request, entry_id):
         logger.error(f'Trying to access non-user password ({request.user.email})')
         return HttpResponseForbidden()
 
-    if request.headers.get('Sec-Fetch-Mode') == 'cors':
-        record_authentication(request, request.user)
-        password_entry.delete()
+    record_authentication(request, request.user)
+    password_entry.delete()
 
-        logger.info(f'Password deleted successfully ({request.user.email})')
-        return redirect('password_list')
-    else:
-        return HttpResponseForbidden()
+    logger.info(f'Password deleted successfully ({request.user.email})')
+    return redirect('password_list')
 
 
 @login_required
