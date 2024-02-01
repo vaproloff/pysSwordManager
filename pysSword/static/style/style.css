@@ -150,3 +150,7 @@ img {
     display: flex;
     justify-content: space-around;
 }
+
+label[for=id_search_term] {
+    display: none;
+}

@@ -1,4 +1,3 @@
-from django.contrib.auth.models import AnonymousUser
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
