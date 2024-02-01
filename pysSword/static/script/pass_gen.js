@@ -14,8 +14,3 @@ function generatePassword() {
         })
         .catch(error => console.error('Error:', error));
 }
-
-function showPassword() {
-    const passInput = document.getElementById('id_password');
-    passInput.type = passInput.type === 'password' ? 'text' : 'password';
-}
