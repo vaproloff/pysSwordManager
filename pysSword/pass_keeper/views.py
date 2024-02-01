@@ -2,7 +2,8 @@ import logging
 
 from allauth.account.decorators import reauthentication_required
 from allauth.account.reauthentication import record_authentication
-from django.http import JsonResponse, HttpResponseForbidden
+from django.contrib import messages
+from django.http import JsonResponse, HttpResponseForbidden, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import PasswordEntry
 from .forms import PasswordEntryForm, PasswordEntrySearchForm
@@ -40,6 +41,7 @@ def password_detail(request, entry_id):
     elif request.headers.get('Sec-Fetch-Mode') == 'cors':
         return render(request, 'pass_keeper/password_detail.html',
                       {'password': pass_entry})
+    raise Http404()
 
 
 @login_required
@@ -53,6 +55,7 @@ def create_password(request):
             entry.save()
 
             logger.info(f'New password created successfully ({request.user.email})')
+            messages.success(request, 'Новый пароль был создан успешно')
             return redirect('password_list')
 
         logger.error(f'Error while creating new password ({request.user.email})')
@@ -78,6 +81,7 @@ def edit_password(request, entry_id):
             form.save()
 
             logger.info(f'Password edited and saved successfully ({request.user.email})')
+            messages.success(request, 'Пароль сохранён успешно')
             return redirect('password_list')
 
         logger.error(f'Error while editing existing password ({request.user.email})')
@@ -110,6 +114,7 @@ def delete_password(request, entry_id):
     password_entry.delete()
 
     logger.info(f'Password deleted successfully ({request.user.email})')
+    messages.success(request, 'Пароль удалён')
     return redirect('password_list')
 
 

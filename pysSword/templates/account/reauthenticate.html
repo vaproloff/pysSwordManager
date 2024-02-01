@@ -2,6 +2,15 @@
 {% load allauth %}
 {% load i18n %}
 {% block reauthenticate_content %}
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
     <p>{% blocktranslate %}Enter your password:{% endblocktranslate %}</p>
     {% url 'account_reauthenticate' as action_url %}
     {% element form form=form method="post" action=action_url %}

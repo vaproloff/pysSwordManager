@@ -7,13 +7,19 @@
     <div class="content_columns">
         <div class="sub-content">
             <h1>Генератор паролей</h1><br>
+
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
             <form class="passwd-generator" method="post" action="{% url 'generator' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit">Сгенерировать</button>
-                {% if settings_saved %}
-                    <span>Настройки сохранены.</span>
-                {% endif %}
             </form>
         </div>
         <div class="sub-content">
