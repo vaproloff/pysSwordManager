@@ -1,3 +1,6 @@
+import logging
+
+from allauth.account.reauthentication import record_authentication
 from allauth.mfa import app_settings
 from allauth.account.decorators import reauthentication_required
 from allauth.account.forms import ChangePasswordForm
@@ -9,10 +12,14 @@ from django.contrib.auth import update_session_auth_hash
 
 from .forms import *
 
+logger = logging.getLogger('app')
+
 
 @login_required
 @reauthentication_required
 def user_profile(request):
+    record_authentication(request, request.user)
+
     if request.method == 'POST':
         form_type = request.POST.get('form_type')
         match form_type:
@@ -29,10 +36,14 @@ def user_profile(request):
             form.save()
             if form_type == 'password':
                 update_session_auth_hash(request, request.user)
-            messages.success(request, 'Your profile has been updated successfully.')
+
+            logger.info(f'Successfully updated profile ({request.user.email})')
+            messages.success(request, 'Профиль был обновлён успешно')
+
             return redirect('profile')
         else:
-            messages.error(request, 'Error updating profile. Please correct the errors.')
+            logger.error(f'Error updating user profile ({request.user.email})')
+            messages.error(request, 'Ошибка при обновлении данных профиля. Исправьте ошибки и попробуйте снова')
 
     return render(request, 'user_app/profile.html', {
         'password_form': ChangePasswordForm(request.user),

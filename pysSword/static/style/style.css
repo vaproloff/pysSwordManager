@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+/*html {*/
+/*    height: 100%;*/
+/*}*/
+
 body {
     font-family: 'Open Sans', sans-serif;
 }
@@ -26,8 +30,8 @@ img {
     background-color: black;
     color: lightgrey;
     position: fixed;
-    left: 0px;
-    bottom: 0px;
+    left: 0;
+    bottom: 0;
     width: 100vw;
 }
 
@@ -215,10 +219,46 @@ img {
 
 .content_columns {
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+.left_side {
+    width: 25%;
+    border-right: 1px solid grey;
+    max-height: 75vh;
+    overflow-y: auto;
+}
+
+.right_side {
+    width: 70%;
+}
+
+.password_entry {
+    background-color: lightgrey;
+    padding: 5px;
+    border-bottom: 1px solid white;
+}
+
+.password_entry_link:nth-child(even) .password_entry {
+    background-color: darkgrey;
+}
+
+.password_entry_title {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: black;
+}
+
+.password_entry_login {
+    font-size: 0.8em;
+    color: black;
+}
+
+.password_entry_link {
+    text-decoration: none;
 }
 
 .sub-content {
@@ -237,4 +277,8 @@ img {
     padding: 10px 0;
     display: flex;
     justify-content: space-around;
+}
+
+label[for=id_search_term] {
+    display: none;
 }

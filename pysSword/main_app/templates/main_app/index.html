@@ -10,6 +10,15 @@
         </div>
 
         <div class="sub-content">
+
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
             <h1>Пароль – это ваш пропуск в безопасность, его лучше нигде не писать, а хранить в надежном месте!</h1>
         </div>
     </div>
