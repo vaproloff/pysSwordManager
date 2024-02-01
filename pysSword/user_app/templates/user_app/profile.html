@@ -17,7 +17,6 @@
         {% endif %}
     </h2><hr>
     <h3>Ваши учетные данные</h3><br>
-
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -25,14 +24,13 @@
             {% endfor %}
         </ul><br>
     {% endif %}
-
     <div id="profile-info">
-        <p class="profile-info-text">Email: {{ user.email }}
+        <p class="profile-info-text">Email: <span class="profile-info-text-dark">{{ user.email }}</span>
             <button class="change-passwd-button" type="button" onclick="showChangePasswordForm()">
                 Изменить пароль</button></p>
         <p class="profile-info-text">
-            Имя: {{ user.first_name }}
-            <button onclick="showEditField('profile-first-name-form', 'id_first_name', '{{ user.first_name }}')">
+            Имя: <span class="profile-info-text-dark">{{ user.first_name }}</span>
+            <button class="edit-button" onclick="showEditField('profile-first-name-form', 'id_first_name', '{{ user.first_name }}')">
                 <i class="fa fa-duotone fa-pen"></i>
 <!--                Изменить-->
             </button>
@@ -42,13 +40,13 @@
                 {% csrf_token %}
                 <input type="hidden" name="form_type" value="first_name">
 <!--                <label for="id_first_name">Имя:</label>-->
-                <input type="text" name="first_name" id="id_first_name" value="{{ user.first_name }}" required><br>
-                <button type="submit" class="profile-info-save"><i class="fa fa-solid fa-floppy-disk"></i></button>
+                <input class="profile-info-input" type="text" name="first_name" id="id_first_name" value="{{ user.first_name }}" required><br>
+                <button type="submit" class="save-button"><i class="fa fa-solid fa-floppy-disk"></i></button>
             </form>
         </div>
         <p class="profile-info-text">
-            Фамилия: {{ user.last_name }}
-            <button onclick="showEditField('profile-last-name-form', 'id_last_name', '{{ user.last_name }}')">
+            Фамилия: <span class="profile-info-text-dark">{{ user.last_name }}</span>
+            <button class="edit-button" onclick="showEditField('profile-last-name-form', 'id_last_name', '{{ user.last_name }}')">
                 <i class="fa fa-duotone fa-pen"></i>
 <!--                Изменить-->
             </button>
@@ -60,23 +58,21 @@
 <!--                <label for="id_last_name">Фамилия:</label>-->
                 <input class="profile-info-input" type="text" name="last_name" id="id_last_name" value="{{ user.last_name }}" required><br>
 
-                <button type="submit" class="profile-info-save"><i class="fa fa-solid fa-floppy-disk"></i></button>
+                <button type="submit" class="save-button"><i class="fa fa-solid fa-floppy-disk"></i></button>
             </form>
         </div>
     </div>
-
     <div class="two-factor-auth">
         {% if "totp" in MFA_SUPPORTED_TYPES %}
             {% if authenticators.totp %}
-                <p class="two-factor-auth-text">Двухфакторная аутентификация активна</p>
+                <p class="two-factor-auth-txt-active">Двухфакторная аутентификация активна</p>
             {% else %}
-                <p class="two-factor-auth-text">Двухфакторная аутентификация не активна</p>
+                <p class="two-factor-auth-txt-not-active">Двухфакторная аутентификация не активна</p>
             {% endif %}
         {% endif %}
         <!-- вместо "настроить" значок настроек, задействованы "иконочные" шрифты -->
         <a class="two-factor-auth-settings" href="{% url 'mfa_index' %}"><i class="fa-solid fa-gear"></i></a>
     </div>
-
 <!--    <button class="change-passwd-button" type="button" onclick="showChangePasswordForm()">Изменить пароль</button>-->
     <div id="password-form" style="display: none;">
         <form method="post" action="{% url 'profile' %}" id="change-password-form">
@@ -89,5 +85,4 @@
 </div>
 </div>
     <script src="{% static 'script/user_profile.js' %}"></script>
-
 {% endblock %}
