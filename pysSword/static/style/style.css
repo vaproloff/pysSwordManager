@@ -16,7 +16,7 @@ img {
 }
 
 .container {
-    width: 80vw;
+    width: 60vw;
     margin: 0 auto;
 }
 
@@ -44,7 +44,7 @@ img {
 
 /*Модификация меню*/
 .menu {
-    width: 60vw;
+    width: 45vw;
 }
 
 .menu ul.main-menu {
@@ -64,7 +64,8 @@ img {
 }
 
 .menu ul.main-menu li a {
-    padding: 15px 15px;
+    display: block;
+    padding: 10px;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.2em;
@@ -74,6 +75,7 @@ img {
 .menu ul.main-menu li a:hover {
     background-color: black;
     color: lightgrey;
+    border-radius: 20px;
 }
 /*----------------------*/
 
@@ -83,11 +85,137 @@ img {
 }
 
 .content .container {
-    padding: 25px 0;
+    padding: 50px 0;
     list-style: none;
     box-sizing: border-box;
     min-height: 300px;
 }
+
+.single-center-box {
+    display: flex;
+    justify-content: center;
+}
+
+.single-box {
+    padding: 20px;
+    width: 30vw;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.5);
+}
+
+.messages {
+    padding: 5px;
+    background: #ccc;
+    border-radius: 10px;
+    text-align: center;
+    color: darkgreen;
+}
+
+.profile-info-text {
+    font-size: 1.2em;
+    color: #808080;;
+}
+.profile-info-text-dark {
+    font-weight: 700;
+}
+
+.change-passwd-button {
+    padding: 5px;
+    margin-left: 30px;
+    background: #ccc;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.change-passwd-button:hover {
+    background: black;
+    color: lightgrey;
+}
+
+.edit-button {
+    border: none;
+    background: white;
+}
+.fa-pen {
+    padding: 5px;
+    font-size: 1.2em;
+    background: white;
+}
+
+.fa-pen:hover {
+    background: black;
+    color: lightgrey;
+    border-radius: 15px;
+}
+
+.profile-info-display {
+    display: flex;
+}
+
+.profile-info-input {
+    background: lightgrey;
+    font-size: 1.2em;
+    font-style: italic;
+    color: black;
+    border-radius: 5px;
+}
+
+.save-button {
+    background: white;
+    padding: 5px;
+    border: none;
+}
+
+.fa-floppy-disk {
+    padding: 5px;
+    font-size: 1.4em;
+    background: white;
+}
+
+.fa-floppy-disk:hover {
+    color: lightgrey;
+    background: black;
+    border-radius: 20px;
+}
+
+.two-factor-auth {
+    display: flex;
+    justify-content: left;
+}
+.two-factor-auth-txt-active {
+    font-size: 1.2em;
+    color: darkgreen;
+}
+.two-factor-auth-txt-not-active {
+    font-size: 1.2em;
+    color: darkred;
+}
+
+.two-factor-auth-settings {
+    display: block;
+    margin-left: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 1.2em;
+    color: black;
+
+}
+.two-factor-auth-settings:hover {
+    background: black;
+    color: lightgrey;
+    border-radius: 20px;
+}
+
+
+
+#password-form {
+    padding-top: 20px;
+}
+
+
 
 .content_columns {
     display: flex;
@@ -134,11 +262,11 @@ img {
 }
 
 .sub-content {
-    width: 39vw;
+    width: 30vw;
 }
 
 .img-main {
-    width: 39vw;
+    width: 30vw;
 }
 
 .img-login {
