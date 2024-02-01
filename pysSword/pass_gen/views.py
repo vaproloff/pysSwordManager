@@ -1,9 +1,13 @@
+import logging
+
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from .forms import PasswordGeneratorForm
 from utils.pass_generator import generate_passwords
 from .models import PasswordGenerationSettings
+
+logger = logging.getLogger('app')
 
 
 def password_generator(request):
@@ -42,6 +46,8 @@ def password_generator(request):
                         include_uppercase=include_uppercase, include_symbols=include_symbols,
                         custom_symbols=custom_symbols
                     )
+
+                logger.info(f'Password generator setting saved successfully ({request.user.email})')
 
             generated_passwords = generate_passwords(
                 pass_quantity, pass_length, include_digits,

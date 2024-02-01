@@ -1,11 +1,14 @@
+import logging
+
 from allauth.account.decorators import reauthentication_required
 from allauth.account.reauthentication import record_authentication
 from django.http import JsonResponse, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404, redirect
-
 from .models import PasswordEntry
 from .forms import PasswordEntryForm, PasswordEntrySearchForm
 from django.contrib.auth.decorators import login_required
+
+logger = logging.getLogger('app')
 
 
 @login_required
@@ -32,6 +35,7 @@ def password_detail(request, entry_id):
     record_authentication(request, request.user)
     pass_entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
     if pass_entry.user != request.user:
+        logger.error(f'Trying to access non-user password ({request.user.email})')
         return HttpResponseForbidden()
     elif request.headers.get('Sec-Fetch-Mode') == 'cors':
         return render(request, 'pass_keeper/password_detail.html',
@@ -47,7 +51,11 @@ def create_password(request):
             entry = form.save(commit=False)
             entry.user = request.user
             entry.save()
+
+            logger.info(f'New password created successfully ({request.user.email})')
             return redirect('password_list')
+
+        logger.error(f'Error while creating new password ({request.user.email})')
     elif request.headers.get('Sec-Fetch-Mode') == 'cors':
         record_authentication(request, request.user)
         form = PasswordEntryForm()
@@ -60,6 +68,7 @@ def create_password(request):
 def edit_password(request, entry_id):
     password_entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
     if password_entry.user != request.user:
+        logger.error(f'Trying to access non-user password ({request.user.email})')
         return HttpResponseForbidden()
 
     if request.method == 'POST':
@@ -67,7 +76,11 @@ def edit_password(request, entry_id):
         form = PasswordEntryForm(request.POST, instance=password_entry)
         if form.is_valid():
             form.save()
+
+            logger.info(f'Password edited and saved successfully ({request.user.email})')
             return redirect('password_list')
+
+        logger.error(f'Error while editing existing password ({request.user.email})')
     elif request.headers.get('Sec-Fetch-Mode') == 'cors':
         record_authentication(request, request.user)
         decrypted_password = password_entry.decrypt_password()
@@ -90,11 +103,14 @@ def edit_password(request, entry_id):
 def delete_password(request, entry_id):
     password_entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
     if password_entry.user != request.user:
+        logger.error(f'Trying to access non-user password ({request.user.email})')
         return HttpResponseForbidden()
 
     if request.headers.get('Sec-Fetch-Mode') == 'cors':
         record_authentication(request, request.user)
         password_entry.delete()
+
+        logger.info(f'Password deleted successfully ({request.user.email})')
         return redirect('password_list')
     else:
         return HttpResponseForbidden()
@@ -104,6 +120,7 @@ def delete_password(request, entry_id):
 def get_password(request, entry_id):
     pass_entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
     if pass_entry.user != request.user:
+        logger.error(f'Trying to access non-user password ({request.user.email})')
         return HttpResponseForbidden()
 
     if request.headers.get('Sec-Fetch-Mode') == 'cors':
