@@ -1,11 +1,8 @@
+/* Глобальные стили */
 * {
     margin: 0;
     padding: 0;
 }
-
-/*html {*/
-/*    height: 100%;*/
-/*}*/
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -15,15 +12,46 @@ img {
     max-width: 100%;
 }
 
+h1 {
+    font-family: 'Roboto Slab', sans-serif;
+}
+
+/*----------------*/
+
+/* Главные контейнеры */
 .container {
     width: 60vw;
+    min-width: 1000px;
     margin: 0 auto;
 }
 
 .header {
-    background-color: lightgrey;
+    background-color: rgb(28, 153, 214);
     position: fixed;
     width: 100vw;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.content {
+    padding-top: 87px;
+    padding-bottom: 42px;
+}
+
+.content .container {
+    padding: 50px 50px;
+    list-style: none;
+    box-sizing: border-box;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.content .container_pure {
+    box-shadow: none;
 }
 
 .footer {
@@ -35,23 +63,24 @@ img {
     width: 100vw;
 }
 
-.header .container {
+.footer .container {
+    padding: 20px 0;
     display: flex;
-    align-items: center;
-    padding: 15px 0;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
-/*Модификация меню*/
+/*----------------*/
+
+/* Главное меню */
 .menu {
-    width: 45vw;
+    width: 75%;
 }
 
 .menu ul.main-menu {
     list-style: none;
-    color: black;
+    color: white;
     text-transform: uppercase;
-    font-size: 1.2em;
+    font-size: 1em;
     overflow: hidden;
 }
 
@@ -65,31 +94,54 @@ img {
 
 .menu ul.main-menu li a {
     display: block;
-    padding: 10px;
+    padding: 30px 20px;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.2em;
-    color: black;
+    color: white;
 }
 
 .menu ul.main-menu li a:hover {
-    background-color: black;
-    color: lightgrey;
-    border-radius: 20px;
-}
-/*----------------------*/
-
-.content {
-    padding-top: 87px;
-    padding-bottom: 42px;
+    background-color: white;
+    color: rgb(28, 153, 214);
 }
 
-.content .container {
-    padding: 50px 0;
+/*----------------*/
+
+/* Messages */
+ul.messages {
+    margin: 0 auto;
     list-style: none;
-    box-sizing: border-box;
-    min-height: 300px;
+    position: absolute;
+    width: 100%;
 }
+
+ul.messages li {
+    color: white;
+    padding: 7px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+
+ul.messages li.success {
+    background-color: forestgreen;
+}
+
+ul.messages li.error {
+    background-color: firebrick;
+}
+
+.message-fade-out {
+    animation: messageFadeOut 5s ease;
+}
+
+@keyframes messageFadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/*----------------*/
 
 .single-center-box {
     display: flex;
@@ -101,21 +153,14 @@ img {
     width: 30vw;
     border: 2px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.5);
-}
-
-.messages {
-    padding: 5px;
-    background: #ccc;
-    border-radius: 10px;
-    text-align: center;
-    color: darkgreen;
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
 .profile-info-text {
     font-size: 1.2em;
     color: #808080;;
 }
+
 .profile-info-text-dark {
     font-weight: 700;
 }
@@ -139,6 +184,7 @@ img {
     border: none;
     background: white;
 }
+
 .fa-pen {
     padding: 5px;
     font-size: 1.2em;
@@ -185,10 +231,12 @@ img {
     display: flex;
     justify-content: left;
 }
+
 .two-factor-auth-txt-active {
     font-size: 1.2em;
     color: darkgreen;
 }
+
 .two-factor-auth-txt-not-active {
     font-size: 1.2em;
     color: darkred;
@@ -203,6 +251,7 @@ img {
     color: black;
 
 }
+
 .two-factor-auth-settings:hover {
     background: black;
     color: lightgrey;
@@ -210,11 +259,9 @@ img {
 }
 
 
-
 #password-form {
     padding-top: 20px;
 }
-
 
 
 .content_columns {
@@ -227,9 +274,9 @@ img {
 
 .left_side {
     width: 25%;
-    border-right: 1px solid grey;
-    max-height: 75vh;
-    overflow-y: auto;
+    /*border-right: 1px solid grey;*/
+    /*max-height: 75vh;*/
+    /*overflow-y: auto;*/
 }
 
 .right_side {
@@ -265,18 +312,51 @@ img {
     width: 30vw;
 }
 
+.left_side_main {
+    width: 30%;
+}
+
+.right_side_main {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.slogan {
+    text-align: start;
+}
+
+.slogan h1 {
+    padding-bottom: 30px;
+}
+
+.slogan h1 span {
+    font-size: 1.75em;
+}
+
+.slogan a {
+    font-family: 'Roboto Slab', sans-serif;
+    background-color: rgb(28, 153, 214);
+    padding: 15px 100px;
+    color: white;
+    text-decoration: none;
+    border: 3px solid white;
+}
+
+.slogan a:hover {
+    font-family: 'Roboto Slab', sans-serif;
+    background-color: white;
+    color: rgb(28, 153, 214);
+    border: 3px solid rgb(28, 153, 214);
+}
+
 .img-main {
     width: 30vw;
 }
 
 .img-login {
     width: 30vw;
-}
-
-.footer .container {
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-around;
 }
 
 label[for=id_search_term] {

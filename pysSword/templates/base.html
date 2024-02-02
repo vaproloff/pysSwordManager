@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ed1c583dfb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'style/style.css' %}">
 </head>
@@ -18,43 +19,55 @@
     <div class="container">
         <div class="menu-logo">
             <a href="{% url 'index' %}">
-                <img src="{% static 'img/logo_black.svg' %}" alt="pysSword Manager" width="200px">
+                <img src="{% static 'img/logo_white.svg' %}" alt="pysSword Manager" width="200px">
             </a>
         </div>
         <div class="menu">
             <ul class="main-menu">
-                <li class="first"><a  href="{% url 'generator' %}"><i class="fa-solid fa-gears"></i> Генератор</a></li>
+                <li class="first"><a href="{% url 'generator' %}"><i class="fa-solid fa-gears"></i> Генератор</a></li>
                 {% if user.is_authenticated %}
-                    <li class="first"><a href="{% url 'password_list' %}"><i class="fa-solid fa-key"></i> Мои пароли</a></li>
-                    <li class="last"><a href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket"></i> Выход</a></li>
+                    <li class="first"><a href="{% url 'password_list' %}"><i class="fa-solid fa-key"></i> Мои пароли</a>
+                    </li>
+                    <li class="last"><a href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket"></i>
+                        Выход</a></li>
                     <li class="last">
                         <a href="{% url 'profile' %}"><i class="fa-solid fa-user-gear"></i>
-                        {% if user.first_name %}
-                            {{ user.first_name }}
-                        {% else %}
-                            {{ user.email }}
-                        {% endif %}
+                            {% if user.first_name %}
+                                {{ user.first_name }}
+                            {% else %}
+                                {{ user.email }}
+                            {% endif %}
                         </a>
-                {% else %}
-                    <li class="last"><a href="{% url 'account_login' %}"><i class="fa-solid fa-right-to-bracket"></i> Вход</a></li>
+                        {% else %}
+                    <li class="last"><a href="{% url 'account_login' %}"><i class="fa-solid fa-right-to-bracket"></i>
+                        Вход</a></li>
                 {% endif %}
             </ul>
         </div>
     </div>
 </div>
+
 <div class="content">
-    <div class="container">
-        {%  block content %}
-            Main page content
-        {% endblock %}
-    </div>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }} message-fade-out"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% block content_global %}
+        Global page container
+    {% endblock %}
 </div>
+
 <div class="footer">
     <div class="container">
-        <p><em>© 2023 PysSword Manager. Все права защищены</em></p>
+        <p>© 2023 PysSword Manager. Все права защищены</p>
     </div>
 </div>
 
+<script src="{% static 'script/base.js' %}"></script>
 <script src="{% static 'script/user_profile.js' %}"></script>
 <script src="{% static 'script/pass_gen.js' %}"></script>
 <script src="{% static 'script/pass_manager.js' %}"></script>
