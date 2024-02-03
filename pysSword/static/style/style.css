@@ -198,6 +198,53 @@ ul.messages li.error {
 
 /*----------------*/
 
+/* Главная страница */
+
+.left_side_main {
+    width: 30%;
+}
+
+.right_side_main {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.slogan {
+    text-align: start;
+}
+
+.slogan h1 {
+    padding-bottom: 30px;
+}
+
+.slogan h1 span {
+    font-size: 1.75em;
+}
+
+.slogan a {
+    font-family: 'Roboto Slab', sans-serif;
+    background-color: rgb(28, 153, 214);
+    padding: 15px 100px;
+    color: white;
+    text-decoration: none;
+    border: 3px solid white;
+}
+
+.slogan a:hover {
+    font-family: 'Roboto Slab', sans-serif;
+    background-color: white;
+    color: rgb(28, 153, 214);
+    border: 3px solid rgb(28, 153, 214);
+}
+
+.img-main {
+    width: 30vw;
+}
+
+/*----------------*/
+
 /* Генератор паролей */
 .passwd-generator > div {
     margin: 2px 0;
@@ -250,13 +297,18 @@ input#id_custom_symbols {
 
 /* Профиль пользователя */
 
-#profile-info p {
+#profile-info .profile-field {
     padding: 5px 0;
 }
 
+.profile-field input {
+    font-size: 16px;
+    padding: 5px;
+}
+
 #profile-info .icon-button {
-    font-size: 14px;
-    padding: 3px 7px;
+    font-size: 16px;
+    padding: 5px 10px;
     color: white;
     background-color: rgb(28, 153, 214);
     border: 1px solid rgb(28, 153, 214);
@@ -272,44 +324,44 @@ input#id_custom_symbols {
     margin-left: -5px;
 }
 
+#mfa-text-enabled {
+    font-weight: bold;
+    color: forestgreen;
+    margin-left: 5px;
+}
+
+#mfa-text-disabled {
+    font-weight: bold;
+    color: firebrick;
+    margin-left: 5px;
+}
+
+#mfa-setup {
+    font-size: 16px;
+    padding: 5px 7px;
+    color: rgb(28, 153, 214);
+    background-color: white;
+    border: none;
+    margin-top: -5px;
+}
+
+#mfa-setup:hover {
+    background-color: rgb(28, 153, 214);
+    color: white;
+}
+
+#change-password-form {
+    padding-top: 20px;
+
+}
+
+#change-password-form p {
+    padding: 5px 0;
+}
+
 /*----------------*/
 
-.two-factor-auth {
-    display: flex;
-    justify-content: left;
-}
-
-.two-factor-auth-txt-active {
-    font-size: 1.2em;
-    color: darkgreen;
-}
-
-.two-factor-auth-txt-not-active {
-    font-size: 1.2em;
-    color: darkred;
-}
-
-.two-factor-auth-settings {
-    display: block;
-    margin-left: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-size: 1.2em;
-    color: black;
-
-}
-
-.two-factor-auth-settings:hover {
-    background: black;
-    color: lightgrey;
-    border-radius: 20px;
-}
-
-
-#password-form {
-    padding-top: 20px;
-}
-
+/* Менеджер паролей */
 
 .content_columns {
     display: flex;
@@ -355,53 +407,8 @@ input#id_custom_symbols {
     text-decoration: none;
 }
 
-.left_side_main {
-    width: 30%;
-}
-
-.right_side_main {
-    width: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.slogan {
-    text-align: start;
-}
-
-.slogan h1 {
-    padding-bottom: 30px;
-}
-
-.slogan h1 span {
-    font-size: 1.75em;
-}
-
-.slogan a {
-    font-family: 'Roboto Slab', sans-serif;
-    background-color: rgb(28, 153, 214);
-    padding: 15px 100px;
-    color: white;
-    text-decoration: none;
-    border: 3px solid white;
-}
-
-.slogan a:hover {
-    font-family: 'Roboto Slab', sans-serif;
-    background-color: white;
-    color: rgb(28, 153, 214);
-    border: 3px solid rgb(28, 153, 214);
-}
-
-.img-main {
-    width: 30vw;
-}
-
-.img-login {
-    width: 30vw;
-}
-
 label[for=id_search_term] {
     display: none;
 }
+
+/*----------------*/
