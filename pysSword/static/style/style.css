@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 img {
@@ -14,6 +14,53 @@ img {
 
 h1 {
     font-family: 'Roboto Slab', sans-serif;
+    margin-bottom: 20px;
+}
+
+button {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 14px;
+    background-color: rgb(28, 153, 214);
+    padding: 10px 40px;
+    color: white;
+    border: 2px solid white;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: white;
+    color: rgb(28, 153, 214);
+    border-color: rgb(28, 153, 214);
+}
+
+input {
+    font-family: 'Roboto Mono', sans-serif;
+    color: black;
+    font-size: 14px;
+    border: 1px solid rgb(28, 153, 214);
+    border-radius: 0;
+    padding: 3px;
+    background-color: rgb(240, 250, 255);
+    margin-left: 5px;
+    outline: none;
+}
+
+input:focus {
+    background-color: white;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border: 2px solid white;
+    background-color: white;
+    outline: 2px solid rgb(28, 153, 214);
+    outline-offset: 2px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: rgb(28, 153, 214);
 }
 
 /*----------------*/
@@ -39,15 +86,15 @@ h1 {
 }
 
 .content {
-    padding-top: 87px;
-    padding-bottom: 42px;
+    padding-top: 83px;
+    padding-bottom: 59px;
 }
 
 .content .container {
     padding: 50px 50px;
     list-style: none;
     box-sizing: border-box;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 .content .container_pure {
@@ -67,6 +114,10 @@ h1 {
     padding: 20px 0;
     display: flex;
     justify-content: space-around;
+}
+
+.sub-content {
+    width: 50%;
 }
 
 /*----------------*/
@@ -137,95 +188,91 @@ ul.messages li.error {
 }
 
 @keyframes messageFadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 /*----------------*/
 
-.single-center-box {
-    display: flex;
-    justify-content: center;
+/* Генератор паролей */
+.passwd-generator > div {
+    margin: 2px 0;
+    height: 30px;
 }
 
-.single-box {
-    padding: 20px;
-    width: 30vw;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.5);
+.pass-gen-list .icon-button {
+    font-size: 14px;
+    background-color: rgb(28, 153, 214);
+    padding: 3px 7px;
+    color: white;
+    border: 1px solid rgb(28, 153, 214);
+    border-left: none;
 }
 
-.profile-info-text {
-    font-size: 1.2em;
-    color: #808080;;
+.pass-gen-list .icon-button:hover {
+    background-color: white;
+    color: rgb(28, 153, 214);
 }
 
-.profile-info-text-dark {
-    font-weight: 700;
+.pass-gen-list input {
+    font-family: 'Roboto Mono', sans-serif;
+    margin: 1px 0;
+    min-width: 150px;
 }
 
-.change-passwd-button {
-    padding: 5px;
-    margin-left: 30px;
-    background: #ccc;
-    border: none;
-    border-radius: 10px;
-    font-size: 1em;
-    font-weight: 700;
+input#id_custom_symbols {
+    width: 300px;
 }
 
-.change-passwd-button:hover {
-    background: black;
-    color: lightgrey;
+/*----------------*/
+
+/* Страницы авторизаций */
+
+.auth-container p {
+    padding: 5px 0;
 }
 
-.edit-button {
-    border: none;
-    background: white;
+.auth-container input[type="text"],
+.auth-container input[type="password"],
+.auth-container input[type="email"] {
+    min-width: 200px;
 }
 
-.fa-pen {
-    padding: 5px;
-    font-size: 1.2em;
-    background: white;
+.auth-container button {
+    margin-top: 10px;
 }
 
-.fa-pen:hover {
-    background: black;
-    color: lightgrey;
-    border-radius: 15px;
+/*----------------*/
+
+/* Профиль пользователя */
+
+#profile-info p {
+    padding: 5px 0;
 }
 
-.profile-info-display {
-    display: flex;
+#profile-info .icon-button {
+    font-size: 14px;
+    padding: 3px 7px;
+    color: white;
+    background-color: rgb(28, 153, 214);
+    border: 1px solid rgb(28, 153, 214);
+    margin: 0;
 }
 
-.profile-info-input {
-    background: lightgrey;
-    font-size: 1.2em;
-    font-style: italic;
-    color: black;
-    border-radius: 5px;
+#profile-info .icon-button:hover {
+    background-color: white;
+    color: rgb(28, 153, 214);
 }
 
-.save-button {
-    background: white;
-    padding: 5px;
-    border: none;
+#profile-info div .icon-button {
+    margin-left: -5px;
 }
 
-.fa-floppy-disk {
-    padding: 5px;
-    font-size: 1.4em;
-    background: white;
-}
-
-.fa-floppy-disk:hover {
-    color: lightgrey;
-    background: black;
-    border-radius: 20px;
-}
+/*----------------*/
 
 .two-factor-auth {
     display: flex;
@@ -306,10 +353,6 @@ ul.messages li.error {
 
 .password_entry_link {
     text-decoration: none;
-}
-
-.sub-content {
-    width: 30vw;
 }
 
 .left_side_main {
