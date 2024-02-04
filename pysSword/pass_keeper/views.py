@@ -32,19 +32,6 @@ def password_list(request):
 
 
 @login_required
-def password_detail(request, entry_id):
-    record_authentication(request, request.user)
-    pass_entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
-    if pass_entry.user != request.user:
-        logger.error(f'Trying to access non-user password ({request.user.email})')
-        return HttpResponseForbidden()
-    elif request.headers.get('Sec-Fetch-Mode') == 'cors':
-        return render(request, 'pass_keeper/password_detail.html',
-                      {'password': pass_entry})
-    raise Http404()
-
-
-@login_required
 def create_password(request):
     if request.method == 'POST':
         record_authentication(request, request.user)

@@ -5,7 +5,7 @@
 
 {% block content %}
     <h1>Генератор паролей</h1>
-    <div class="content_columns">
+    <div class="content-columns">
         <div class="sub-content">
             <form class="passwd-generator" method="post" action="{% url 'generator' %}">
                 {% csrf_token %}

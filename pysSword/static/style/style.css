@@ -36,10 +36,10 @@ button:hover {
 input {
     font-family: 'Roboto Mono', sans-serif;
     color: black;
-    font-size: 14px;
+    font-size: 1em;
     border: 1px solid rgb(28, 153, 214);
     border-radius: 0;
-    padding: 3px;
+    padding: 5px;
     background-color: rgb(240, 250, 255);
     margin-left: 5px;
     outline: none;
@@ -114,6 +114,10 @@ input[type="checkbox"]:checked {
     padding: 20px 0;
     display: flex;
     justify-content: space-around;
+}
+
+.content-columns {
+    display: flex;
 }
 
 .sub-content {
@@ -258,6 +262,7 @@ ul.messages li.error {
     color: white;
     border: 1px solid rgb(28, 153, 214);
     border-left: none;
+    margin: 0 0 5px 0;
 }
 
 .pass-gen-list .icon-button:hover {
@@ -273,6 +278,11 @@ ul.messages li.error {
 
 input#id_custom_symbols {
     width: 300px;
+}
+
+input.pass-gen-input {
+    font-size: 14px;
+    padding: 3px;
 }
 
 /*----------------*/
@@ -299,11 +309,6 @@ input#id_custom_symbols {
 
 #profile-info .profile-field {
     padding: 5px 0;
-}
-
-.profile-field input {
-    font-size: 16px;
-    padding: 5px;
 }
 
 #profile-info .icon-button {
@@ -389,8 +394,6 @@ label[for=id_search_term] {
 }
 
 #password-list form input {
-    font-size: 1em;
-    padding: 5px;
     width: 190px;
     margin: 0;
 }
@@ -440,6 +443,62 @@ label[for=id_search_term] {
 
 .password_entry_link {
     text-decoration: none;
+}
+
+#password-editing-form p {
+    padding: 5px 0;
+}
+
+#password-editing-form .icon-button {
+    font-size: 16px;
+    padding: 5px 10px;
+    border-width: 1px;
+    border-color: rgb(28, 153, 214);
+    margin: 0 0 0 -5px;
+    background-color: white;
+    color: rgb(28, 153, 214);
+}
+
+#password-editing-form .icon-button:hover {
+    background-color: rgb(28, 153, 214);
+    color: white;
+}
+
+#pass-detail-notes {
+    display: flex;
+}
+
+#pass-detail-notes textarea {
+    font-family: 'Roboto Mono', sans-serif;
+    color: black;
+    font-size: 0.8em;
+    border: 1px solid rgb(28, 153, 214);
+    border-radius: 0;
+    padding: 5px;
+    background-color: rgb(240, 250, 255);
+    margin-left: 5px;
+    outline: none;
+}
+
+#pass-detail-notes textarea:focus {
+    background-color: white;
+}
+
+#delete-password-button {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 14px;
+    background-color: rgb(28, 153, 214);
+    padding: 10px 40px;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    margin-left: 10px;
+}
+
+#delete-password-button:hover {
+    background-color: white;
+    color: rgb(28, 153, 214);
+    border-color: rgb(28, 153, 214);
 }
 
 /*----------------*/

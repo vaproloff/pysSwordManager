@@ -41,15 +41,6 @@ function copyPassword(passEntryId) {
         });
 }
 
-function loadPasswordDetail(entryId) {
-    fetch(`/passwords/${entryId}/`)
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('password-details').innerHTML = data;
-        })
-        .catch(error => console.error('Error:', error));
-}
-
 function loadPasswordCreation() {
     fetch(`/passwords/new/`)
         .then(response => response.text())
@@ -98,6 +89,15 @@ function filterEntries() {
     });
 }
 
+function clipInputValue(inputId) {
+    const input = document.getElementById(inputId)
+    navigator.clipboard.writeText(input.value).then(function () {
+        alert('Скопировано в буфер');
+    }, function (err) {
+        console.error('Ошибка при копировании в буфер', err);
+    });
+}
+
 const debouncedFilter = debounce(filterEntries, 500);
 
 document.getElementById('id_search_term').addEventListener('input', debouncedFilter);
@@ -109,12 +109,11 @@ document.getElementById('clear-search-button').addEventListener('click', functio
 
 document.addEventListener('DOMContentLoaded', function () {
     const passwordLinks = document.querySelectorAll('.password_entry_link');
-    console.log(passwordLinks)
     passwordLinks.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
             const entryId = this.dataset.entryId;
-            loadPasswordDetail(entryId);
+            loadPasswordEdition(entryId);
         });
     });
 });
