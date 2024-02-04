@@ -363,52 +363,83 @@ input#id_custom_symbols {
 
 /* Менеджер паролей */
 
-.content_columns {
+#pass-list-container {
     display: flex;
-    /*align-items: center;*/
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.left_side {
-    width: 25%;
-    /*border-right: 1px solid grey;*/
-    /*max-height: 75vh;*/
-    /*overflow-y: auto;*/
+#password-list {
+    width: 30%;
+    max-height: 75vh;
+    overflow-y: auto;
 }
 
-.right_side {
-    width: 70%;
+#password-details {
+    width: 60%;
 }
 
-.password_entry {
-    background-color: lightgrey;
-    padding: 5px;
-    border-bottom: 1px solid white;
-}
-
-.password_entry_link:nth-child(even) .password_entry {
-    background-color: darkgrey;
-}
-
-.password_entry_title {
-    font-size: 0.9em;
-    font-weight: bold;
-    color: black;
-}
-
-.password_entry_login {
-    font-size: 0.8em;
-    color: black;
-}
-
-.password_entry_link {
-    text-decoration: none;
+#password-list form {
+    margin-bottom: 10px;
 }
 
 label[for=id_search_term] {
     display: none;
+}
+
+#password-list form input {
+    font-size: 1em;
+    padding: 5px;
+    width: 190px;
+    margin: 0;
+}
+
+#password-list form button {
+    font-size: 16px;
+    padding: 5px 10px;
+    border-width: 1px;
+    border-color: rgb(28, 153, 214);
+    margin: 0 0 0 -5px;
+    background-color: white;
+    color: rgb(28, 153, 214);
+}
+
+#password-list form button:hover {
+    background-color: rgb(28, 153, 214);
+    color: white;
+}
+
+.password_entry {
+    background-color: rgb(240, 250, 255);
+    padding: 7px;
+    border: 1px solid rgb(28, 153, 214);
+    margin-bottom: -1px;
+    color: black;
+}
+
+.password_entry:hover {
+    background-color: rgb(28, 153, 214);
+    color: white;
+}
+
+.password_entry_link:last-child .password_entry {
+    margin-bottom: 0;
+}
+
+.password_entry_title {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.password_entry_login {
+    font-size: 0.9em;
+    text-align: right;
+}
+
+.password_entry_link {
+    text-decoration: none;
 }
 
 /*----------------*/

@@ -45,7 +45,7 @@ function loadPasswordDetail(entryId) {
     fetch(`/passwords/${entryId}/`)
         .then(response => response.text())
         .then(data => {
-            document.getElementById('id_right_side').innerHTML = data;
+            document.getElementById('password-details').innerHTML = data;
         })
         .catch(error => console.error('Error:', error));
 }
@@ -54,7 +54,7 @@ function loadPasswordCreation() {
     fetch(`/passwords/new/`)
         .then(response => response.text())
         .then(data => {
-            document.getElementById('id_right_side').innerHTML = data;
+            document.getElementById('password-details').innerHTML = data;
         })
         .catch(error => console.error('Error:', error));
 }
@@ -63,7 +63,7 @@ function loadPasswordEdition(entryId) {
     fetch(`/passwords/${entryId}/edit/`)
         .then(response => response.text())
         .then(data => {
-            document.getElementById('id_right_side').innerHTML = data;
+            document.getElementById('password-details').innerHTML = data;
         })
         .catch(error => console.error('Error:', error));
 }
@@ -102,7 +102,7 @@ const debouncedFilter = debounce(filterEntries, 500);
 
 document.getElementById('id_search_term').addEventListener('input', debouncedFilter);
 
-document.getElementById('clearSearch').addEventListener('click', function () {
+document.getElementById('clear-search-button').addEventListener('click', function () {
     document.getElementById('id_search_term').value = '';
     filterEntries()
 });
