@@ -1,6 +1,11 @@
 {% extends "mfa/base_manage.html" %}
 {% load allauth %}
 {% load i18n %}
+
+{% block title %}
+    {% trans "Two-Factor Authentication" %}
+{% endblock %}
+
 {% block head_title %}
     {% trans "Two-Factor Authentication" %}
 {% endblock head_title %}

@@ -1,6 +1,11 @@
 {% extends "account/base_manage.html" %}
 {% load i18n %}
 {% load allauth %}
+
+{% block title %}
+    {% trans "Verify Your Email Address" %}
+{% endblock %}
+
 {% block head_title %}
     {% trans "Verify Your Email Address" %}
 {% endblock head_title %}

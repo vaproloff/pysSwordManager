@@ -3,7 +3,7 @@ import logging
 from allauth.account.decorators import reauthentication_required
 from allauth.account.reauthentication import record_authentication
 from django.contrib import messages
-from django.http import JsonResponse, HttpResponseForbidden, Http404
+from django.http import JsonResponse, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import PasswordEntry
 from .forms import PasswordEntryForm, PasswordEntrySearchForm

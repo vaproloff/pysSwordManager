@@ -1,6 +1,11 @@
 {% extends "account/base_entrance.html" %}
 {% load allauth %}
 {% load i18n %}
+
+{% block title %}
+    {% trans "Confirm Access" %}
+{% endblock %}
+
 {% block head_title %}
     {% trans "Confirm Access" %}
 {% endblock head_title %}
