@@ -1,3 +1,4 @@
 function showChangePasswordForm() {
-    document.getElementById('profile-password-form').style.display = 'block';
+    const passwordForm = document.getElementById('profile-password-form');
+    passwordForm.style.display = passwordForm.style.display === 'block' ? 'none' : 'block'
 }
