@@ -429,8 +429,6 @@ input.pass-gen-input {
 
 #password-list {
     width: 30%;
-    max-height: 75vh;
-    overflow-y: auto;
 }
 
 #password-details {
@@ -463,6 +461,11 @@ label[for=id_search_term] {
 #password-list form button:hover {
     background-color: rgb(28, 153, 214);
     color: white;
+}
+
+#password-list-list {
+    max-height: calc(100vh - 348px);
+    overflow-y: auto;
 }
 
 .password_entry {
