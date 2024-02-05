@@ -63,6 +63,22 @@ input[type="checkbox"]:checked {
     background-color: rgb(28, 153, 214);
 }
 
+textarea {
+    font-family: 'Roboto Mono', sans-serif;
+    color: black;
+    font-size: 0.8em;
+    border: 1px solid rgb(28, 153, 214);
+    border-radius: 0;
+    padding: 5px;
+    background-color: rgb(240, 250, 255);
+    margin-left: 5px;
+    outline: none;
+}
+
+textarea:focus {
+    background-color: white;
+}
+
 /*----------------*/
 
 /* Главные контейнеры */
@@ -99,6 +115,7 @@ input[type="checkbox"]:checked {
 
 .content .container_pure {
     box-shadow: none;
+    padding: 50px 0;
 }
 
 .footer {
@@ -252,7 +269,7 @@ ul.messages li.error {
 /* Генератор паролей */
 .passwd-generator > div {
     margin: 2px 0;
-    height: 30px;
+    height: 35px;
 }
 
 .pass-gen-list .icon-button {
@@ -289,6 +306,10 @@ input.pass-gen-input {
 
 /* Страницы авторизаций */
 
+.auth-container section {
+    margin-bottom: 20px;
+}
+
 .auth-container p {
     padding: 5px 0;
 }
@@ -301,6 +322,37 @@ input.pass-gen-input {
 
 .auth-container button {
     margin-top: 10px;
+}
+
+.auth-container ul {
+    list-style: none;
+    display: flex;
+}
+
+.auth-container li{
+    margin: 15px 0;
+}
+
+.auth-container a {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 14px;
+    background-color: rgb(28, 153, 214);
+    padding: 10px 40px;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    margin-right: 10px;
+}
+
+.auth-container a:hover {
+    background-color: white;
+    color: rgb(28, 153, 214);
+    border-color: rgb(28, 153, 214);
+}
+
+#recovery-codes-container p {
+    margin-bottom: 20px;
+    display: flex;
 }
 
 /*----------------*/
@@ -466,22 +518,6 @@ label[for=id_search_term] {
 
 #pass-detail-notes {
     display: flex;
-}
-
-#pass-detail-notes textarea {
-    font-family: 'Roboto Mono', sans-serif;
-    color: black;
-    font-size: 0.8em;
-    border: 1px solid rgb(28, 153, 214);
-    border-radius: 0;
-    padding: 5px;
-    background-color: rgb(240, 250, 255);
-    margin-left: 5px;
-    outline: none;
-}
-
-#pass-detail-notes textarea:focus {
-    background-color: white;
 }
 
 #delete-password-button {

@@ -9,21 +9,23 @@
         {% element h1 %}
             {% trans "Confirm Access" %}
         {% endelement %}
-        <p>{% blocktranslate %}Please reauthenticate to safeguard your account.{% endblocktranslate %}</p>
-        {% block reauthenticate_content %}{% endblock %}
+        <section>
+            <p>{% blocktranslate %}Please reauthenticate to safeguard your account.{% endblocktranslate %}</p>
+            {% block reauthenticate_content %}{% endblock %}
+        </section>
         {% if reauthentication_alternatives %}
-            {% element hr %}
-            {% endelement %}
-            {% element h2 %}
-                {% translate "Alternative options" %}
-            {% endelement %}
-            <ul>
-                {% for alt in reauthentication_alternatives %}
-                    <li>
-                        <a href="{{ alt.url }}">{{ alt.description }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
+            <section>
+                {% element h2 %}
+                    {% translate "Alternative options" %}
+                {% endelement %}
+                <ul>
+                    {% for alt in reauthentication_alternatives %}
+                        <li>
+                            <a href="{{ alt.url }}">{{ alt.description }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
         {% endif %}
     </div>
 {% endblock content %}
