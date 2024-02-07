@@ -558,17 +558,18 @@ label[for=id_search_term] {
         }
     .menu ul.main-menu {
         font-size: 1em;
-
+    }
 }
 
 @media (max-width: 1440px) {
     .slogan h1 {
         font-size: 28px;
     }
+
     .menu ul.main-menu {
         font-size: 0.8em;
     }
-
+}
 
 @media (max-width: 1250px) and (min-width: 1025px) {
     /*стили для планшета*/
