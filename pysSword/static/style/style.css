@@ -84,8 +84,8 @@ textarea:focus {
 
 /* Главные контейнеры */
 .container {
-    width: 60vw;
-    min-width: 1000px;
+    max-width: 50vw;
+    /*min-width: 1000px;*/
     margin: 0 auto;
 }
 
@@ -136,6 +136,7 @@ textarea:focus {
 
 .content-columns {
     display: flex;
+    justify-content: space-between;
 }
 
 .sub-content {
@@ -143,10 +144,14 @@ textarea:focus {
 }
 
 /*----------------*/
+.menu-logo {
+    width: 30%;
+}
 
 /* Главное меню */
 .menu {
-    width: 75%;
+    width: calc(100vw - 200px);
+    margin-left: 2%;
 }
 
 .menu ul.main-menu {
@@ -187,7 +192,7 @@ ul.messages {
     margin: 0 auto;
     list-style: none;
     position: absolute;
-    width: 100%;
+    width: 100vw;
 }
 
 ul.messages li {
@@ -432,11 +437,11 @@ input.pass-gen-input {
 }
 
 #password-list {
-    width: 30%;
+    width: 40%;
 }
 
 #password-details {
-    width: 60%;
+    width: 50%;
 }
 
 #password-list form {
@@ -478,7 +483,7 @@ label[for=id_search_term] {
     border: 1px solid rgb(28, 153, 214);
     margin-bottom: -1px;
     color: black;
-    transition: all 0.4дs;
+    transition: all 0.4s;
 }
 
 .password_entry:hover {
@@ -546,3 +551,25 @@ label[for=id_search_term] {
 }
 
 /*----------------*/
+
+@media (max-width: 1718px) {
+    .container {
+        max-width: 60vw;
+        }
+}
+
+@media (max-width: 1440px) {
+    .slogan h1 span {
+        font-size: 1.5em;
+    }
+    .slogan h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 1250px) and (min-width: 1025px) {
+    /*стили для планшета*/
+    .container {
+        max-width: 70vw;
+    }
+}

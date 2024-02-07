@@ -23,7 +23,7 @@
     <div class="container">
         <div class="menu-logo">
             <a href="{% url 'index' %}">
-                <img src="{% static 'img/logo_white.svg' %}" alt="pysSword Manager" width="200px">
+                <img src="{% static 'img/logo_white.svg' %}" alt="pysSword Manager" >
             </a>
         </div>
         <div class="menu">
@@ -55,7 +55,7 @@
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }} message-fade-out"{% endif %}>{{ message }}</li>
+                <li>{% if message.tags %} class="{{ message.tags }} message-fade-out"{% endif %}>{{ message }}</li>
             {% endfor %}
         </ul>
     {% endif %}
