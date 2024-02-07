@@ -145,7 +145,7 @@ textarea:focus {
 
 /*----------------*/
 .menu-logo {
-    width: 30%;
+    width: 50%;
 }
 
 /* Главное меню */
@@ -158,7 +158,7 @@ textarea:focus {
     list-style: none;
     color: white;
     text-transform: uppercase;
-    font-size: 1em;
+    font-size: 1.1em;
     overflow: hidden;
 }
 
@@ -552,24 +552,34 @@ label[for=id_search_term] {
 
 /*----------------*/
 
-@media (max-width: 1718px) {
+@media (max-width: 1745px) {
     .container {
         max-width: 60vw;
         }
+    .menu ul.main-menu {
+        font-size: 1em;
+
 }
 
 @media (max-width: 1440px) {
-    .slogan h1 span {
-        font-size: 1.5em;
-    }
     .slogan h1 {
-        font-size: 30px;
+        font-size: 28px;
     }
+    .menu ul.main-menu {
+        font-size: 0.8em;
+    }
+
 }
 
 @media (max-width: 1250px) and (min-width: 1025px) {
     /*стили для планшета*/
     .container {
         max-width: 70vw;
+    }
+    .slogan h1 {
+        font-size: 25px;
+    }
+    .menu ul.main-menu {
+        font-size: 0.7em;
     }
 }
