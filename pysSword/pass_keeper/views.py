@@ -3,7 +3,7 @@ import logging
 from allauth.account.decorators import reauthentication_required
 from allauth.account.reauthentication import record_authentication
 from django.contrib import messages
-from django.http import JsonResponse, HttpResponseForbidden, Http404
+from django.http import JsonResponse, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import PasswordEntry
 from .forms import PasswordEntryForm, PasswordEntrySearchForm
@@ -29,19 +29,6 @@ def password_list(request):
                       entries.filter(website__icontains=search_term)
 
     return render(request, 'pass_keeper/password_list.html', {'entries': entries, 'search_form': search_form})
-
-
-@login_required
-def password_detail(request, entry_id):
-    record_authentication(request, request.user)
-    pass_entry = get_object_or_404(PasswordEntry, id=entry_id, user=request.user)
-    if pass_entry.user != request.user:
-        logger.error(f'Trying to access non-user password ({request.user.email})')
-        return HttpResponseForbidden()
-    elif request.headers.get('Sec-Fetch-Mode') == 'cors':
-        return render(request, 'pass_keeper/password_detail.html',
-                      {'password': pass_entry})
-    raise Http404()
 
 
 @login_required

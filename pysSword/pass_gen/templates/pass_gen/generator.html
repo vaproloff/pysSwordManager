@@ -1,38 +1,30 @@
-{% extends 'base.html' %}
+{% extends 'base_sheet.html' %}
 {% load static %}
 
 {% block title %}Генератор паролей{% endblock %}
 
 {% block content %}
-    <div class="content_columns">
+    <h1>Генератор паролей</h1>
+    <div class="content-columns">
         <div class="sub-content">
-            <h1>Генератор паролей</h1><br>
-
-            {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-
             <form class="passwd-generator" method="post" action="{% url 'generator' %}">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form.as_div }}
                 <button type="submit">Сгенерировать</button>
             </form>
         </div>
-        <div class="sub-content">
+
+        <div class="sub-content pass-gen-list">
             {% if passwords %}
-                <h1>Сгенерированные пароли</h1><br>
                 <p>{% for password in passwords %}
-                    <li>{{ password }}
-                        <button onclick="copyToClipboard('{{ password | escapejs }}')">Копировать</button>
+                    <li>
+                        <label><input class="pass-gen-input" type="text" value="{{ password }}" disabled></label><button class="icon-button" onclick="copyToClipboard('{{ password | escapejs }}')"><i class="fa-solid fa-copy"></i></button>
                     </li>
                 {% endfor %}
                 </p>
             {% endif %}
-            <script src="{% static 'script/pass_gen.js' %}"></script>
         </div>
     </div>
+
+    <script src="{% static 'script/pass_gen.js' %}"></script>
 {% endblock %}

@@ -1,25 +1,22 @@
-{% extends 'base.html' %}
+{% extends 'base_pure.html' %}
 {% load static %}
 
-{% block title %}Главная{% endblock %}
+{% block title %}{{title}}{% endblock %}
 
 {% block content %}
-    <div class="content_columns">
-        <div class="sub-content">
-            <img class="img-main" src="{% static 'img/passwd_black.png' %}" alt="Password image">
+    <div class="content-columns">
+        <div class="left_side_main">
+            <img class="img-main" src="{% static 'img/sword-shield.svg' %}" alt="PysSword" height="500px">
         </div>
 
-        <div class="sub-content">
-
-            {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-
-            <h1>Пароль – это ваш пропуск в безопасность, его лучше нигде не писать, а хранить в надежном месте!</h1>
+        <div class="right_side_main">
+            <div class="slogan">
+                <h1>
+                    <span>PysSword Manager</span><br>
+                    на страже вашей безопасности
+                </h1>
+                <a href="{% url 'account_login' %}">Начать</a>
+            </div>
         </div>
     </div>
 {% endblock %}

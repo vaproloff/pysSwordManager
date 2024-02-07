@@ -1,21 +1,19 @@
 {% extends "allauth/layouts/entrance.html" %}
 {% load i18n %}
 {% load allauth %}
+
+{% block title %}
+    {% trans "Account Inactive" %}
+{% endblock %}
+
 {% block head_title %}
     {% trans "Account Inactive" %}
 {% endblock head_title %}
 {% block content %}
-
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
-    {% element h1 %}
-        {% trans "Account Inactive" %}
-    {% endelement %}
-    <p>{% trans "This account is inactive." %}</p>
+    <div class="auth-container">
+        {% element h1 %}
+            {% trans "Account Inactive" %}
+        {% endelement %}
+        <p>{% trans "This account is inactive." %}</p>
+    </div>
 {% endblock content %}

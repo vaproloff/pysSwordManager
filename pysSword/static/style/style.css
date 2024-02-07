@@ -1,29 +1,122 @@
+/* Глобальные стили */
 * {
     margin: 0;
     padding: 0;
 }
 
-/*html {*/
-/*    height: 100%;*/
-/*}*/
-
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 img {
     max-width: 100%;
 }
 
+h1 {
+    font-family: 'Roboto Slab', sans-serif;
+    margin-bottom: 20px;
+}
+
+button {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 14px;
+    background-color: rgb(28, 153, 214);
+    padding: 10px 40px;
+    color: white;
+    border: 2px solid white;
+    margin-top: 20px;
+    transition: all 0.5s;
+}
+
+button:hover {
+    background-color: white;
+    color: rgb(28, 153, 214);
+    border-color: rgb(28, 153, 214);
+}
+
+input {
+    font-family: 'Roboto Mono', sans-serif;
+    color: black;
+    font-size: 1em;
+    border: 1px solid rgb(28, 153, 214);
+    border-radius: 0;
+    padding: 5px;
+    background-color: rgb(240, 250, 255);
+    margin-left: 5px;
+    outline: none;
+}
+
+input:focus {
+    background-color: white;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border: 2px solid white;
+    background-color: white;
+    outline: 2px solid rgb(28, 153, 214);
+    outline-offset: 2px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: rgb(28, 153, 214);
+}
+
+textarea {
+    font-family: 'Roboto Mono', sans-serif;
+    color: black;
+    font-size: 0.8em;
+    border: 1px solid rgb(28, 153, 214);
+    border-radius: 0;
+    padding: 5px;
+    background-color: rgb(240, 250, 255);
+    margin-left: 5px;
+    outline: none;
+}
+
+textarea:focus {
+    background-color: white;
+}
+
+/*----------------*/
+
+/* Главные контейнеры */
 .container {
-    width: 60vw;
+    max-width: 50vw;
+    /*min-width: 1000px;*/
     margin: 0 auto;
 }
 
 .header {
-    background-color: lightgrey;
+    background-color: rgb(28, 153, 214);
     position: fixed;
     width: 100vw;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.content {
+    padding-top: 83px;
+    padding-bottom: 59px;
+}
+
+.content .container {
+    padding: 50px 50px;
+    list-style: none;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.content .container_pure {
+    box-shadow: none;
+    padding: 50px 0;
 }
 
 .footer {
@@ -35,23 +128,37 @@ img {
     width: 100vw;
 }
 
-.header .container {
+.footer .container {
+    padding: 20px 0;
     display: flex;
-    align-items: center;
-    padding: 15px 0;
+    justify-content: space-around;
+}
+
+.content-columns {
+    display: flex;
     justify-content: space-between;
 }
 
-/*Модификация меню*/
+.sub-content {
+    width: 50%;
+}
+
+/*----------------*/
+.menu-logo {
+    width: 30%;
+}
+
+/* Главное меню */
 .menu {
-    width: 45vw;
+    width: calc(100vw - 200px);
+    margin-left: 2%;
 }
 
 .menu ul.main-menu {
     list-style: none;
-    color: black;
+    color: white;
     text-transform: uppercase;
-    font-size: 1.2em;
+    font-size: 1em;
     overflow: hidden;
 }
 
@@ -65,220 +172,404 @@ img {
 
 .menu ul.main-menu li a {
     display: block;
-    padding: 10px;
+    padding: 30px 20px;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.2em;
-    color: black;
+    color: white;
+    transition: all 0.5s;
 }
 
 .menu ul.main-menu li a:hover {
-    background-color: black;
-    color: lightgrey;
-    border-radius: 20px;
-}
-/*----------------------*/
-
-.content {
-    padding-top: 87px;
-    padding-bottom: 42px;
+    background-color: white;
+    color: rgb(28, 153, 214);
 }
 
-.content .container {
-    padding: 50px 0;
+/*----------------*/
+
+/* Messages */
+ul.messages {
+    margin: 0 auto;
     list-style: none;
-    box-sizing: border-box;
-    min-height: 300px;
+    position: absolute;
+    width: 100vw;
 }
 
-.single-center-box {
-    display: flex;
-    justify-content: center;
-}
-
-.single-box {
-    padding: 20px;
-    width: 30vw;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.5);
-}
-
-.messages {
-    padding: 5px;
-    background: #ccc;
-    border-radius: 10px;
+ul.messages li {
+    color: white;
+    padding: 7px;
+    width: 100%;
     text-align: center;
-    color: darkgreen;
+    font-size: 14px;
 }
 
-.profile-info-text {
-    font-size: 1.2em;
-    color: #808080;;
-}
-.profile-info-text-dark {
-    font-weight: 700;
+ul.messages li.success {
+    background-color: forestgreen;
 }
 
-.change-passwd-button {
-    padding: 5px;
-    margin-left: 30px;
-    background: #ccc;
-    border: none;
-    border-radius: 10px;
-    font-size: 1em;
-    font-weight: 700;
+ul.messages li.error {
+    background-color: firebrick;
 }
 
-.change-passwd-button:hover {
-    background: black;
-    color: lightgrey;
+.message-fade-out {
+    animation: messageFadeOut 5s ease;
 }
 
-.edit-button {
-    border: none;
-    background: white;
-}
-.fa-pen {
-    padding: 5px;
-    font-size: 1.2em;
-    background: white;
-}
-
-.fa-pen:hover {
-    background: black;
-    color: lightgrey;
-    border-radius: 15px;
+@keyframes messageFadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
-.profile-info-display {
+/*----------------*/
+
+/* Главная страница */
+
+.left_side_main {
+    width: 30%;
+}
+
+.right_side_main {
+    width: 60%;
     display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.profile-info-input {
-    background: lightgrey;
-    font-size: 1.2em;
-    font-style: italic;
-    color: black;
-    border-radius: 5px;
+.slogan {
+    text-align: start;
 }
 
-.save-button {
-    background: white;
-    padding: 5px;
-    border: none;
+.slogan h1 {
+    padding-bottom: 30px;
 }
 
-.fa-floppy-disk {
-    padding: 5px;
-    font-size: 1.4em;
-    background: white;
+.slogan h1 span {
+    font-size: 1.75em;
 }
 
-.fa-floppy-disk:hover {
-    color: lightgrey;
-    background: black;
-    border-radius: 20px;
-}
-
-.two-factor-auth {
-    display: flex;
-    justify-content: left;
-}
-.two-factor-auth-txt-active {
-    font-size: 1.2em;
-    color: darkgreen;
-}
-.two-factor-auth-txt-not-active {
-    font-size: 1.2em;
-    color: darkred;
-}
-
-.two-factor-auth-settings {
-    display: block;
-    margin-left: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-size: 1.2em;
-    color: black;
-
-}
-.two-factor-auth-settings:hover {
-    background: black;
-    color: lightgrey;
-    border-radius: 20px;
-}
-
-
-
-#password-form {
-    padding-top: 20px;
-}
-
-
-
-.content_columns {
-    display: flex;
-    /*align-items: center;*/
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.left_side {
-    width: 25%;
-    border-right: 1px solid grey;
-    max-height: 75vh;
-    overflow-y: auto;
-}
-
-.right_side {
-    width: 70%;
-}
-
-.password_entry {
-    background-color: lightgrey;
-    padding: 5px;
-    border-bottom: 1px solid white;
-}
-
-.password_entry_link:nth-child(even) .password_entry {
-    background-color: darkgrey;
-}
-
-.password_entry_title {
-    font-size: 0.9em;
-    font-weight: bold;
-    color: black;
-}
-
-.password_entry_login {
-    font-size: 0.8em;
-    color: black;
-}
-
-.password_entry_link {
+.slogan a {
+    font-family: 'Roboto Slab', sans-serif;
+    background-color: rgb(28, 153, 214);
+    padding: 15px 100px;
+    color: white;
     text-decoration: none;
+    border: 3px solid white;
 }
 
-.sub-content {
-    width: 30vw;
+.slogan a:hover {
+    font-family: 'Roboto Slab', sans-serif;
+    background-color: white;
+    color: rgb(28, 153, 214);
+    border: 3px solid rgb(28, 153, 214);
 }
 
 .img-main {
     width: 30vw;
 }
 
-.img-login {
-    width: 30vw;
+/*----------------*/
+
+/* Генератор паролей */
+.passwd-generator > div {
+    margin: 2px 0;
+    height: 35px;
 }
 
-.footer .container {
-    padding: 10px 0;
+.pass-gen-list .icon-button {
+    font-size: 14px;
+    background-color: rgb(28, 153, 214);
+    padding: 3px 7px;
+    color: white;
+    border: 1px solid rgb(28, 153, 214);
+    border-left: none;
+    margin: 0 0 5px 0;
+}
+
+.pass-gen-list .icon-button:hover {
+    background-color: white;
+    color: rgb(28, 153, 214);
+}
+
+.pass-gen-list input {
+    font-family: 'Roboto Mono', sans-serif;
+    margin: 1px 0;
+    min-width: 150px;
+}
+
+input#id_custom_symbols {
+    width: 300px;
+}
+
+input.pass-gen-input {
+    font-size: 14px;
+    padding: 3px;
+}
+
+/*----------------*/
+
+/* Страницы авторизаций */
+
+.auth-container section {
+    margin-bottom: 20px;
+}
+
+.auth-container p {
+    padding: 5px 0;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="password"],
+.auth-container input[type="email"] {
+    min-width: 200px;
+}
+
+.auth-container button {
+    margin-top: 10px;
+}
+
+.auth-container ul {
+    list-style: none;
     display: flex;
-    justify-content: space-around;
+}
+
+.auth-container li{
+    margin: 15px 0;
+}
+
+.auth-container a {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 14px;
+    background-color: rgb(28, 153, 214);
+    padding: 10px 40px;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    margin-right: 10px;
+}
+
+.auth-container a:hover {
+    background-color: white;
+    color: rgb(28, 153, 214);
+    border-color: rgb(28, 153, 214);
+}
+
+#recovery-codes-container p {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+/*----------------*/
+
+/* Профиль пользователя */
+
+#profile-info .profile-field {
+    padding: 5px 0;
+}
+
+#profile-info .icon-button {
+    font-size: 16px;
+    padding: 5px 10px;
+    color: white;
+    background-color: rgb(28, 153, 214);
+    border: 1px solid rgb(28, 153, 214);
+    margin: 0;
+    transition: all 0.5s;
+}
+
+#profile-info .icon-button:hover {
+    background-color: white;
+    color: rgb(28, 153, 214);
+}
+
+#profile-info div .icon-button {
+    margin-left: -5px;
+}
+
+#mfa-text-enabled {
+    font-weight: bold;
+    color: forestgreen;
+    margin-left: 5px;
+}
+
+#mfa-text-disabled {
+    font-weight: bold;
+    color: firebrick;
+    margin-left: 5px;
+}
+
+#mfa-setup {
+    font-size: 16px;
+    padding: 5px 7px;
+    color: rgb(28, 153, 214);
+    background-color: white;
+    border: none;
+    margin-top: -5px;
+    transition: all 0.5s;
+}
+
+#mfa-setup:hover {
+    background-color: rgb(28, 153, 214);
+    color: white;
+}
+
+#change-password-form {
+    padding-top: 20px;
+
+}
+
+#change-password-form p {
+    padding: 5px 0;
+}
+
+/*----------------*/
+
+/* Менеджер паролей */
+
+#pass-list-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#password-list {
+    width: 40%;
+}
+
+#password-details {
+    width: 50%;
+}
+
+#password-list form {
+    margin-bottom: 10px;
 }
 
 label[for=id_search_term] {
     display: none;
+}
+
+#password-list form input {
+    width: 190px;
+    margin: 0;
+}
+
+#password-list form button {
+    font-size: 16px;
+    padding: 5px 10px;
+    border-width: 1px;
+    border-color: rgb(28, 153, 214);
+    margin: 0 0 0 -5px;
+    background-color: white;
+    color: rgb(28, 153, 214);
+}
+
+#password-list form button:hover {
+    background-color: rgb(28, 153, 214);
+    color: white;
+}
+
+#password-list-list {
+    max-height: calc(100vh - 348px);
+    overflow-y: auto;
+}
+
+.password_entry {
+    background-color: rgb(240, 250, 255);
+    padding: 7px;
+    border: 1px solid rgb(28, 153, 214);
+    margin-bottom: -1px;
+    color: black;
+    transition: all 0.4s;
+}
+
+.password_entry:hover {
+    background-color: rgb(28, 153, 214);
+    color: white;
+}
+
+.password_entry_link:last-child .password_entry {
+    margin-bottom: 0;
+}
+
+.password_entry_title {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.password_entry_login {
+    font-size: 0.9em;
+    text-align: right;
+}
+
+.password_entry_link {
+    text-decoration: none;
+}
+
+#password-editing-form p {
+    padding: 5px 0;
+}
+
+#password-editing-form .icon-button {
+    font-size: 16px;
+    padding: 5px 10px;
+    border-width: 1px;
+    border-color: rgb(28, 153, 214);
+    margin: 0 0 0 -5px;
+    background-color: white;
+    color: rgb(28, 153, 214);
+}
+
+#password-editing-form .icon-button:hover {
+    background-color: rgb(28, 153, 214);
+    color: white;
+}
+
+#pass-detail-notes {
+    display: flex;
+}
+
+#delete-password-button {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 14px;
+    background-color: rgb(28, 153, 214);
+    padding: 10px 40px;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    margin-left: 10px;
+}
+
+#delete-password-button:hover {
+    background-color: white;
+    color: rgb(28, 153, 214);
+    border-color: rgb(28, 153, 214);
+}
+
+/*----------------*/
+
+@media (max-width: 1718px) {
+    .container {
+        max-width: 60vw;
+        }
+}
+
+@media (max-width: 1440px) {
+    .slogan h1 span {
+        font-size: 1.5em;
+    }
+    .slogan h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 1250px) and (min-width: 1025px) {
+    /*стили для планшета*/
+    .container {
+        max-width: 70vw;
+    }
 }

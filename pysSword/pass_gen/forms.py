@@ -9,5 +9,5 @@ class PasswordGeneratorForm(forms.Form):
     include_lowercase = forms.BooleanField(label='Включить прописные буквы', initial=True, required=False)
     include_uppercase = forms.BooleanField(label='Включить заглавные буквы', initial=True, required=False)
     include_symbols = forms.BooleanField(label='Включить символы', initial=True, required=False)
-    custom_symbols = forms.CharField(label='Пользовательские символы', initial=punctuation, max_length=50,
+    custom_symbols = forms.CharField(label='Символы', initial=punctuation, max_length=50,
                                      required=False)

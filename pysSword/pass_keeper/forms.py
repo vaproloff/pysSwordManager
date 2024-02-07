@@ -31,4 +31,4 @@ class PasswordEntryForm(forms.ModelForm):
 
 class PasswordEntrySearchForm(forms.Form):
     search_term = forms.CharField(label='Поиск', required=False,
-                                  widget=forms.TextInput(attrs={'placeholder': 'Текст поиска'}))
+                                  widget=forms.TextInput(attrs={'placeholder': 'Поиск'}))

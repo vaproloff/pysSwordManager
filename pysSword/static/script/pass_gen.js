@@ -1,8 +1,8 @@
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(function () {
-        alert('Password copied to clipboard!');
+        alert('Пароль успешно скопирован в буфер');
     }, function (err) {
-        console.error('Unable to copy text to clipboard.', err);
+        console.error('Ошибка при копировании пароля в буфер', err);
     });
 }
 
