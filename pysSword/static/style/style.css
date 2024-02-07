@@ -478,7 +478,7 @@ label[for=id_search_term] {
     border: 1px solid rgb(28, 153, 214);
     margin-bottom: -1px;
     color: black;
-    transition: all 0.4s;
+    transition: all 0.4дs;
 }
 
 .password_entry:hover {
