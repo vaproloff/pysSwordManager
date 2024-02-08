@@ -47,9 +47,9 @@
             <p>
                 Двухфакторная аутентификация:
                 {% if "totp" in MFA_SUPPORTED_TYPES and authenticators.totp %}
-                    <span id="mfa-text-enabled">Подключена</span>
+                    <span id="mfa-text-enabled">подключена</span>
                 {% else %}
-                    <span id="mfa-text-disabled">Не подключена</span>
+                    <span id="mfa-text-disabled">не подключена</span>
                 {% endif %}
                 <a id="mfa-setup" href="{% url 'mfa_index' %}"><i class="fa-solid fa-gear"></i></a>
             </p>

@@ -84,12 +84,12 @@ textarea:focus {
 
 /* Главные контейнеры */
 .container {
-    max-width: 50vw;
-    /*min-width: 1000px;*/
+    width: 1024px;
     margin: 0 auto;
 }
 
 .header {
+    align-items: center;
     background-color: rgb(28, 153, 214);
     position: fixed;
     width: 100vw;
@@ -103,8 +103,10 @@ textarea:focus {
 }
 
 .content {
-    padding-top: 83px;
-    padding-bottom: 59px;
+    padding-top: 80px;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
 }
 
 .content .container {
@@ -113,10 +115,9 @@ textarea:focus {
     box-sizing: border-box;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
-
+/*если удалить .content, то появляется рамка с тенью*/
 .content .container_pure {
     box-shadow: none;
-    padding: 50px 0;
 }
 
 .footer {
@@ -136,29 +137,30 @@ textarea:focus {
 
 .content-columns {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
 }
-
+/*фишка для генератора паролей*/
 .sub-content {
     width: 50%;
 }
 
 /*----------------*/
 .menu-logo {
-    width: 50%;
+    width: 20%;
 }
 
 /* Главное меню */
 .menu {
-    width: calc(100vw - 200px);
-    margin-left: 2%;
+    width: 79%;
+    margin-left: 1%;
+
 }
 
 .menu ul.main-menu {
     list-style: none;
     color: white;
     text-transform: uppercase;
-    font-size: 1.1em;
     overflow: hidden;
 }
 
@@ -172,12 +174,15 @@ textarea:focus {
 
 .menu ul.main-menu li a {
     display: block;
-    padding: 30px 20px;
+    padding: 30px 15px;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.2em;
     color: white;
     transition: all 0.5s;
+}
+.menu ul.main-menu li a i {
+    font-size: 1.4em;
 }
 
 .menu ul.main-menu li a:hover {
@@ -229,18 +234,21 @@ ul.messages li.error {
 /* Главная страница */
 
 .left_side_main {
-    width: 30%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .right_side_main {
     width: 60%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .slogan {
-    text-align: start;
+    text-align: center;
 }
 
 .slogan h1 {
@@ -258,6 +266,7 @@ ul.messages li.error {
     color: white;
     text-decoration: none;
     border: 3px solid white;
+
 }
 
 .slogan a:hover {
@@ -267,9 +276,9 @@ ul.messages li.error {
     border: 3px solid rgb(28, 153, 214);
 }
 
-.img-main {
-    width: 30vw;
-}
+/*.img-main {
+    width: 100%;
+}*/
 
 /*----------------*/
 
@@ -441,7 +450,9 @@ input.pass-gen-input {
 }
 
 #password-details {
-    width: 50%;
+    width: 58%;
+    padding-left: 2%;
+
 }
 
 #password-list form {
@@ -550,36 +561,42 @@ label[for=id_search_term] {
     border-color: rgb(28, 153, 214);
 }
 
-/*----------------*/
-
-@media (max-width: 1745px) {
+/*Адаптация сайта*/
+@media (max-width: 1024px) {
+    /*Стили для планшета*/
     .container {
-        max-width: 60vw;
-        }
-    .menu ul.main-menu {
+        width: 760px;
+    }
+    .content .container {
+        padding: 3% 3%;
+    }
+    .menu ul.main-menu li a {
         font-size: 1em;
     }
-}
-
-@media (max-width: 1440px) {
-    .slogan h1 {
-        font-size: 28px;
+    .menu ul.main-menu li a i {
+    font-size: 1.2em;
+    }
+    #profile-info h1 {
+        font-size: 26px;
+    }
+    #password-list h1 {
+        font-size: 26px;
+    }
+    #password-details h1 {
+        font-size: 26px;
+    }
+    .container h1 {
+        font-size: 26px;
+    }
+    .container h1 {
+        font-size: 24px;
+    }
+    .slogan h1 span {
+        font-size: 1.75em;
     }
 
-    .menu ul.main-menu {
-        font-size: 0.8em;
-    }
 }
 
-@media (max-width: 1250px) and (min-width: 1025px) {
-    /*стили для планшета*/
-    .container {
-        max-width: 70vw;
-    }
-    .slogan h1 {
-        font-size: 25px;
-    }
-    .menu ul.main-menu {
-        font-size: 0.7em;
-    }
-}
+/*@media (min-width: 360px) and (max-width: 767px) {
+    /*стили для мобильного телефона*/
+
