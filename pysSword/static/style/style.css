@@ -657,6 +657,28 @@ label[for=id_search_term] {
         border: 1px solid rgb(28, 153, 214);
         padding: 10px 5px 5px 20px;
     }
+    #password-list {
+        width: 100%;
+    }
+
+    #password-details {
+    width: 100%;
+    }
+    #pass-list-container h1 {
+        font-size: 20px;
+    }
+    #password-list form button {
+        font-size: 12px;
+        margin: 0 0 0 0px;
+    }
+    #password-list form input {
+        width: 200px;
+    }
+    #password-list form p {
+        font-size: 14px;
+
+    }
+
 
 
 }
