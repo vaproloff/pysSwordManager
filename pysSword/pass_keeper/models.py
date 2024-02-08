@@ -1,7 +1,11 @@
+import logging
+
 from django.contrib.auth.models import User
 from django.db import models
 from cryptography.fernet import Fernet, InvalidToken
 from django.conf import settings
+
+logger = logging.getLogger('app')
 
 
 class PasswordEntry(models.Model):
@@ -26,4 +30,5 @@ class PasswordEntry(models.Model):
             decrypted_password = self.cipher_suite.decrypt(self.encrypted_password).decode('utf-8')
             return decrypted_password
         except InvalidToken:
-            return 'Invalid Decryption Token!'
+            logger.error(f'Trying to decrypt password: Invalid decryption token!')
+            return None
