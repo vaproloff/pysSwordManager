@@ -234,14 +234,14 @@ ul.messages li.error {
 /* Главная страница */
 
 .left_side_main {
-    width: 100%;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .right_side_main {
-    width: 100%;
+    width: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -607,6 +607,13 @@ label[for=id_search_term] {
     .container h1 {
         font-size: 16px;
     }
+    .left_side_main {
+        width: 100%;
+    }
+    .right_side_main {
+        width: 100%;
+    }
+
     .img-main {
     width: 55%;
     }

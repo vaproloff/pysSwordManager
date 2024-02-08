@@ -30,27 +30,28 @@
             <ul class="main-menu">
                 <li class="first">
                     <a href="{% url 'generator' %}">
-                        <i class="fa-solid fa-gears"></i><span>Генератор</span>
+                        <i class="fa-solid fa-gears"></i><span> Генератор</span>
                     </a>
                 </li>
                 {% if user.is_authenticated %}
                     <li class="first">
                         <a href="{% url 'password_list' %}">
-                            <i class="fa-solid fa-key"></i><span>Пароли</span>
+                            <i class="fa-solid fa-key"></i><span> Пароли</span>
                         </a>
                     </li>
                     <li class="last">
                         <a href="{% url 'account_logout' %}">
-                            <i class="fa-solid fa-right-from-bracket"></i><span>Выход</span>
+                            <i class="fa-solid fa-right-from-bracket"></i><span> Выход</span>
                         </a>
                     </li>
                     <li class="last">
                         <a href="{% url 'profile' %}">
                             <i class="fa-solid fa-user-secret"></i>
                                 <span>
-                                    {% if user.first_name %}                                        {{ user.first_name }}
-                                        {% else %}
-                                            Профиль
+                                    {% if user.first_name %}
+                                         {{ user.first_name }}
+                                    {% else %}
+                                          Профиль
         <!--                                {{ user.email }}-->
                                     {% endif %}
                                 </span>
