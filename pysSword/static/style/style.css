@@ -234,14 +234,14 @@ ul.messages li.error {
 /* Главная страница */
 
 .left_side_main {
-    width: 40%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .right_side_main {
-    width: 60%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -587,12 +587,77 @@ label[for=id_search_term] {
     .container h1 {
         font-size: 24px;
     }
-    .slogan h1 span {
-        font-size: 1.75em;
-    }
-
 }
 
-/*@media (min-width: 360px) and (max-width: 767px) {
+@media (min-width: 360px) and (max-width: 767px) {
     /*стили для мобильного телефона*/
+    .container {
+        width: 352px;
+    }
+    .menu-logo {
+        width: 35%;
+    }
+    .menu {
+        width: 63%;
+        margin-left: 2%;
+    }
+    .main-menu li span {
+    display: none;
+    }
+    .container h1 {
+        font-size: 16px;
+    }
+    .img-main {
+    width: 55%;
+    }
+    #profile-info h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .profile-field label {
+        font-size: 14px;
+    }
+    input {
+        font-size: 0.8em;
+    }
+    .profile-field input[type="email"] {
+        width: 250px;
+    }
+    .profile-field input[type="text"] {
+        width: 200px;
+    }
+    #profile-info .icon-button {
+        font-size: 12px;
+    }
+    .profile-field p {
+        font-size: 13px;
+    }
+    button[type="button"] {
+        font-size: 12px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    #change-password-form p label {
+        font-size: 14px;
+    }
+    #change-password-form p input[type="password"] {
+        width: 144px;
+    }
+
+    #change-password-form ul {
+        font-size: 14px;
+    }
+    #profile-password-form .save-password {
+        font-size: 12px;
+        margin: 0 auto;
+        display: block;
+    }
+    #profile-password-form ul {
+        border: 1px solid rgb(28, 153, 214);
+        padding: 10px 5px 5px 20px;
+    }
+
+
+}
 
