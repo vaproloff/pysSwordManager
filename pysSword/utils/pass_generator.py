@@ -5,7 +5,7 @@ from django.utils.crypto import get_random_string
 
 def generate_passwords(pass_quantity=1, pass_length=12,
                        include_digits=True, include_lowercase=True, include_uppercase=True, include_symbols=True,
-                       symbols=punctuation):
+                       custom_symbols=punctuation):
     all_chars = ''
 
     if include_digits:
@@ -15,7 +15,7 @@ def generate_passwords(pass_quantity=1, pass_length=12,
     if include_uppercase:
         all_chars += ascii_uppercase
     if include_symbols:
-        all_chars += symbols
+        all_chars += custom_symbols
 
     passwords = set()
     while len(passwords) < pass_quantity:

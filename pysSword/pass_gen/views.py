@@ -20,59 +20,19 @@ def password_generator(request):
             pass
 
     if request.method == 'POST':
-        form = PasswordGeneratorForm(request.POST)
+        form = PasswordGeneratorForm(request.POST, instance=settings)
         if form.is_valid():
-            pass_quantity = form.cleaned_data['pass_quantity']
-            pass_length = form.cleaned_data['pass_length']
-            include_digits = form.cleaned_data['include_digits']
-            include_lowercase = form.cleaned_data['include_lowercase']
-            include_uppercase = form.cleaned_data['include_uppercase']
-            include_symbols = form.cleaned_data['include_symbols']
-            custom_symbols = form.cleaned_data['custom_symbols']
-
             if request.user.is_authenticated:
-                if settings:
-                    settings.pass_quantity = pass_quantity
-                    settings.pass_length = pass_length
-                    settings.include_digits = include_digits
-                    settings.include_lowercase = include_lowercase
-                    settings.include_uppercase = include_uppercase
-                    settings.include_symbols = include_symbols
-                    settings.custom_symbols = custom_symbols
-                    settings.save()
-                else:
-                    PasswordGenerationSettings.objects.create(
-                        user=request.user, pass_quantity=pass_quantity, pass_length=pass_length,
-                        include_digits=include_digits, include_lowercase=include_lowercase,
-                        include_uppercase=include_uppercase, include_symbols=include_symbols,
-                        custom_symbols=custom_symbols
-                    )
-
+                form.save()
                 logger.info(f'Password generator setting saved successfully ({request.user.email})')
                 messages.success(request, 'Настройки генератора паролей сохранены успешно!')
 
-            generated_passwords = generate_passwords(
-                pass_quantity, pass_length, include_digits,
-                include_lowercase, include_uppercase, include_symbols, custom_symbols
-            )
-            return render(request, 'pass_gen/generator.html',
-                          {'form': form, 'passwords': generated_passwords,
-                           'settings_saved': True if request.user.is_authenticated else False})
+            generated_passwords = generate_passwords(**{field: form.cleaned_data[field] for field in form.cleaned_data})
+            return render(request, 'pass_gen/generator.html', {'form': form, 'passwords': generated_passwords})
     else:
-        form_data = {}
-        if settings:
-            form_data = {
-                'pass_quantity': settings.pass_quantity,
-                'pass_length': settings.pass_length,
-                'include_digits': settings.include_digits,
-                'include_lowercase': settings.include_lowercase,
-                'include_uppercase': settings.include_uppercase,
-                'include_symbols': settings.include_symbols,
-                'custom_symbols': settings.custom_symbols,
-            }
-        form = PasswordGeneratorForm(initial=form_data)
+        form = PasswordGeneratorForm(initial=settings.__dict__ if settings else None)
 
-    return render(request, 'pass_gen/generator.html', {'form': form, 'passwords': None, 'settings_saved': False})
+    return render(request, 'pass_gen/generator.html', {'form': form, 'passwords': None})
 
 
 @login_required
