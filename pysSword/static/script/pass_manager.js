@@ -3,6 +3,24 @@ function showHidePassword() {
     passInput.type = passInput.type === 'password' ? 'text' : 'password';
 }
 
+function clipInputValue(inputId) {
+    const input = document.getElementById(inputId)
+    navigator.clipboard.writeText(input.value).then(function () {
+        alert('Скопировано в буфер');
+    }, function (err) {
+        console.error('Ошибка при копировании в буфер', err);
+    });
+}
+
+function generatePassword() {
+    fetch(`/generator/generate/`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('id_password').value = data.password;
+        })
+        .catch(error => console.error('Error:', error));
+}
+
 function loadPasswordCreation() {
     fetch(`/passwords/new/`)
         .then(response => response.text())
@@ -21,6 +39,17 @@ function loadPasswordEdition(entryId) {
         .catch(error => console.error('Error:', error));
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const passwordLinks = document.querySelectorAll('.password_entry_link');
+    passwordLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const entryId = this.dataset.entryId;
+            loadPasswordEdition(entryId);
+        });
+    });
+});
+
 function debounce(func, delay) {
     let timeoutId;
     return function () {
@@ -34,29 +63,18 @@ function debounce(func, delay) {
 }
 
 function filterEntries() {
-    const searchInput = document.getElementById('id_search_term');
     const entries = document.querySelectorAll('.password_entry_link');
-
-    const searchTerm = searchInput.value.toLowerCase();
+    const query = document.getElementById('id_search_term').value.toLowerCase();
 
     entries.forEach(function (entry) {
         const title = entry.querySelector('.password_entry_title').innerText.toLowerCase();
         const login = entry.querySelector('.password_entry_login').innerText.toLowerCase();
 
-        if (title.includes(searchTerm) || login.includes(searchTerm)) {
+        if (title.includes(query) || login.includes(query)) {
             entry.style.display = 'block';
         } else {
             entry.style.display = 'none';
         }
-    });
-}
-
-function clipInputValue(inputId) {
-    const input = document.getElementById(inputId)
-    navigator.clipboard.writeText(input.value).then(function () {
-        alert('Скопировано в буфер');
-    }, function (err) {
-        console.error('Ошибка при копировании в буфер', err);
     });
 }
 
@@ -67,16 +85,5 @@ document.getElementById('id_search_term').addEventListener('input', debouncedFil
 document.getElementById('clear-search-button').addEventListener('click', function () {
     document.getElementById('id_search_term').value = '';
     filterEntries()
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    const passwordLinks = document.querySelectorAll('.password_entry_link');
-    passwordLinks.forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
-            const entryId = this.dataset.entryId;
-            loadPasswordEdition(entryId);
-        });
-    });
 });
 
