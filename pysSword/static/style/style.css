@@ -340,7 +340,11 @@ input.pass-gen-input {
 
 .auth-container ul {
     list-style: none;
+    border: 1px solid rgb(28, 153, 214);
+    padding: 20px 100px 20px 20px;
+    margin-top: 10px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .auth-container li{
@@ -351,7 +355,7 @@ input.pass-gen-input {
     font-family: 'Roboto Slab', sans-serif;
     font-size: 14px;
     background-color: rgb(28, 153, 214);
-    padding: 10px 40px;
+    padding: 8px 40px;
     color: white;
     text-decoration: none;
     border: 2px solid white;
@@ -593,6 +597,16 @@ label[for=id_search_term] {
     .container h1 {
         font-size: 24px;
     }
+    .auth-container a {
+        padding: 5px 30px;
+    }
+    .auth-container ul {
+        margin-top: 5px;
+        padding: 10px;
+
+
+    }
+
 }
 
 @media (min-width: 360px) and (max-width: 767px) {
@@ -769,6 +783,9 @@ label[for=id_search_term] {
     }
     .auth-container input[type="password"] {
         margin-bottom: 10px;
+    }
+    .auth-container li {
+        font-size: 14px;
     }
     .footer .container {
         padding: 10px 0;
