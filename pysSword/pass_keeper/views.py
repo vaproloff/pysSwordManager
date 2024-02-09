@@ -30,11 +30,14 @@ def create_password(request):
             entry.user = request.user
             entry.save()
 
-            logger.info(f'New password created successfully ({request.user.email})')
             messages.success(request, 'Новый пароль был создан успешно')
-            return redirect('password_list')
+            logger.info(f'New password created successfully ({request.user.email})')
+        else:
+            messages.error(request, 'Ошибка при создании пароля')
+            logger.error(f'Error while creating new password ({request.user.email})')
 
-        logger.error(f'Error while creating new password ({request.user.email})')
+        return redirect('password_list')
+
     elif request.headers.get('Sec-Fetch-Mode') == 'cors':
         record_authentication(request, request.user)
         form = PasswordEntryForm()
@@ -55,9 +58,12 @@ def edit_password(request, entry_id):
 
             logger.info(f'Password edited and saved successfully ({request.user.email})')
             messages.success(request, 'Пароль сохранён успешно')
-            return redirect('password_list')
+        else:
+            logger.error(f'Error while editing existing password ({request.user.email})')
+            messages.error(request, 'Ошибка при изменении пароля')
 
-        logger.error(f'Error while editing existing password ({request.user.email})')
+        return redirect('password_list')
+
     elif request.headers.get('Sec-Fetch-Mode') == 'cors':
         form = PasswordEntryForm(instance=password_entry)
         return render(request, 'pass_keeper/edit_password.html',
@@ -73,5 +79,5 @@ def delete_password(request, entry_id):
 
     record_authentication(request, request.user)
     logger.info(f'Password deleted successfully ({request.user.email})')
-    messages.success(request, 'Пароль удалён')
+    messages.success(request, 'Пароль успешно удалён')
     return redirect('password_list')

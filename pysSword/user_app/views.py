@@ -39,11 +39,11 @@ def user_profile(request):
 
             logger.info(f'Successfully updated profile ({request.user.email})')
             messages.success(request, 'Профиль был обновлён успешно')
-
-            return redirect('profile')
         else:
             logger.error(f'Error updating user profile ({request.user.email})')
             messages.error(request, 'Ошибка при обновлении данных профиля. Исправьте ошибки и попробуйте снова')
+
+        return redirect('profile')
 
     return render(request, 'user_app/profile.html', {
         'password_form': ChangePasswordForm(request.user),
