@@ -103,7 +103,7 @@ textarea:focus {
 }
 
 .content {
-    padding-top: 80px;
+    padding-top: 88px;
     padding-bottom: 60px;
     display: flex;
     justify-content: center;
@@ -568,6 +568,9 @@ label[for=id_search_term] {
     /*Стили для планшета*/
     .container {
         width: 760px;
+    }
+    .content {
+        padding-top: 80px;
     }
     .content .container {
         padding: 4% 3% 3% 3%;
