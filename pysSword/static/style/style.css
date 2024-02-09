@@ -771,12 +771,11 @@ label[for=id_search_term] {
         margin-bottom: 10px;
     }
     .footer .container {
-        padding: 10px;
-        margin: 20px;
+        padding: 10px 0;
+
     }
     .footer .container p {
         font-size: 14px;
     }
-
 }
 
