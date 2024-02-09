@@ -685,21 +685,40 @@ label[for=id_search_term] {
     }
 
     #password-details {
-    width: 100%;
+        width: 100%;
+        padding-left: 0;
     }
     #pass-list-container h1 {
-        font-size: 20px;
+        font-size: 22px;
     }
     #password-list form button {
         font-size: 12px;
-        margin: 0 0 0 0px;
+        margin: 0 0 0 -1px;
+    }
+    input {
+        font-size: 0.8em;
     }
     #password-list form input {
         width: 200px;
     }
     #password-list form p {
-        font-size: 14px;
+        display: flex;
+    }
+    #password-details h1 {
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
 
+    #password-details form p {
+        display: flex;
+    }
+    #password-editing-form .icon-button {
+        font-size: 12px;
+        margin: 0 0 0 -1px;
+    }
+
+    #password-details form p label {
+        font-size: 14px;
     }
     .footer .container {
         padding: 10px 0;
