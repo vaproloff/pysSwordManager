@@ -66,8 +66,12 @@ def edit_password(request, entry_id):
 
     elif request.headers.get('Sec-Fetch-Mode') == 'cors':
         form = PasswordEntryForm(instance=password_entry)
+
+        else_entries = PasswordEntry.objects.filter(user=request.user).exclude(pk=password_entry.pk)
+        is_duplicate = password_entry.decrypt_password() in [entry.decrypt_password() for entry in else_entries]
+
         return render(request, 'pass_keeper/edit_password.html',
-                      {'form': form, 'password_entry': password_entry})
+                      {'form': form, 'password_entry': password_entry, 'is_duplicate': is_duplicate})
     else:
         raise Http404()
 
