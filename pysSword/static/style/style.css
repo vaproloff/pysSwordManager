@@ -694,6 +694,9 @@ label[for=id_search_term] {
         font-size: 14px;
 
     }
+    .footer .container {
+        padding: 10px 0;
+    }
     .footer .container p {
         font-size: 14px;
     }
