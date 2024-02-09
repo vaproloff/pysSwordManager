@@ -743,6 +743,24 @@ label[for=id_search_term] {
         border: 1px solid rgb(28, 153, 214);
         padding: 20px 60px 20px 60px;
     }
+    .auth-container p {
+        font-size: 14px;
+
+    }
+    .auth-container h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .auth-container a {
+        font-size: 12px;
+        padding: 10px 20px;
+        margin-left: 10px;
+
+    }
+    .auth-container button {
+        margin-top: 10px;
+        margin-left: 80px;
+    }
     .footer .container {
         padding: 10px;
         margin: 20px;
@@ -750,5 +768,6 @@ label[for=id_search_term] {
     .footer .container p {
         font-size: 14px;
     }
+
 }
 
