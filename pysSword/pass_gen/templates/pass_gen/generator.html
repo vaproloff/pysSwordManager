@@ -10,7 +10,7 @@
             <form class="passwd-generator" method="post" action="{% url 'generator' %}">
                 {% csrf_token %}
                 {{ form.as_div }}
-                <button type="submit">Сгенерировать</button>
+                <button class="passwd-generate-button" type="submit">Сгенерировать</button>
             </form>
         </div>
 
@@ -18,7 +18,12 @@
             {% if passwords %}
                 <p>{% for password in passwords %}
                     <li>
-                        <label><input class="pass-gen-input" type="text" value="{{ password }}" disabled></label><button class="icon-button" onclick="copyToClipboard('{{ password | escapejs }}')"><i class="fa-solid fa-copy"></i></button>
+                        <label>
+                            <input class="pass-gen-input" type="text" value="{{ password }}" disabled>
+                        </label>
+                        <button class="icon-button" onclick="copyToClipboard('{{ password | escapejs }}')">
+                            <i class="fa-solid fa-copy"></i>
+                        </button>
                     </li>
                 {% endfor %}
                 </p>

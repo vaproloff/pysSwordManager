@@ -620,7 +620,8 @@ label[for=id_search_term] {
     display: none;
     }
     .container h1 {
-        font-size: 16px;
+        font-size: 22px;
+        text-align: center;
     }
     .left_side_main {
         width: 100%;
@@ -720,8 +721,26 @@ label[for=id_search_term] {
     #password-details form p label {
         font-size: 14px;
     }
+
+    .sub-content {
+        width: 100%;
+    }
+    .passwd-generator label {
+        font-size: 14px;
+    }
+    input#id_custom_symbols {
+        width: 226px;
+    }
+    .passwd-generate-button {
+        margin: 0 auto;
+        display: block;
+    }
+    .pass-gen-list {
+        padding: 20px 60px 20px 60px;
+    }
     .footer .container {
-        padding: 10px 0;
+        padding: 10px;
+        margin: 20px;
     }
     .footer .container p {
         font-size: 14px;
