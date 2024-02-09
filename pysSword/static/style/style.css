@@ -591,6 +591,9 @@ label[for=id_search_term] {
 
 @media (min-width: 360px) and (max-width: 767px) {
     /*стили для мобильного телефона*/
+    .content {
+        padding-top: 50px;
+    }
     .container {
         width: 352px;
     }
@@ -603,6 +606,9 @@ label[for=id_search_term] {
     .menu {
         width: 63%;
         margin-left: 2%;
+    }
+    .menu ul.main-menu li a {
+        padding: 15px;
     }
     .main-menu li span {
     display: none;
