@@ -772,8 +772,9 @@ label[for=id_search_term] {
     }
     .auth-container a {
         font-size: 12px;
+        text-align: center;
         padding: 5px 20px ;
-        margin: 0;
+
     }
     .auth-container button {
         font-size: 12px;
@@ -789,6 +790,9 @@ label[for=id_search_term] {
     }
     .auth-container li {
         font-size: 14px;
+    }
+    .auth-container .two-factor-auth-txt-not-active {
+        text-align: center;
     }
     .footer .container {
         padding: 10px 0;
