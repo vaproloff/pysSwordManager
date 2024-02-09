@@ -635,6 +635,7 @@ label[for=id_search_term] {
         height: 350px;
     }
     #profile-info h1 {
+        padding-top: 5px;
         font-size: 20px;
         text-align: center;
     }
@@ -745,6 +746,7 @@ label[for=id_search_term] {
     }
     .auth-container p {
         font-size: 14px;
+        line-height: 2;
 
     }
     .auth-container h2 {
@@ -753,13 +755,20 @@ label[for=id_search_term] {
     }
     .auth-container a {
         font-size: 12px;
-        padding: 10px 20px;
-        margin-left: 10px;
-
+        padding: 5px 20px ;
+        margin: 0;
     }
     .auth-container button {
+        font-size: 12px;
+        padding: 5px 20px;
         margin-top: 10px;
         margin-left: 80px;
+    }
+    .auth-container input[type="email"] {
+        margin-left: 0;
+    }
+    .auth-container input[type="password"] {
+        margin-bottom: 10px;
     }
     .footer .container {
         padding: 10px;
