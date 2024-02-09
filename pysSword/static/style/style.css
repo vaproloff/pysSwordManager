@@ -232,7 +232,9 @@ ul.messages li.error {
 /*----------------*/
 
 /* Главная страница */
-
+.img-main {
+    height: 500px;
+}
 .left_side_main {
     width: 40%;
     display: flex;
@@ -564,13 +566,17 @@ label[for=id_search_term] {
         width: 760px;
     }
     .content .container {
-        padding: 3% 3%;
+        padding: 4% 3% 3% 3%;
     }
     .menu ul.main-menu li a {
         font-size: 1em;
     }
     .menu ul.main-menu li a i {
     font-size: 1.2em;
+    }
+    .img-main {
+        width: 70%;
+        height: 450px;
     }
     #profile-info h1 {
         font-size: 26px;
@@ -624,7 +630,8 @@ label[for=id_search_term] {
     }
 
     .img-main {
-    width: 55%;
+        width: 45%;
+        height: 350px;
     }
     #profile-info h1 {
         font-size: 20px;
