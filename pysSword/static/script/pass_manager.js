@@ -25,6 +25,7 @@ function loadPasswordCreation() {
     fetch(`/passwords/new/`)
         .then(response => response.text())
         .then(data => {
+            history.pushState(null, null, `/passwords/#new_entry`);
             document.getElementById('password-details').innerHTML = data;
         })
         .catch(error => console.error('Error:', error));
@@ -34,6 +35,7 @@ function loadPasswordEdition(entryId) {
     fetch(`/passwords/${entryId}/edit/`)
         .then(response => response.text())
         .then(data => {
+            history.pushState(null, null, `/passwords/#entry_${entryId}`);
             document.getElementById('password-details').innerHTML = data;
         })
         .catch(error => console.error('Error:', error));
@@ -48,6 +50,13 @@ document.addEventListener('DOMContentLoaded', function () {
             loadPasswordEdition(entryId);
         });
     });
+
+    const entryHash = window.location.hash;
+    if (entryHash.startsWith('#entry_')) {
+        loadPasswordEdition(entryHash.replace('#entry_', ''));
+    } else if (entryHash.startsWith('#new_entry')) {
+        loadPasswordCreation();
+    }
 });
 
 function debounce(func, delay) {
@@ -85,5 +94,15 @@ document.getElementById('id_search_term').addEventListener('input', debouncedFil
 document.getElementById('clear-search-button').addEventListener('click', function () {
     document.getElementById('id_search_term').value = '';
     filterEntries()
+});
+
+function renderDetails() {
+    const path = window.location.pathname.split("/");
+    console.log(path)
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    window.onpopstate = renderDetails;
 });
 

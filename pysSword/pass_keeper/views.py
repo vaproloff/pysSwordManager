@@ -5,6 +5,8 @@ from allauth.account.reauthentication import record_authentication
 from django.contrib import messages
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
+
 from .models import PasswordEntry
 from .forms import PasswordEntryForm
 from django.contrib.auth.decorators import login_required
@@ -32,11 +34,11 @@ def create_password(request):
 
             messages.success(request, 'Новый пароль был создан успешно')
             logger.info(f'New password created successfully ({request.user.email})')
+            return redirect(reverse('password_list') + f'#entry_{entry.id}')
         else:
             messages.error(request, 'Ошибка при создании пароля')
             logger.error(f'Error while creating new password ({request.user.email})')
-
-        return redirect('password_list')
+            return redirect('password_list')
 
     elif request.headers.get('Sec-Fetch-Mode') == 'cors':
         record_authentication(request, request.user)
@@ -62,7 +64,7 @@ def edit_password(request, entry_id):
             logger.error(f'Error while editing existing password ({request.user.email})')
             messages.error(request, 'Ошибка при изменении пароля')
 
-        return redirect('password_list')
+        return redirect(reverse('password_list') + f'#entry_{entry_id}')
 
     elif request.headers.get('Sec-Fetch-Mode') == 'cors':
         form = PasswordEntryForm(instance=password_entry)
