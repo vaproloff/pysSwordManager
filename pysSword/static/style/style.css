@@ -115,6 +115,7 @@ textarea:focus {
     box-sizing: border-box;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
+
 /*если удалить .content, то появляется рамка с тенью*/
 .content .container_pure {
     box-shadow: none;
@@ -140,6 +141,7 @@ textarea:focus {
     justify-content: center;
     flex-wrap: wrap;
 }
+
 /*фишка для генератора паролей*/
 .sub-content {
     width: 50%;
@@ -181,6 +183,7 @@ textarea:focus {
     color: white;
     transition: all 0.5s;
 }
+
 .menu ul.main-menu li a i {
     font-size: 1.4em;
 }
@@ -235,6 +238,7 @@ ul.messages li.error {
 .img-main {
     height: 500px;
 }
+
 .left_side_main {
     width: 40%;
     display: flex;
@@ -347,7 +351,7 @@ input.pass-gen-input {
     flex-wrap: wrap;
 }
 
-.auth-container li{
+.auth-container li {
     margin: 15px 0;
 }
 
@@ -563,46 +567,72 @@ label[for=id_search_term] {
     border-color: rgb(28, 153, 214);
 }
 
+.duplicate_password {
+    color: firebrick;
+    font-size: 0.8em;
+    font-style: italic;
+    text-align: right;
+    display: block;
+}
+
+.duplicate_input {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+/*----------------*/
+
 /*Адаптация сайта*/
 @media (max-width: 1024px) {
     /*Стили для планшета*/
     .container {
         width: 760px;
     }
+
     .content {
         padding-top: 80px;
     }
+
     .content .container {
         padding: 4% 3% 3% 3%;
     }
+
     .menu ul.main-menu li a {
         font-size: 1em;
     }
+
     .menu ul.main-menu li a i {
-    font-size: 1.2em;
+        font-size: 1.2em;
     }
+
     .img-main {
         width: 70%;
         height: 450px;
     }
+
     #profile-info h1 {
         font-size: 26px;
     }
+
     #password-list h1 {
         font-size: 26px;
     }
+
     #password-details h1 {
         font-size: 26px;
     }
+
     .container h1 {
         font-size: 26px;
     }
+
     .container h1 {
         font-size: 24px;
     }
+
     .auth-container a {
         padding: 5px 30px;
     }
+
     .auth-container ul {
         margin-top: 5px;
         padding: 10px;
@@ -617,32 +647,41 @@ label[for=id_search_term] {
     .content {
         padding-top: 50px;
     }
+
     .container {
         width: 352px;
     }
+
     .content .container {
         padding: 6% 1% 1% 1%;
     }
+
     .menu-logo {
         width: 35%;
     }
+
     .menu {
         width: 63%;
         margin-left: 2%;
     }
+
     .menu ul.main-menu li a {
         padding: 15px;
     }
+
     .main-menu li span {
-    display: none;
+        display: none;
     }
+
     .container h1 {
         font-size: 22px;
         text-align: center;
     }
+
     .left_side_main {
         width: 100%;
     }
+
     .right_side_main {
         width: 100%;
     }
@@ -651,29 +690,37 @@ label[for=id_search_term] {
         width: 45%;
         height: 350px;
     }
+
     #profile-info h1 {
         padding-top: 5px;
         font-size: 20px;
         text-align: center;
     }
+
     .profile-field label {
         font-size: 14px;
     }
+
     input {
         font-size: 0.8em;
     }
+
     .profile-field input[type="email"] {
         width: 250px;
     }
+
     .profile-field input[type="text"] {
         width: 200px;
     }
+
     #profile-info .icon-button {
         font-size: 12px;
     }
+
     .profile-field p {
         font-size: 13px;
     }
+
     button[type="button"] {
         font-size: 12px;
         margin: 0 auto;
@@ -683,6 +730,7 @@ label[for=id_search_term] {
     #change-password-form p label {
         font-size: 14px;
     }
+
     #change-password-form p input[type="password"] {
         width: 144px;
     }
@@ -690,15 +738,18 @@ label[for=id_search_term] {
     #change-password-form ul {
         font-size: 14px;
     }
+
     #profile-password-form .save-password {
         font-size: 12px;
         margin: 0 auto;
         display: block;
     }
+
     #profile-password-form ul {
         border: 1px solid rgb(28, 153, 214);
         padding: 10px 5px 5px 20px;
     }
+
     #password-list {
         width: 100%;
     }
@@ -707,22 +758,28 @@ label[for=id_search_term] {
         width: 100%;
         padding-left: 0;
     }
+
     #pass-list-container h1 {
         font-size: 22px;
     }
+
     #password-list form button {
         font-size: 12px;
         margin: 0 0 0 -1px;
     }
+
     input {
         font-size: 0.8em;
     }
+
     #password-list form input {
         width: 200px;
     }
+
     #password-list form p {
         display: flex;
     }
+
     #password-details h1 {
         margin-top: 20px;
         margin-bottom: 0;
@@ -731,6 +788,7 @@ label[for=id_search_term] {
     #password-details form p {
         display: flex;
     }
+
     #password-editing-form .icon-button {
         font-size: 12px;
         margin: 0 0 0 -1px;
@@ -743,6 +801,7 @@ label[for=id_search_term] {
     .sub-content {
         width: 100%;
     }
+
     .passwd-generator {
         padding: 12px;
     }
@@ -750,56 +809,68 @@ label[for=id_search_term] {
     .passwd-generator label {
         font-size: 14px;
     }
+
     input#id_custom_symbols {
         width: 226px;
     }
+
     .passwd-generate-button {
         margin: 0 auto;
         display: block;
     }
+
     .pass-gen-list {
         border: 1px solid rgb(28, 153, 214);
         padding: 20px 60px 20px 60px;
     }
+
     .auth-container p {
         font-size: 14px;
         line-height: 2;
 
     }
+
     .auth-container h2 {
         font-size: 20px;
         text-align: center;
     }
+
     .auth-container a {
         font-size: 12px;
         text-align: center;
-        padding: 5px 20px ;
+        padding: 5px 20px;
 
     }
+
     .auth-container button {
         font-size: 12px;
         padding: 5px 20px;
         margin-top: 10px;
         margin-left: 80px;
     }
+
     .auth-container input[type="email"] {
         margin-left: 0;
     }
+
     .auth-container input[type="password"] {
         margin-bottom: 10px;
     }
+
     .auth-container li {
         font-size: 14px;
     }
+
     .auth-container .two-factor-auth-txt-not-active {
         text-align: center;
     }
+
     .footer .container {
         padding: 10px 0;
 
     }
+
     .footer .container p {
         font-size: 14px;
     }
 }
-

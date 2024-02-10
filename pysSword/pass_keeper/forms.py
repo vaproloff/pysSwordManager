@@ -15,7 +15,7 @@ class PasswordEntryForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Наименование'}),
             'website': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Веб-сайт'}),
-            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Имя пользователя'}),
+            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Логин или email'}),
             'notes': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Текст заметки'}),
         }
 
@@ -27,8 +27,3 @@ class PasswordEntryForm(forms.ModelForm):
             instance.save()
 
         return instance
-
-
-class PasswordEntrySearchForm(forms.Form):
-    search_term = forms.CharField(label='Поиск', required=False,
-                                  widget=forms.TextInput(attrs={'placeholder': 'Поиск'}))
