@@ -84,12 +84,12 @@ textarea:focus {
 
 /* Главные контейнеры */
 .container {
-    max-width: 50vw;
-    /*min-width: 1000px;*/
+    width: 1024px;
     margin: 0 auto;
 }
 
 .header {
+    align-items: center;
     background-color: rgb(28, 153, 214);
     position: fixed;
     width: 100vw;
@@ -103,8 +103,10 @@ textarea:focus {
 }
 
 .content {
-    padding-top: 83px;
-    padding-bottom: 59px;
+    padding-top: 88px;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
 }
 
 .content .container {
@@ -113,10 +115,9 @@ textarea:focus {
     box-sizing: border-box;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
-
+/*если удалить .content, то появляется рамка с тенью*/
 .content .container_pure {
     box-shadow: none;
-    padding: 50px 0;
 }
 
 .footer {
@@ -136,29 +137,30 @@ textarea:focus {
 
 .content-columns {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
 }
-
+/*фишка для генератора паролей*/
 .sub-content {
     width: 50%;
 }
 
 /*----------------*/
 .menu-logo {
-    width: 50%;
+    width: 20%;
 }
 
 /* Главное меню */
 .menu {
-    width: calc(100vw - 200px);
-    margin-left: 2%;
+    width: 79%;
+    margin-left: 1%;
+
 }
 
 .menu ul.main-menu {
     list-style: none;
     color: white;
     text-transform: uppercase;
-    font-size: 1.1em;
     overflow: hidden;
 }
 
@@ -172,12 +174,15 @@ textarea:focus {
 
 .menu ul.main-menu li a {
     display: block;
-    padding: 30px 20px;
+    padding: 30px 15px;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.2em;
     color: white;
     transition: all 0.5s;
+}
+.menu ul.main-menu li a i {
+    font-size: 1.4em;
 }
 
 .menu ul.main-menu li a:hover {
@@ -227,20 +232,25 @@ ul.messages li.error {
 /*----------------*/
 
 /* Главная страница */
-
+.img-main {
+    height: 500px;
+}
 .left_side_main {
-    width: 30%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .right_side_main {
     width: 60%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .slogan {
-    text-align: start;
+    text-align: center;
 }
 
 .slogan h1 {
@@ -258,6 +268,7 @@ ul.messages li.error {
     color: white;
     text-decoration: none;
     border: 3px solid white;
+
 }
 
 .slogan a:hover {
@@ -265,10 +276,6 @@ ul.messages li.error {
     background-color: white;
     color: rgb(28, 153, 214);
     border: 3px solid rgb(28, 153, 214);
-}
-
-.img-main {
-    width: 30vw;
 }
 
 /*----------------*/
@@ -333,7 +340,11 @@ input.pass-gen-input {
 
 .auth-container ul {
     list-style: none;
+    border: 1px solid rgb(28, 153, 214);
+    padding: 20px 100px 20px 20px;
+    margin-top: 10px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .auth-container li{
@@ -344,7 +355,7 @@ input.pass-gen-input {
     font-family: 'Roboto Slab', sans-serif;
     font-size: 14px;
     background-color: rgb(28, 153, 214);
-    padding: 10px 40px;
+    padding: 8px 40px;
     color: white;
     text-decoration: none;
     border: 2px solid white;
@@ -441,7 +452,9 @@ input.pass-gen-input {
 }
 
 #password-details {
-    width: 50%;
+    width: 58%;
+    padding-left: 2%;
+
 }
 
 #password-list form {
@@ -550,36 +563,243 @@ label[for=id_search_term] {
     border-color: rgb(28, 153, 214);
 }
 
-/*----------------*/
-
-@media (max-width: 1745px) {
+/*Адаптация сайта*/
+@media (max-width: 1024px) {
+    /*Стили для планшета*/
     .container {
-        max-width: 60vw;
-        }
-    .menu ul.main-menu {
+        width: 760px;
+    }
+    .content {
+        padding-top: 80px;
+    }
+    .content .container {
+        padding: 4% 3% 3% 3%;
+    }
+    .menu ul.main-menu li a {
         font-size: 1em;
     }
-}
+    .menu ul.main-menu li a i {
+    font-size: 1.2em;
+    }
+    .img-main {
+        width: 70%;
+        height: 450px;
+    }
+    #profile-info h1 {
+        font-size: 26px;
+    }
+    #password-list h1 {
+        font-size: 26px;
+    }
+    #password-details h1 {
+        font-size: 26px;
+    }
+    .container h1 {
+        font-size: 26px;
+    }
+    .container h1 {
+        font-size: 24px;
+    }
+    .auth-container a {
+        padding: 5px 30px;
+    }
+    .auth-container ul {
+        margin-top: 5px;
+        padding: 10px;
 
-@media (max-width: 1440px) {
-    .slogan h1 {
-        font-size: 28px;
+
     }
 
-    .menu ul.main-menu {
+}
+
+@media (min-width: 360px) and (max-width: 767px) {
+    /*стили для мобильного телефона*/
+    .content {
+        padding-top: 50px;
+    }
+    .container {
+        width: 352px;
+    }
+    .content .container {
+        padding: 6% 1% 1% 1%;
+    }
+    .menu-logo {
+        width: 35%;
+    }
+    .menu {
+        width: 63%;
+        margin-left: 2%;
+    }
+    .menu ul.main-menu li a {
+        padding: 15px;
+    }
+    .main-menu li span {
+    display: none;
+    }
+    .container h1 {
+        font-size: 22px;
+        text-align: center;
+    }
+    .left_side_main {
+        width: 100%;
+    }
+    .right_side_main {
+        width: 100%;
+    }
+
+    .img-main {
+        width: 45%;
+        height: 350px;
+    }
+    #profile-info h1 {
+        padding-top: 5px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .profile-field label {
+        font-size: 14px;
+    }
+    input {
         font-size: 0.8em;
     }
+    .profile-field input[type="email"] {
+        width: 250px;
+    }
+    .profile-field input[type="text"] {
+        width: 200px;
+    }
+    #profile-info .icon-button {
+        font-size: 12px;
+    }
+    .profile-field p {
+        font-size: 13px;
+    }
+    button[type="button"] {
+        font-size: 12px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    #change-password-form p label {
+        font-size: 14px;
+    }
+    #change-password-form p input[type="password"] {
+        width: 144px;
+    }
+
+    #change-password-form ul {
+        font-size: 14px;
+    }
+    #profile-password-form .save-password {
+        font-size: 12px;
+        margin: 0 auto;
+        display: block;
+    }
+    #profile-password-form ul {
+        border: 1px solid rgb(28, 153, 214);
+        padding: 10px 5px 5px 20px;
+    }
+    #password-list {
+        width: 100%;
+    }
+
+    #password-details {
+        width: 100%;
+        padding-left: 0;
+    }
+    #pass-list-container h1 {
+        font-size: 22px;
+    }
+    #password-list form button {
+        font-size: 12px;
+        margin: 0 0 0 -1px;
+    }
+    input {
+        font-size: 0.8em;
+    }
+    #password-list form input {
+        width: 200px;
+    }
+    #password-list form p {
+        display: flex;
+    }
+    #password-details h1 {
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+
+    #password-details form p {
+        display: flex;
+    }
+    #password-editing-form .icon-button {
+        font-size: 12px;
+        margin: 0 0 0 -1px;
+    }
+
+    #password-details form p label {
+        font-size: 14px;
+    }
+
+    .sub-content {
+        width: 100%;
+    }
+    .passwd-generator {
+        padding: 12px;
+    }
+
+    .passwd-generator label {
+        font-size: 14px;
+    }
+    input#id_custom_symbols {
+        width: 226px;
+    }
+    .passwd-generate-button {
+        margin: 0 auto;
+        display: block;
+    }
+    .pass-gen-list {
+        border: 1px solid rgb(28, 153, 214);
+        padding: 20px 60px 20px 60px;
+    }
+    .auth-container p {
+        font-size: 14px;
+        line-height: 2;
+
+    }
+    .auth-container h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .auth-container a {
+        font-size: 12px;
+        text-align: center;
+        padding: 5px 20px ;
+
+    }
+    .auth-container button {
+        font-size: 12px;
+        padding: 5px 20px;
+        margin-top: 10px;
+        margin-left: 80px;
+    }
+    .auth-container input[type="email"] {
+        margin-left: 0;
+    }
+    .auth-container input[type="password"] {
+        margin-bottom: 10px;
+    }
+    .auth-container li {
+        font-size: 14px;
+    }
+    .auth-container .two-factor-auth-txt-not-active {
+        text-align: center;
+    }
+    .footer .container {
+        padding: 10px 0;
+
+    }
+    .footer .container p {
+        font-size: 14px;
+    }
 }
 
-@media (max-width: 1250px) and (min-width: 1025px) {
-    /*стили для планшета*/
-    .container {
-        max-width: 70vw;
-    }
-    .slogan h1 {
-        font-size: 25px;
-    }
-    .menu ul.main-menu {
-        font-size: 0.7em;
-    }
-}
