@@ -21,24 +21,33 @@ function generatePassword() {
         .catch(error => console.error('Error:', error));
 }
 
-function loadPasswordCreation() {
+function loadPasswordCreation(pushHistory = true) {
     fetch(`/passwords/new/`)
         .then(response => response.text())
         .then(data => {
-            history.pushState(null, null, `/passwords/#new_entry`);
             document.getElementById('password-details').innerHTML = data;
+            if (pushHistory) history.pushState(null, null, `/passwords/#new_entry`);
         })
         .catch(error => console.error('Error:', error));
 }
 
-function loadPasswordEdition(entryId) {
+function loadPasswordEdition(entryId, pushHistory = true) {
     fetch(`/passwords/${entryId}/edit/`)
         .then(response => response.text())
         .then(data => {
-            history.pushState(null, null, `/passwords/#entry_${entryId}`);
             document.getElementById('password-details').innerHTML = data;
+            if (pushHistory) history.pushState(null, null, `/passwords/#entry_${entryId}`);
         })
         .catch(error => console.error('Error:', error));
+}
+
+function loadFromHash(pushHistory) {
+    const entryHash = window.location.hash;
+    if (entryHash.startsWith('#entry_')) {
+        loadPasswordEdition(entryHash.replace('#entry_', ''), pushHistory);
+    } else if (entryHash.startsWith('#new_entry')) {
+        loadPasswordCreation(pushHistory);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -51,12 +60,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    const entryHash = window.location.hash;
-    if (entryHash.startsWith('#entry_')) {
-        loadPasswordEdition(entryHash.replace('#entry_', ''));
-    } else if (entryHash.startsWith('#new_entry')) {
-        loadPasswordCreation();
-    }
+    loadFromHash(true)
+    window.addEventListener('popstate', function (event) {
+        loadFromHash(false)
+    });
 });
 
 function debounce(func, delay) {
@@ -95,14 +102,3 @@ document.getElementById('clear-search-button').addEventListener('click', functio
     document.getElementById('id_search_term').value = '';
     filterEntries()
 });
-
-function renderDetails() {
-    const path = window.location.pathname.split("/");
-    console.log(path)
-}
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    window.onpopstate = renderDetails;
-});
-
