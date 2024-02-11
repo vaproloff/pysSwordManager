@@ -136,9 +136,8 @@ textarea:focus {
     justify-content: space-around;
 }
 
-
-
 /*----------------*/
+
 .menu-logo {
     width: 20%;
 }
@@ -147,7 +146,6 @@ textarea:focus {
 .menu {
     width: 79%;
     margin-left: 1%;
-
 }
 
 .menu ul.main-menu {
@@ -672,6 +670,11 @@ label[for=id_search_term] {
         height: 450px;
     }
 
+
+    .slogan h1 span {
+        font-size: 1.5em;
+    }
+
     #profile-info h1 {
         font-size: 26px;
     }
@@ -778,6 +781,14 @@ label[for=id_search_term] {
     .img-main {
         width: 45%;
         height: 350px;
+    }
+    .slogan h1 {
+        margin: 0;
+    }
+    .slogan a {
+        font-size: 14px;
+        display: block;
+
     }
 
     #profile-info h1 {
