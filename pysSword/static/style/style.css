@@ -324,12 +324,27 @@ input.pass-gen-input {
 
 /* Страницы авторизаций */
 
+.auth-container h1, h2 {
+    text-align: center;
+}
+
 .auth-container section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
+    border: 1px solid rgb(28, 153, 214);
+    padding: 20px;
 }
 
 .auth-container p {
-    padding: 5px 0;
+    padding: 5px 5px;
+    font-size: 18px;
+    text-align: center;
+}
+.auth-container label[for="id_password"] {
+    display: none;
 }
 
 .auth-container input[type="text"],
@@ -339,14 +354,19 @@ input.pass-gen-input {
 }
 
 .auth-container button {
+    margin: 0 auto;
+    display: block;
     margin-top: 10px;
+    font-size: 16px;
+
 }
 
 .auth-container ul {
     list-style: none;
-    border: 1px solid rgb(28, 153, 214);
-    padding: 20px 100px 20px 20px;
-    margin-top: 10px;
+    /*border: 1px solid rgb(28, 153, 214);*/
+    padding: 20px;
+    /*padding: 20px 100px 20px 20px;*/
+    /*margin-top: 10px;*/
     display: flex;
     flex-wrap: wrap;
 }
@@ -357,13 +377,14 @@ input.pass-gen-input {
 
 .auth-container a {
     font-family: 'Roboto Slab', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     background-color: rgb(28, 153, 214);
     padding: 8px 40px;
     color: white;
     text-decoration: none;
     border: 2px solid white;
-    margin-right: 10px;
+    /*margin-right: 10px;*/
+    display: block;
 }
 
 .auth-container a:hover {
@@ -626,21 +647,37 @@ label[for=id_search_term] {
     }
 
     .container h1 {
-        font-size: 24px;
+        font-size: 26px;
     }
 
+    .auth-container section {
+        padding: 10px;
+
+
+    }
+    .auth-container p {
+        font-size: 16px;
+    }
+
+
+
     .auth-container a {
-        padding: 5px 30px;
+        font-size: 14px;
+        padding: 10px 30px;
     }
 
     .auth-container ul {
         margin-top: 5px;
         padding: 10px;
-
-
+    }
+    .auth-container button {
+        font-size: 14px;
     }
 
 }
+.footer .container p {
+        font-size: 14px;
+    }
 
 @media (min-width: 360px) and (max-width: 767px) {
     /*стили для мобильного телефона*/
@@ -828,6 +865,7 @@ label[for=id_search_term] {
         font-size: 14px;
         line-height: 2;
 
+
     }
 
     .auth-container h2 {
@@ -845,8 +883,7 @@ label[for=id_search_term] {
     .auth-container button {
         font-size: 12px;
         padding: 5px 20px;
-        margin-top: 10px;
-        margin-left: 80px;
+
     }
 
     .auth-container input[type="email"] {
@@ -854,7 +891,7 @@ label[for=id_search_term] {
     }
 
     .auth-container input[type="password"] {
-        margin-bottom: 10px;
+
     }
 
     .auth-container li {
@@ -871,6 +908,6 @@ label[for=id_search_term] {
     }
 
     .footer .container p {
-        font-size: 14px;
+        font-size: 12px;
     }
 }
