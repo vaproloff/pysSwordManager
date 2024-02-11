@@ -19,7 +19,7 @@ h1 {
 
 button {
     font-family: 'Roboto Slab', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     background-color: rgb(28, 153, 214);
     padding: 10px 40px;
     color: white;
@@ -136,16 +136,7 @@ textarea:focus {
     justify-content: space-around;
 }
 
-.content-columns {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
 
-/*фишка для генератора паролей*/
-.sub-content {
-    width: 50%;
-}
 
 /*----------------*/
 .menu-logo {
@@ -285,9 +276,34 @@ ul.messages li.error {
 /*----------------*/
 
 /* Генератор паролей */
+.content-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: 1px solid rgb(28, 153, 214);
+    padding: 15px;
+}
+
+.pass-gen {
+    width: 36%;
+}
+
+
 .passwd-generator > div {
+    display: flex;
+    align-items: center;
     margin: 2px 0;
-    height: 35px;
+    min-height: 35px;
+}
+
+.pass-gen-header {
+    text-align: center;
+}
+
+.pass-gen-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pass-gen-list .icon-button {
@@ -308,11 +324,37 @@ ul.messages li.error {
 .pass-gen-list input {
     font-family: 'Roboto Mono', sans-serif;
     margin: 1px 0;
-    min-width: 150px;
+    width: 250px;
+}
+
+
+label[for="id_pass_quantity"],
+label[for="id_pass_length"]{
+    font-size: 18px;
+    display: block;
+    width: 260px;
+}
+label[for="id_include_digits"],
+label[for="id_include_lowercase"],
+label[for="id_include_uppercase"],
+label[for="id_include_symbols"] {
+    font-size: 18px;
+    display: block;
+    width: 299px;
+}
+label[for="id_custom_symbols"] {
+    display: none;
+}
+
+input#id_pass_quantity,
+input#id_pass_length {
+    width: 45px;
+
 }
 
 input#id_custom_symbols {
-    width: 300px;
+    margin: 0;
+    width: 310px;
 }
 
 input.pass-gen-input {
@@ -646,20 +688,13 @@ label[for=id_search_term] {
         font-size: 26px;
     }
 
-    .container h1 {
-        font-size: 26px;
-    }
-
     .auth-container section {
         padding: 10px;
-
-
     }
+
     .auth-container p {
         font-size: 16px;
     }
-
-
 
     .auth-container a {
         font-size: 14px;
@@ -670,17 +705,34 @@ label[for=id_search_term] {
         margin-top: 5px;
         padding: 10px;
     }
+
     .auth-container button {
         font-size: 14px;
     }
 
-}
-.footer .container p {
+    .pass-gen {
+        width: 50%;
+    }
+
+    .passwd-generator label {
+        font-size: 16px;
+    }
+    button {
         font-size: 14px;
     }
 
+    .footer .container p {
+        font-size: 14px;
+    }
+}
+
+
 @media (min-width: 360px) and (max-width: 767px) {
     /*стили для мобильного телефона*/
+    button {
+        font-size: 12px;
+    }
+
     .content {
         padding-top: 50px;
     }
@@ -839,38 +891,41 @@ label[for=id_search_term] {
         width: 100%;
     }
 
-    .passwd-generator {
-        padding: 12px;
-    }
-
     .passwd-generator label {
         font-size: 14px;
     }
 
+    label[for="id_pass_quantity"],
+    label[for="id_pass_length"]{
+        width: 245px;
+    }
+
+    label[for="id_include_digits"],
+    label[for="id_include_lowercase"],
+    label[for="id_include_uppercase"],
+    label[for="id_include_symbols"] {
+        width: 283px;
+    }
+
     input#id_custom_symbols {
-        width: 226px;
+        width: 294px;
     }
 
     .passwd-generate-button {
-        margin: 0 auto;
-        display: block;
+        margin-bottom: 20px;
+    }
+    .pass-gen-list {
+        padding: 0 7px;
     }
 
-    .pass-gen-list {
-        border: 1px solid rgb(28, 153, 214);
-        padding: 20px 60px 20px 60px;
-    }
 
     .auth-container p {
         font-size: 14px;
         line-height: 2;
-
-
     }
 
     .auth-container h2 {
         font-size: 20px;
-        text-align: center;
     }
 
     .auth-container a {

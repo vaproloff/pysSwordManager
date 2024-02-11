@@ -4,27 +4,29 @@
 {% block title %}Генератор паролей{% endblock %}
 
 {% block content %}
-    <h1>Генератор паролей</h1>
+    <div><h1 class="pass-gen-header">Генератор паролей</h1></div>
     <div class="content-columns">
-        <div class="sub-content">
+        <div class="sub-content pass-gen">
             <form class="passwd-generator" method="post" action="{% url 'generator' %}">
                 {% csrf_token %}
                 {{ form.as_div }}
-                <button class="passwd-generate-button" type="submit">Сгенерировать</button>
+                <div class="pass-gen-button">
+                    <button class="passwd-generate-button" type="submit">Сгенерировать</button>
+                </div>
             </form>
         </div>
 
         <div class="sub-content pass-gen-list">
             {% if passwords %}
                 <p>{% for password in passwords %}
-                    <li>
+                    <div>
                         <label>
                             <input class="pass-gen-input" type="text" value="{{ password }}" disabled>
                         </label>
                         <button class="icon-button" onclick="copyToClipboard('{{ password | escapejs }}')">
                             <i class="fa-solid fa-copy"></i>
                         </button>
-                    </li>
+                    </div>
                 {% endfor %}
                 </p>
             {% endif %}
