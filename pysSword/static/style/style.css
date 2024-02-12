@@ -516,38 +516,34 @@ input.pass-gen-input {
 #change-password-form p {
     padding: 5px 0;
 }
-
 /*----------------*/
 
-/* Менеджер паролей */
-
+/*** Менеджер паролей ***/
 #pass-list-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 #password-list {
-    width: 40%;
-}
-
-#password-details {
-    width: 58%;
-    padding-left: 2%;
-
+    width: 35%;
 }
 
 #password-list form {
     margin-bottom: 10px;
 }
+#password-list form p {
+    display: flex;
+}
+
 
 label[for=id_search_term] {
     display: none;
 }
 
 #password-list form input {
-    width: 190px;
+    width: 243px;
     margin: 0;
 }
 
@@ -556,7 +552,7 @@ label[for=id_search_term] {
     padding: 5px 10px;
     border-width: 1px;
     border-color: rgb(28, 153, 214);
-    margin: 0 0 0 -5px;
+    margin: 0 0 0 -1px;
     background-color: white;
     color: rgb(28, 153, 214);
 }
@@ -603,9 +599,60 @@ label[for=id_search_term] {
 .password_entry_link {
     text-decoration: none;
 }
+#password-details h1 {
+    margin-bottom: 15px;
+}
 
 #password-editing-form p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 5px 0;
+}
+
+label[for="id_title"],
+label[for="id_website"],
+label[for="id_username"],
+label[for="id_password"] {
+    display: block;
+    width: 95px;
+}
+
+label[for="id_notes"] {
+    display: block:
+    width: 80px;
+}
+
+label[for="id_created_at"],
+label[for="id_last_updated"] {
+    display: block;
+    width: 199px;
+}
+
+#password-editing-form input {
+    margin: 0;
+}
+
+#id_title {
+    width: 338px;
+}
+
+#id_website, #id_username {
+    width: 307px;
+}
+
+#id_password {
+    width: 239px;
+}
+
+#pass-detail-notes textarea {
+    margin-left: 28px;
+    width: 336px;
+    height: 90px;
+}
+
+#id_created_at, #id_last_updated {
+    width: 182px;
 }
 
 #password-editing-form .icon-button {
@@ -625,17 +672,21 @@ label[for=id_search_term] {
 
 #pass-detail-notes {
     display: flex;
+
+
+}
+#save-password-button {
+    margin-top: 0;
 }
 
 #delete-password-button {
     font-family: 'Roboto Slab', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     background-color: rgb(28, 153, 214);
     padding: 10px 40px;
     color: white;
     text-decoration: none;
     border: 2px solid white;
-    margin-left: 10px;
 }
 
 #delete-password-button:hover {
@@ -655,12 +706,11 @@ label[for=id_search_term] {
 .duplicate_input {
     background-color: rgba(255, 0, 0, 0.1);
 }
-
 /*----------------*/
 
-/*Адаптация сайта*/
+/**** Адаптация веб-приложения ****/
+/**** Стили для планшета ****/
 @media (max-width: 1024px) {
-    /*Стили для планшета*/
     .container {
         width: 760px;
     }
@@ -670,7 +720,7 @@ label[for=id_search_term] {
     }
 
     .content .container {
-        padding: 4% 3% 3% 3%;
+        padding: 4% 2% 2% 2%;
     }
 
     .menu ul.main-menu li a {
@@ -695,16 +745,59 @@ label[for=id_search_term] {
         font-size: 26px;
     }
 
-    #password-list h1 {
+    .container h1 {
+        font-size: 26px;
+    }
+
+    #pass-list-container {
+        justify-content: space-between;
+
+    }
+
+    /*#password-list h1 {
         font-size: 26px;
     }
 
     #password-details h1 {
         font-size: 26px;
+    }*/
+    #password-list form input {
+    width: 211px;
+    }
+    #password-editing-form input,
+    #password-editing-form label {
+        font-size: 14px;
+    }
+    #password-editing-form .icon-button {
+        font-size: 14px;
     }
 
-    .container h1 {
-        font-size: 26px;
+    #pass-detail-notes textarea {
+        width: 301px;
+        margin-left: 20px;
+    }
+
+    label[for="id_title"],
+    label[for="id_website"],
+    label[for="id_username"],
+    label[for="id_password"] {
+        width: 80px;
+    }
+
+    #id_title {
+    width: 301px;
+    }
+
+    #id_website, #id_username {
+        width: 270px;
+    }
+
+    #id_password {
+        width: 205px;
+    }
+
+    #delete-password-button {
+        font-size: 14px;
     }
 
     .auth-container section {
@@ -881,7 +974,6 @@ label[for=id_search_term] {
 
     #password-details {
         width: 100%;
-        padding-left: 0;
     }
 
     #pass-list-container h1 {
@@ -892,17 +984,36 @@ label[for=id_search_term] {
         font-size: 12px;
         margin: 0 0 0 -1px;
     }
-
-    input {
-        font-size: 0.8em;
-    }
-
     #password-list form input {
-        width: 200px;
+        width: 268px;
     }
 
-    #password-list form p {
-        display: flex;
+    label[for="id_title"],
+    label[for="id_website"],
+    label[for="id_username"],
+    label[for="id_password"] {
+        width: 70px;
+    }
+    #id_title {
+        width: 260px;
+    }
+    #id_website, #id_username {
+        width: 228px;
+    }
+    #id_password {
+        width: 161px;
+    }
+     #pass-detail-notes textarea {
+        width: 259px;
+        margin-left: 20px;
+    }
+    #id_created_at, #id_last_updated {
+        width: 155px;
+    }
+
+    #password-editing-form input,
+    #password-editing-form label {
+        font-size: 12px;
     }
 
     #password-details h1 {
@@ -918,10 +1029,10 @@ label[for=id_search_term] {
         font-size: 12px;
         margin: 0 0 0 -1px;
     }
-
-    #password-details form p label {
-        font-size: 14px;
+    #delete-password-button {
+        font-size: 12px;
     }
+
 
     .sub-content {
         width: 100%;
