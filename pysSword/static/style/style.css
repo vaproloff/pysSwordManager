@@ -736,7 +736,6 @@ label[for="id_last_updated"] {
         height: 450px;
     }
 
-
     .slogan h1 span {
         font-size: 1.5em;
     }
@@ -754,16 +753,10 @@ label[for="id_last_updated"] {
 
     }
 
-    /*#password-list h1 {
-        font-size: 26px;
+    #password-list form input {
+        width: 211px;
     }
 
-    #password-details h1 {
-        font-size: 26px;
-    }*/
-    #password-list form input {
-    width: 211px;
-    }
     #password-editing-form input,
     #password-editing-form label {
         font-size: 14px;
@@ -826,11 +819,10 @@ label[for="id_last_updated"] {
         width: 149px;
         height: 310px;
     }
+
     #recovery-codes-container a {
         width: 200px;
     }
-
-
 
     .pass-gen {
         width: 50%;
@@ -839,6 +831,7 @@ label[for="id_last_updated"] {
     .passwd-generator label {
         font-size: 16px;
     }
+
     button {
         font-size: 14px;
     }
@@ -985,6 +978,7 @@ label[for="id_last_updated"] {
         font-size: 12px;
         margin: 0 0 0 -1px;
     }
+
     #password-list form input {
         width: 268px;
     }
@@ -995,12 +989,15 @@ label[for="id_last_updated"] {
     label[for="id_password"] {
         width: 70px;
     }
+
     #id_title {
         width: 260px;
     }
+
     #id_website, #id_username {
         width: 228px;
     }
+
     #id_password {
         width: 161px;
     }
@@ -1030,10 +1027,10 @@ label[for="id_last_updated"] {
         font-size: 12px;
         margin: 0 0 0 -1px;
     }
+
     #delete-password-button {
         font-size: 12px;
     }
-
 
     .sub-content {
         width: 100%;
@@ -1044,7 +1041,7 @@ label[for="id_last_updated"] {
     }
 
     label[for="id_pass_quantity"],
-    label[for="id_pass_length"]{
+    label[for="id_pass_length"] {
         width: 245px;
     }
 
