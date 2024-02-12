@@ -805,6 +805,9 @@ label[for="id_last_updated"] {
         justify-content: space-between;
 
     }
+    #password-list {
+    width: 40%;
+}
 
     #password-list form input {
         width: 211px;
