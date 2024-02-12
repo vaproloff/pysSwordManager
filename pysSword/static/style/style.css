@@ -467,6 +467,9 @@ input.pass-gen-input {
     width: 225px;
     margin-bottom: 5px;
 }
+.auth-container .two-factor-auth-txt-not-active {
+    justify-content: center;
+}
 
 /*----------------*/
 
