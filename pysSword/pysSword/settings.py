@@ -29,7 +29,6 @@ DEBUG = True
 if DEBUG:
     load_dotenv()
 
-# Ключ шифрования для паролей
 CRYPTO_KEY = os.getenv('CRYPTO_KEY').encode('utf-8')
 
 ALLOWED_HOSTS = [
@@ -94,7 +93,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pysSword.wsgi.application'
 
-# Подключение кастомного бекенда аутентификации по email
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',

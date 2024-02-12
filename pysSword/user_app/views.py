@@ -18,6 +18,18 @@ logger = logging.getLogger('app')
 @login_required
 @reauthentication_required
 def user_profile(request):
+    """
+    View function to handle the user profile page.
+
+    This function allows authenticated users to view and edit their profile information. It requires the user to be
+    reauthenticated if necessary before accessing the profile page. The user can update their first name, last name,
+    or password. Upon submission of the form, the function validates the data and saves the changes to the user's
+    profile. If the form submission is successful, it displays a success message and logs the action. If there are
+    any errors during the process, it displays an error message and logs the error.
+
+    :param request: HttpRequest object representing the request made to the server.
+    :return: HttpResponse object rendering the user profile page with relevant forms and data.
+    """
     record_authentication(request, request.user)
 
     if request.method == 'POST':
