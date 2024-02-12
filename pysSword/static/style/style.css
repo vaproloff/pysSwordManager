@@ -66,13 +66,14 @@ input[type="checkbox"]:checked {
 
 textarea {
     font-family: 'Roboto Mono', sans-serif;
+    text-align: center;
     color: black;
     font-size: 0.8em;
     border: 1px solid rgb(28, 153, 214);
     border-radius: 0;
     padding: 5px;
     background-color: rgb(240, 250, 255);
-    margin-left: 5px;
+    /*margin-left: 5px;*/
     outline: none;
 }
 
@@ -137,7 +138,6 @@ textarea:focus {
 }
 
 /*----------------*/
-
 .menu-logo {
     width: 20%;
 }
@@ -181,7 +181,6 @@ textarea:focus {
     background-color: white;
     color: rgb(28, 153, 214);
 }
-
 /*----------------*/
 
 /* Messages */
@@ -220,7 +219,6 @@ ul.messages li.error {
         opacity: 0;
     }
 }
-
 /*----------------*/
 
 /* Главная страница */
@@ -261,7 +259,6 @@ ul.messages li.error {
     color: white;
     text-decoration: none;
     border: 3px solid white;
-
 }
 
 .slogan a:hover {
@@ -270,7 +267,6 @@ ul.messages li.error {
     color: rgb(28, 153, 214);
     border: 3px solid rgb(28, 153, 214);
 }
-
 /*----------------*/
 
 /* Генератор паролей */
@@ -285,7 +281,6 @@ ul.messages li.error {
 .pass-gen {
     width: 36%;
 }
-
 
 .passwd-generator > div {
     display: flex;
@@ -325,13 +320,13 @@ ul.messages li.error {
     width: 250px;
 }
 
-
 label[for="id_pass_quantity"],
-label[for="id_pass_length"]{
+label[for="id_pass_length"] {
     font-size: 18px;
     display: block;
     width: 260px;
 }
+
 label[for="id_include_digits"],
 label[for="id_include_lowercase"],
 label[for="id_include_uppercase"],
@@ -340,6 +335,7 @@ label[for="id_include_symbols"] {
     display: block;
     width: 299px;
 }
+
 label[for="id_custom_symbols"] {
     display: none;
 }
@@ -347,7 +343,6 @@ label[for="id_custom_symbols"] {
 input#id_pass_quantity,
 input#id_pass_length {
     width: 45px;
-
 }
 
 input#id_custom_symbols {
@@ -359,11 +354,9 @@ input.pass-gen-input {
     font-size: 14px;
     padding: 3px;
 }
-
 /*----------------*/
 
 /* Страницы авторизаций */
-
 .auth-container h1, h2 {
     text-align: center;
 }
@@ -383,6 +376,7 @@ input.pass-gen-input {
     font-size: 18px;
     text-align: center;
 }
+
 .auth-container label[for="id_password"] {
     display: none;
 }
@@ -398,7 +392,6 @@ input.pass-gen-input {
     display: block;
     margin-top: 10px;
     font-size: 16px;
-
 }
 
 .auth-container ul {
@@ -433,9 +426,32 @@ input.pass-gen-input {
     border-color: rgb(28, 153, 214);
 }
 
+#recovery-codes-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
 #recovery-codes-container p {
+    width: 30%;
     margin-bottom: 20px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#recovery_codes {
+    width: 172px;
+    height: 362px;
+}
+
+#recovery-codes-container a {
+    text-align: center;
+    padding: 10px;
+    width: 225px;
+    margin-bottom: 5px;
 }
 
 /*----------------*/
@@ -713,6 +729,16 @@ label[for=id_search_term] {
         font-size: 14px;
     }
 
+    #recovery_codes {
+        width: 149px;
+        height: 310px;
+    }
+    #recovery-codes-container a {
+        width: 200px;
+    }
+
+
+
     .pass-gen {
         width: 50%;
     }
@@ -729,9 +755,8 @@ label[for=id_search_term] {
     }
 }
 
-
+/***** стили для мобильного телефона*****/
 @media (min-width: 360px) and (max-width: 767px) {
-    /*стили для мобильного телефона*/
     button {
         font-size: 12px;
     }
@@ -925,10 +950,10 @@ label[for=id_search_term] {
     .passwd-generate-button {
         margin-bottom: 20px;
     }
+
     .pass-gen-list {
         padding: 0 7px;
     }
-
 
     .auth-container p {
         font-size: 14px;
@@ -966,6 +991,19 @@ label[for=id_search_term] {
 
     .auth-container .two-factor-auth-txt-not-active {
         text-align: center;
+    }
+
+    #recovery-codes-container p {
+    width: 100%;
+    }
+
+    #recovery_codes {
+        width: 100px;
+        height: 288px;
+    }
+
+    #recovery-codes-container a {
+        width: 170px;
     }
 
     .footer .container {
