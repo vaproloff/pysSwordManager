@@ -111,7 +111,7 @@ textarea:focus {
 }
 
 .content .container {
-    padding: 50px 50px;
+    padding: 50px 100px;
     list-style: none;
     box-sizing: border-box;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
@@ -357,8 +357,31 @@ input.pass-gen-input {
 /*----------------*/
 
 /* Страницы авторизаций */
+
+.content .container h1 {
+    text-align: center;
+}
+
 .auth-container h1, h2 {
     text-align: center;
+}
+.auth-container p {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    font-size: 17px;
+    text-align: center;
+}
+.auth-container form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.auth-container label[for="id_login"],
+.auth-container label[for="id_password"] {
+    display: none;
 }
 
 .auth-container section {
@@ -371,26 +394,17 @@ input.pass-gen-input {
     padding: 20px;
 }
 
-.auth-container p {
-    padding: 5px 5px;
-    font-size: 18px;
-    text-align: center;
-}
-
-.auth-container label[for="id_password"] {
-    display: none;
-}
 
 .auth-container input[type="text"],
 .auth-container input[type="password"],
 .auth-container input[type="email"] {
-    min-width: 200px;
+    min-width: 250px;
 }
 
 .auth-container button {
     margin: 0 auto;
     display: block;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
     font-size: 16px;
 }
 
@@ -456,11 +470,46 @@ input.pass-gen-input {
 
 /*----------------*/
 
-/* Профиль пользователя */
-
-#profile-info .profile-field {
-    padding: 5px 0;
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+/* Профиль пользователя */
+.flex-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-field {
+    padding: 5px 0;
+
+}
+.profile-field label[for="id_email"] {
+    display: block;
+    width: 80px;
+}
+
+.profile-field #id_email {
+    width: 275px;
+}
+
+#update-first-name-form label {
+    display: block;
+    width: 80px;
+}
+.profile-info-input {
+    width: 245px;
+}
+
+#update-last-name-form label {
+    display: block;
+    width: 80px;
+}
+
 
 #profile-info .icon-button {
     font-size: 16px;
@@ -484,7 +533,6 @@ input.pass-gen-input {
 #mfa-text-enabled {
     font-weight: bold;
     color: forestgreen;
-    margin-left: 5px;
 }
 
 #mfa-text-disabled {
@@ -509,13 +557,18 @@ input.pass-gen-input {
 }
 
 #change-password-form {
-    padding-top: 20px;
+    padding: 20px 140px;
 
 }
 
 #change-password-form p {
     padding: 5px 0;
 }
+#change-password-form ul {
+    padding: 20px;
+    margin: 5px;
+}
+
 /*----------------*/
 
 /*** Менеджер паролей ***/
@@ -798,7 +851,7 @@ label[for="id_last_updated"] {
     }
 
     .auth-container p {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .auth-container a {
@@ -998,10 +1051,7 @@ label[for="id_last_updated"] {
         width: 228px;
     }
 
-    #id_password {
-        width: 161px;
-    }
-     #pass-detail-notes textarea {
+    #pass-detail-notes textarea {
         width: 259px;
         margin-left: 20px;
     }
@@ -1065,15 +1115,17 @@ label[for="id_last_updated"] {
     }
     .auth-container section {
         padding: 5px;
+        flex-direction: row;
     }
     .auth-container ul {
         margin-top: 0;
         flex-direction: column;
     }
 
-    .auth-container p {
+    .auth-container section p {
         font-size: 14px;
-        line-height: 2;
+        /*line-height: 2;*/
+        /*justify-content: center;*/
     }
 
     .auth-container h2 {
@@ -1084,21 +1136,21 @@ label[for="id_last_updated"] {
         font-size: 12px;
         text-align: center;
         padding: 5px 20px;
+        margin-top: 10px;
 
     }
 
     .auth-container button {
         font-size: 12px;
         padding: 5px 20px;
+        margin-top: 0;
+        margin-bottom: 5px;
 
     }
 
-    .auth-container input[type="email"] {
-        margin-left: 0;
-    }
-
+    .auth-container input[type="email"],
     .auth-container input[type="password"] {
-
+        margin-left: 0;
     }
 
     .auth-container li {
