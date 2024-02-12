@@ -900,13 +900,14 @@ label[for="id_last_updated"] {
         width: 45%;
         height: 350px;
     }
+
     .slogan h1 {
         margin: 0;
     }
+
     .slogan a {
         font-size: 14px;
         display: block;
-
     }
 
     #profile-info h1 {
@@ -1064,6 +1065,13 @@ label[for="id_last_updated"] {
 
     .pass-gen-list {
         padding: 0 7px;
+    }
+    .auth-container section {
+        padding: 5px;
+    }
+    .auth-container ul {
+        margin-top: 0;
+        flex-direction: column;
     }
 
     .auth-container p {
