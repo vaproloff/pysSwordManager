@@ -21,10 +21,11 @@ button {
     font-family: 'Roboto Slab', sans-serif;
     font-size: 16px;
     background-color: rgb(28, 153, 214);
-    padding: 10px 40px;
+    padding: 7px 35px;
     color: white;
     border: 2px solid white;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
     transition: all 0.5s;
 }
 
@@ -111,7 +112,7 @@ textarea:focus {
 }
 
 .content .container {
-    padding: 50px 100px;
+    padding: 50px;
     list-style: none;
     box-sizing: border-box;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
@@ -274,7 +275,6 @@ ul.messages li.error {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    border: 1px solid rgb(28, 153, 214);
     padding: 15px;
 }
 
@@ -375,6 +375,7 @@ input.pass-gen-input {
 }
 .auth-container form {
     display: flex;
+    flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -383,6 +384,11 @@ input.pass-gen-input {
 .auth-container label[for="id_password"] {
     display: none;
 }
+.auth-container #id_login,
+.auth-container #id_password {
+    margin-left: 0;
+}
+
 
 .auth-container section {
     display: flex;
@@ -394,7 +400,6 @@ input.pass-gen-input {
     padding: 20px;
 }
 
-
 .auth-container input[type="text"],
 .auth-container input[type="password"],
 .auth-container input[type="email"] {
@@ -402,7 +407,7 @@ input.pass-gen-input {
 }
 
 .auth-container button {
-    margin: 0 auto;
+    /*margin: 0 auto;
     display: block;
     /*margin-top: 10px;*/
     font-size: 16px;
@@ -426,12 +431,13 @@ input.pass-gen-input {
     font-family: 'Roboto Slab', sans-serif;
     font-size: 16px;
     background-color: rgb(28, 153, 214);
-    padding: 8px 40px;
+    padding: 7px 29px;
     color: white;
     text-decoration: none;
+    border-color: rgb(28, 153, 214);
     border: 2px solid white;
-    /*margin-right: 10px;*/
-    display: block;
+    /*margin: 0 20px;
+    display: block;*/
 }
 
 .auth-container a:hover {
@@ -792,16 +798,17 @@ label[for="id_last_updated"] {
         height: 450px;
     }
 
-    .slogan h1 span {
-        font-size: 1.5em;
-    }
-
     #profile-info h1 {
         font-size: 26px;
     }
 
+    .slogan a {
+        padding: 15px 70px;
+    }
+
     .container h1 {
-        font-size: 26px;
+        font-size: 24px;
+        margin-bottom: 0;
     }
 
     #pass-list-container {
@@ -858,11 +865,12 @@ label[for="id_last_updated"] {
 
     .auth-container p {
         font-size: 15px;
+        justify-content: left;
     }
 
     .auth-container a {
         font-size: 14px;
-        padding: 10px 30px;
+        padding: 7px 30px;
     }
 
     .auth-container ul {
@@ -936,7 +944,7 @@ label[for="id_last_updated"] {
     }
 
     .container h1 {
-        font-size: 22px;
+        font-size: 18px;
         text-align: center;
     }
 
@@ -958,8 +966,11 @@ label[for="id_last_updated"] {
     }
 
     .slogan a {
+        width: 120px;
+        padding: 10px;
         font-size: 14px;
         display: block;
+        margin: 0 auto;
     }
 
     #profile-info h1 {
@@ -1142,15 +1153,19 @@ label[for="id_last_updated"] {
         font-size: 12px;
         text-align: center;
         padding: 5px 20px;
-        margin-top: 10px;
 
     }
 
+    .auth-container p {
+        justify-content: center;
+    }
+
+
     .auth-container button {
         font-size: 12px;
-        padding: 5px 20px;
+        padding: 5px 24px;
         margin-top: 0;
-        margin-bottom: 5px;
+
 
     }
 
