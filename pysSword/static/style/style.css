@@ -462,11 +462,6 @@ input.pass-gen-input {
     align-items: center;
 }
 
-#recovery_codes {
-    width: 172px;
-    height: 362px;
-}
-
 #recovery-codes-container a {
     text-align: center;
     padding: 10px;
@@ -566,8 +561,11 @@ input.pass-gen-input {
 }
 
 #change-password-form {
-    padding: 20px 140px;
-
+    width: 650px;
+    padding: 20px;
+    margin-top: 15px;
+    margin-left: 125px;
+    border: 1px solid rgb(28, 153, 214);
 }
 
 #change-password-form p {
@@ -734,11 +732,11 @@ label[for="id_last_updated"] {
 
 #pass-detail-notes {
     display: flex;
-
-
 }
+
 #save-password-button {
-    margin-top: 0;
+    margin: 0;
+    padding: 10px 35px;
 }
 
 #delete-password-button {
@@ -816,8 +814,11 @@ label[for="id_last_updated"] {
 
     }
     #password-list {
-    width: 40%;
-}
+        width: 40%;
+    }
+    #password-list h1 {
+        margin-bottom: 20px;
+    }
 
     #password-list form input {
         width: 211px;
@@ -882,11 +883,6 @@ label[for="id_last_updated"] {
         font-size: 14px;
     }
 
-    #recovery_codes {
-        width: 149px;
-        height: 310px;
-    }
-
     #recovery-codes-container a {
         width: 200px;
     }
@@ -902,6 +898,11 @@ label[for="id_last_updated"] {
     button {
         font-size: 14px;
     }
+
+    #change-password-form {
+    margin-left: 13px;
+    }
+
 
     .footer .container p {
         font-size: 14px;
@@ -980,19 +981,33 @@ label[for="id_last_updated"] {
     }
 
     .profile-field label {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     input {
         font-size: 0.8em;
     }
-
-    .profile-field input[type="email"] {
-        width: 250px;
+    .profile-field label[for="id_email"] {
+        width: 65px;
     }
 
+    .profile-field #id_email {
+        width: 252px;
+    }
+
+    #update-first-name-form label {
+        width: 65px;
+    }
+    #update-last-name-form label {
+        width: 67px;
+    }
+
+    /*.profile-field input[type="email"] {
+        width: 250px;
+    }*/
+
     .profile-field input[type="text"] {
-        width: 200px;
+        width: 225px;
     }
 
     #profile-info .icon-button {
@@ -1009,8 +1024,14 @@ label[for="id_last_updated"] {
         display: block;
     }
 
+    #change-password-form {
+        width: 323px;
+        margin-left: 0;
+        padding: 5px;
+    }
+
     #change-password-form p label {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     #change-password-form p input[type="password"] {
@@ -1018,7 +1039,7 @@ label[for="id_last_updated"] {
     }
 
     #change-password-form ul {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     #profile-password-form .save-password {
@@ -1028,8 +1049,7 @@ label[for="id_last_updated"] {
     }
 
     #profile-password-form ul {
-        border: 1px solid rgb(28, 153, 214);
-        padding: 10px 5px 5px 20px;
+        padding: 5px 5px 5px 20px;
     }
 
     #password-list {
@@ -1094,6 +1114,9 @@ label[for="id_last_updated"] {
         font-size: 12px;
         margin: 0 0 0 -1px;
     }
+    #id_password {
+        width: 159px;
+    }
 
     #delete-password-button {
         font-size: 12px;
@@ -1132,7 +1155,7 @@ label[for="id_last_updated"] {
     }
     .auth-container section {
         padding: 5px;
-        flex-direction: row;
+
     }
     .auth-container ul {
         margin-top: 0;
@@ -1147,13 +1170,14 @@ label[for="id_last_updated"] {
 
     .auth-container h2 {
         font-size: 20px;
+        text-align: center;
     }
 
     .auth-container a {
         font-size: 12px;
         text-align: center;
         padding: 5px 20px;
-
+        display: block;
     }
 
     .auth-container p {
@@ -1184,11 +1208,6 @@ label[for="id_last_updated"] {
 
     #recovery-codes-container p {
     width: 100%;
-    }
-
-    #recovery_codes {
-        width: 100px;
-        height: 288px;
     }
 
     #recovery-codes-container a {
