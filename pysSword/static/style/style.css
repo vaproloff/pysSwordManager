@@ -541,11 +541,15 @@ input.pass-gen-input {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 #password-list {
     width: 35%;
 }
+#password-details {
+    width: 55%;
+}
+
 #password-list form {
     margin-bottom: 10px;
 }
@@ -614,7 +618,7 @@ label[for=id_search_term] {
 }
 #password-editing-form p {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     align-items: center;
     padding: 5px 0;
 }
@@ -673,7 +677,7 @@ label[for="id_last_updated"] {
     display: flex;
 }
 #save-password-button {
-    margin: 0;
+    margin: 0 auto;
     padding: 10px 35px;
 }
 #delete-password-button {
@@ -684,6 +688,7 @@ label[for="id_last_updated"] {
     color: white;
     text-decoration: none;
     border: 2px solid white;
+    margin: 0 auto;
 }
 #delete-password-button:hover {
     background-color: white;
