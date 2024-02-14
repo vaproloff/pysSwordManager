@@ -514,6 +514,7 @@ input.pass-gen-input {
 #change-password-form label {
     display: block;
     width: 190px;
+    text-align: left;
 }
 #change-password-form input {
     width: 300px;
@@ -569,6 +570,12 @@ label[for=id_search_term] {
     max-height: calc(100vh - 348px);
     overflow-y: auto;
 }
+#password-list-list .password_entry_title {
+    text-align: left;
+}
+#password-list-list .password_entry_login {
+    text-align: right;
+}
 .password_entry {
     background-color: rgb(240, 250, 255);
     padding: 7px;
@@ -611,6 +618,7 @@ label[for="id_username"],
 label[for="id_password"] {
     display: block;
     width: 95px;
+    text-align: left;
 }
 label[for="id_notes"] {
     display: block:
@@ -620,6 +628,7 @@ label[for="id_created_at"],
 label[for="id_last_updated"] {
     display: block;
     width: 199px;
+    text-align: left;
 }
 #password-editing-form input {
     margin: 0;
