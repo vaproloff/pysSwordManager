@@ -366,7 +366,7 @@ input.pass-gen-input {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    align-items: center;
+    /*align-items: center;*/
     margin-bottom: 20px;
     border: 1px solid rgb(28, 153, 214);
     padding: 20px;
@@ -386,6 +386,7 @@ input.pass-gen-input {
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .auth-container li {
     /*margin: 15px 0;*/ /*убрала лишний отступ в настройках двухфакторки*/
