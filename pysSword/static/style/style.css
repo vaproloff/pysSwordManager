@@ -331,23 +331,28 @@ input.pass-gen-input {
 .auth-container p {
     display: flex;
     align-items: center;
-    justify-content: center; /* сделаю по центру - надо протестить во всех формах, связанных с .auth-container */
+    gap: 10px;
+    /*justify-content: center;*/ /* сделаю по центру - надо протестить во всех формах, связанных с .auth-container */
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 5px;
     font-size: 17px;
 }
 .auth-container form {
     display: flex;
-    gap: 10px;
-    /*flex-direction: column;*/
+    flex-direction: column;
     /*align-items: center; * - думаю это лишнее */
     flex-wrap: wrap;
 }
-.auth-container label[for="id_login"], /* просто экспериментировала*/
+.auth-container label[for="id_login"] { /* просто экспериментировала*/
+    display: block;
+    text-align: left;
+    width: 218px;
+}
 .auth-container label[for="id_password"] {
     display: block;
-    width: 220px;
+    width: 67px;
 }
+
 .auth-container #id_login,
 .auth-container #id_password {
     margin-left: 0;
@@ -395,7 +400,7 @@ input.pass-gen-input {
     border-color: rgb(28, 153, 214);
     border: 2px solid white;
     display: block;
-    margin: 10px auto 10px auto;
+    /*margin: 10px auto 10px auto; */ /*пока уберу выравнивание по центру*/
 }
 .auth-container a:hover {
     background-color: white;
