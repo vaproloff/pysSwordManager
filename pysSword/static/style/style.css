@@ -376,7 +376,7 @@ input.pass-gen-input {
 .auth-container form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /*align-items: center; * - думаю это лишнее */
     flex-wrap: wrap;
 }
 
@@ -407,9 +407,8 @@ input.pass-gen-input {
 }
 
 .auth-container button {
-    /*margin: 0 auto;
     display: block;
-    /*margin-top: 10px;*/
+    margin: 10px auto 10px auto;
     font-size: 16px;
 }
 
@@ -436,8 +435,9 @@ input.pass-gen-input {
     text-decoration: none;
     border-color: rgb(28, 153, 214);
     border: 2px solid white;
-    /*margin: 0 20px;
-    display: block;*/
+    display: block;
+    margin: 10px auto 10px auto;
+
 }
 
 .auth-container a:hover {
@@ -514,7 +514,6 @@ input.pass-gen-input {
     width: 80px;
 }
 
-
 #profile-info .icon-button {
     font-size: 16px;
     padding: 5px 10px;
@@ -569,11 +568,26 @@ input.pass-gen-input {
 }
 
 #change-password-form p {
+    display: flex;
+    align-items: center;
     padding: 5px 0;
 }
+#change-password-form label {
+    display: block;
+    width: 190px;
+}
+#change-password-form input {
+    width: 300px;
+    font-size: 0.9em;
+}
+
 #change-password-form ul {
     padding: 20px;
     margin: 5px;
+}
+#change-password-form button {
+    display: block;
+    margin: 10px auto 0 auto;
 }
 
 /*----------------*/
@@ -806,7 +820,7 @@ label[for="id_last_updated"] {
 
     .container h1 {
         font-size: 24px;
-        margin-bottom: 0;
+        margin-bottom: 15px;
     }
 
     #pass-list-container {
@@ -898,10 +912,37 @@ label[for="id_last_updated"] {
     button {
         font-size: 14px;
     }
+    .profile-field label[for="id_email"],
+     #update-first-name-form label,
+     #update-last-name-form label {
+        width: 70px;
+     }
+
+    .profile-field label,
+    .profile-field p {
+        font-size: 15px;
+    }
+    .profile-field #id_email {
+        width: 265px;
+    }
+    .profile-info-input {
+        width: 235px;
+    }
 
     #change-password-form {
-    margin-left: 13px;
+        margin-left: 13px;
     }
+    #change-password-form label {
+        font-size: 15px;
+    }
+
+    #change-password-form input {
+        width: 250px;
+    }
+    #change-password-form ul {
+        font-size: 15px;
+    }
+
 
 
     .footer .container p {
@@ -987,28 +1028,26 @@ label[for="id_last_updated"] {
     input {
         font-size: 0.8em;
     }
-    .profile-field label[for="id_email"] {
+    .profile-field label[for="id_email"],
+     #update-first-name-form label,
+     #update-last-name-form label {
         width: 65px;
-    }
+     }
 
     .profile-field #id_email {
-        width: 252px;
+        width: 231px;
     }
-
-    #update-first-name-form label {
-        width: 65px;
-    }
-    #update-last-name-form label {
-        width: 67px;
+    .profile-info-input {
+        width: 203px;
     }
 
     /*.profile-field input[type="email"] {
         width: 250px;
-    }*/
+    }
 
     .profile-field input[type="text"] {
         width: 225px;
-    }
+    }*/
 
     #profile-info .icon-button {
         font-size: 12px;
@@ -1017,10 +1056,13 @@ label[for="id_last_updated"] {
     .profile-field p {
         font-size: 13px;
     }
+    #change-password-form label {
+        width: 153px;
+    }
 
     button[type="button"] {
         font-size: 12px;
-        margin: 0 auto;
+        margin: 10px auto;
         display: block;
     }
 
@@ -1034,9 +1076,13 @@ label[for="id_last_updated"] {
         font-size: 13px;
     }
 
-    #change-password-form p input[type="password"] {
+    #change-password-form input {
+    width: 150px;
+    font-size: 0.7em;
+}
+    /*#change-password-form p input[type="password"] {
         width: 144px;
-    }
+    }*/
 
     #change-password-form ul {
         font-size: 13px;
@@ -1044,7 +1090,7 @@ label[for="id_last_updated"] {
 
     #profile-password-form .save-password {
         font-size: 12px;
-        margin: 0 auto;
+        margin: 10px auto;
         display: block;
     }
 
@@ -1169,15 +1215,15 @@ label[for="id_last_updated"] {
     }
 
     .auth-container h2 {
-        font-size: 20px;
+        font-size: 16px;
         text-align: center;
     }
 
     .auth-container a {
         font-size: 12px;
-        text-align: center;
         padding: 5px 20px;
-        display: block;
+        margin: 5px auto;
+        text-align: center;
     }
 
     .auth-container p {
@@ -1188,8 +1234,6 @@ label[for="id_last_updated"] {
     .auth-container button {
         font-size: 12px;
         padding: 5px 24px;
-        margin-top: 0;
-
 
     }
 
@@ -1200,6 +1244,7 @@ label[for="id_last_updated"] {
 
     .auth-container li {
         font-size: 14px;
+        margin: 0;
     }
 
     .auth-container .two-factor-auth-txt-not-active {
