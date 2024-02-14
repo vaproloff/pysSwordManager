@@ -332,7 +332,7 @@ input.pass-gen-input {
     display: flex;
     align-items: center;
     gap: 10px;
-    justify-content: center; /* сделаю по центру - надо протестить во всех формах, связанных с .auth-container */
+    /*justify-content: center;*/ /* сделаю по центру - надо протестить во всех формах, связанных с .auth-container */
     flex-wrap: wrap;
     padding: 5px;
     font-size: 17px;
