@@ -777,9 +777,12 @@ label[for="id_last_updated"] {
     .auth-container section {
         padding: 10px;
     }
-    .auth-container label[for="id_login"],
+    .auth-container label[for="id_login"] { /* просто экспериментировала*/
+        width: 193px;
+    }
     .auth-container label[for="id_password"] {
-        width: 195px;
+        display: block;
+        width: 60px;
     }
     .auth-container p {
         font-size: 15px;
