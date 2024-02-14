@@ -3,20 +3,16 @@
     margin: 0;
     padding: 0;
 }
-
 body {
     font-family: 'Roboto', sans-serif;
 }
-
 img {
     max-width: 100%;
 }
-
 h1 {
     font-family: 'Roboto Slab', sans-serif;
     margin-bottom: 20px;
 }
-
 button {
     font-family: 'Roboto Slab', sans-serif;
     font-size: 16px;
@@ -24,17 +20,16 @@ button {
     padding: 7px 35px;
     color: white;
     border: 2px solid white;
-    margin-top: 10px;
+    display: block;
+    margin: 15px auto;
     margin-bottom: 5px;
     transition: all 0.5s;
 }
-
 button:hover {
     background-color: white;
     color: rgb(28, 153, 214);
     border-color: rgb(28, 153, 214);
 }
-
 input {
     font-family: 'Roboto Mono', sans-serif;
     color: black;
@@ -46,11 +41,9 @@ input {
     margin-left: 5px;
     outline: none;
 }
-
 input:focus {
     background-color: white;
 }
-
 input[type="checkbox"] {
     -webkit-appearance: none;
     width: 10px;
@@ -60,7 +53,6 @@ input[type="checkbox"] {
     outline: 2px solid rgb(28, 153, 214);
     outline-offset: 2px;
 }
-
 input[type="checkbox"]:checked {
     background-color: rgb(28, 153, 214);
 }
@@ -74,14 +66,11 @@ textarea {
     border-radius: 0;
     padding: 5px;
     background-color: rgb(240, 250, 255);
-    /*margin-left: 5px;*/
     outline: none;
 }
-
 textarea:focus {
     background-color: white;
 }
-
 /*----------------*/
 
 /* Главные контейнеры */
@@ -89,40 +78,38 @@ textarea:focus {
     width: 1024px;
     margin: 0 auto;
 }
-
 .header {
     align-items: center;
     background-color: rgb(28, 153, 214);
     position: fixed;
     width: 100vw;
 }
-
 .header .container {
     display: flex;
     align-items: center;
     padding: 0;
     justify-content: space-between;
 }
-
 .content {
     padding-top: 88px;
     padding-bottom: 60px;
     display: flex;
     justify-content: center;
 }
-
 .content .container {
     padding: 50px;
     list-style: none;
     box-sizing: border-box;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
+.container p {
+    text-align: center;
+}
 
 /*если удалить .content, то появляется рамка с тенью*/
 .content .container_pure {
     box-shadow: none;
 }
-
 .footer {
     background-color: black;
     color: lightgrey;
@@ -131,7 +118,6 @@ textarea:focus {
     bottom: 0;
     width: 100vw;
 }
-
 .footer .container {
     padding: 20px 0;
     display: flex;
@@ -148,22 +134,18 @@ textarea:focus {
     width: 79%;
     margin-left: 1%;
 }
-
 .menu ul.main-menu {
     list-style: none;
     color: white;
     text-transform: uppercase;
     overflow: hidden;
 }
-
 .menu ul.main-menu li.first {
     float: left;
 }
-
 .menu ul.main-menu li.last {
     float: right;
 }
-
 .menu ul.main-menu li a {
     display: block;
     padding: 30px 15px;
@@ -173,11 +155,9 @@ textarea:focus {
     color: white;
     transition: all 0.5s;
 }
-
 .menu ul.main-menu li a i {
     font-size: 1.4em;
 }
-
 .menu ul.main-menu li a:hover {
     background-color: white;
     color: rgb(28, 153, 214);
@@ -191,7 +171,6 @@ ul.messages {
     position: absolute;
     width: 100vw;
 }
-
 ul.messages li {
     color: white;
     padding: 7px;
@@ -199,19 +178,15 @@ ul.messages li {
     text-align: center;
     font-size: 14px;
 }
-
 ul.messages li.success {
     background-color: forestgreen;
 }
-
 ul.messages li.error {
     background-color: firebrick;
 }
-
 .message-fade-out {
     animation: messageFadeOut 5s ease;
 }
-
 @keyframes messageFadeOut {
     0% {
         opacity: 1;
@@ -226,33 +201,27 @@ ul.messages li.error {
 .img-main {
     height: 500px;
 }
-
 .left_side_main {
     width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .right_side_main {
     width: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .slogan {
     text-align: center;
 }
-
 .slogan h1 {
     padding-bottom: 30px;
 }
-
 .slogan h1 span {
     font-size: 1.75em;
 }
-
 .slogan a {
     font-family: 'Roboto Slab', sans-serif;
     background-color: rgb(28, 153, 214);
@@ -261,7 +230,6 @@ ul.messages li.error {
     text-decoration: none;
     border: 3px solid white;
 }
-
 .slogan a:hover {
     font-family: 'Roboto Slab', sans-serif;
     background-color: white;
@@ -277,28 +245,23 @@ ul.messages li.error {
     flex-wrap: wrap;
     padding: 15px;
 }
-
 .pass-gen {
     width: 36%;
 }
-
 .passwd-generator > div {
     display: flex;
     align-items: center;
     margin: 2px 0;
     min-height: 35px;
 }
-
 .pass-gen-header {
     text-align: center;
 }
-
 .pass-gen-button {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .pass-gen-list .icon-button {
     font-size: 14px;
     background-color: rgb(28, 153, 214);
@@ -308,25 +271,21 @@ ul.messages li.error {
     border-left: none;
     margin: 0 0 5px 0;
 }
-
 .pass-gen-list .icon-button:hover {
     background-color: white;
     color: rgb(28, 153, 214);
 }
-
 .pass-gen-list input {
     font-family: 'Roboto Mono', sans-serif;
     margin: 1px 0;
     width: 250px;
 }
-
 label[for="id_pass_quantity"],
 label[for="id_pass_length"] {
     font-size: 18px;
     display: block;
     width: 260px;
 }
-
 label[for="id_include_digits"],
 label[for="id_include_lowercase"],
 label[for="id_include_uppercase"],
@@ -335,21 +294,17 @@ label[for="id_include_symbols"] {
     display: block;
     width: 299px;
 }
-
 label[for="id_custom_symbols"] {
     display: none;
 }
-
 input#id_pass_quantity,
 input#id_pass_length {
     width: 45px;
 }
-
 input#id_custom_symbols {
     margin: 0;
     width: 310px;
 }
-
 input.pass-gen-input {
     font-size: 14px;
     padding: 3px;
@@ -357,39 +312,46 @@ input.pass-gen-input {
 /*----------------*/
 
 /* Страницы авторизаций */
-
 .content .container h1 {
     text-align: center;
 }
-
+.auth-container {
+    max-width: 750px;
+    width: 100%;
+    margin: 0 auto;
+}
 .auth-container h1, h2 {
     text-align: center;
 }
 .auth-container p {
     display: flex;
     align-items: center;
+    justify-content: center; /* сделаю по центру - надо протестить во всех формах, связанных с .auth-container */
     flex-wrap: wrap;
     padding: 10px;
     font-size: 17px;
-    text-align: center;
 }
 .auth-container form {
     display: flex;
-    flex-direction: column;
+    gap: 10px;
+    /*flex-direction: column;*/
     /*align-items: center; * - думаю это лишнее */
     flex-wrap: wrap;
 }
-
-.auth-container label[for="id_login"],
+.auth-container label[for="id_login"], /* просто экспериментировала*/
 .auth-container label[for="id_password"] {
-    display: none;
+    display: block;
+    width: 220px;
 }
 .auth-container #id_login,
 .auth-container #id_password {
     margin-left: 0;
 }
-
-
+.auth-container label[for="id_password1"],
+.auth-container label[for="id_password2"] {
+    display: block;
+    width: 180px;
+}
 .auth-container section {
     display: flex;
     flex-wrap: wrap;
@@ -399,33 +361,25 @@ input.pass-gen-input {
     border: 1px solid rgb(28, 153, 214);
     padding: 20px;
 }
-
 .auth-container input[type="text"],
 .auth-container input[type="password"],
 .auth-container input[type="email"] {
     min-width: 250px;
 }
-
 .auth-container button {
     display: block;
     margin: 10px auto 10px auto;
     font-size: 16px;
 }
-
 .auth-container ul {
     list-style: none;
-    /*border: 1px solid rgb(28, 153, 214);*/
     padding: 20px;
-    /*padding: 20px 100px 20px 20px;*/
-    /*margin-top: 10px;*/
     display: flex;
     flex-wrap: wrap;
 }
-
 .auth-container li {
     margin: 15px 0;
 }
-
 .auth-container a {
     font-family: 'Roboto Slab', sans-serif;
     font-size: 16px;
@@ -437,23 +391,18 @@ input.pass-gen-input {
     border: 2px solid white;
     display: block;
     margin: 10px auto 10px auto;
-
 }
-
 .auth-container a:hover {
     background-color: white;
     color: rgb(28, 153, 214);
     border-color: rgb(28, 153, 214);
 }
-
 #recovery-codes-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
-
 #recovery-codes-container p {
     width: 30%;
     margin-bottom: 20px;
@@ -461,7 +410,6 @@ input.pass-gen-input {
     flex-direction: column;
     align-items: center;
 }
-
 #recovery-codes-container a {
     text-align: center;
     padding: 10px;
@@ -471,7 +419,6 @@ input.pass-gen-input {
 .auth-container .two-factor-auth-txt-not-active {
     justify-content: center;
 }
-
 /*----------------*/
 
 .flex-center {
@@ -490,17 +437,14 @@ input.pass-gen-input {
 
 .profile-field {
     padding: 5px 0;
-
 }
 .profile-field label[for="id_email"] {
     display: block;
     width: 80px;
 }
-
 .profile-field #id_email {
     width: 275px;
 }
-
 #update-first-name-form label {
     display: block;
     width: 80px;
@@ -508,12 +452,10 @@ input.pass-gen-input {
 .profile-info-input {
     width: 245px;
 }
-
 #update-last-name-form label {
     display: block;
     width: 80px;
 }
-
 #profile-info .icon-button {
     font-size: 16px;
     padding: 5px 10px;
@@ -523,27 +465,22 @@ input.pass-gen-input {
     margin: 0;
     transition: all 0.5s;
 }
-
 #profile-info .icon-button:hover {
     background-color: white;
     color: rgb(28, 153, 214);
 }
-
 #profile-info div .icon-button {
     margin-left: -5px;
 }
-
 #mfa-text-enabled {
     font-weight: bold;
     color: forestgreen;
 }
-
 #mfa-text-disabled {
     font-weight: bold;
     color: firebrick;
     margin-left: 5px;
 }
-
 #mfa-setup {
     font-size: 16px;
     padding: 5px 7px;
@@ -553,12 +490,10 @@ input.pass-gen-input {
     margin-top: -5px;
     transition: all 0.5s;
 }
-
 #mfa-setup:hover {
     background-color: rgb(28, 153, 214);
     color: white;
 }
-
 #change-password-form {
     width: 650px;
     padding: 20px;
@@ -566,7 +501,6 @@ input.pass-gen-input {
     margin-left: 125px;
     border: 1px solid rgb(28, 153, 214);
 }
-
 #change-password-form p {
     display: flex;
     align-items: center;
@@ -580,7 +514,6 @@ input.pass-gen-input {
     width: 300px;
     font-size: 0.9em;
 }
-
 #change-password-form ul {
     padding: 20px;
     margin: 5px;
@@ -589,7 +522,6 @@ input.pass-gen-input {
     display: block;
     margin: 10px auto 0 auto;
 }
-
 /*----------------*/
 
 /*** Менеджер паролей ***/
@@ -599,28 +531,22 @@ input.pass-gen-input {
     flex-wrap: wrap;
     justify-content: space-around;
 }
-
 #password-list {
     width: 35%;
 }
-
 #password-list form {
     margin-bottom: 10px;
 }
 #password-list form p {
     display: flex;
 }
-
-
 label[for=id_search_term] {
     display: none;
 }
-
 #password-list form input {
     width: 243px;
     margin: 0;
 }
-
 #password-list form button {
     font-size: 16px;
     padding: 5px 10px;
@@ -630,17 +556,14 @@ label[for=id_search_term] {
     background-color: white;
     color: rgb(28, 153, 214);
 }
-
 #password-list form button:hover {
     background-color: rgb(28, 153, 214);
     color: white;
 }
-
 #password-list-list {
     max-height: calc(100vh - 348px);
     overflow-y: auto;
 }
-
 .password_entry {
     background-color: rgb(240, 250, 255);
     padding: 7px;
@@ -649,41 +572,34 @@ label[for=id_search_term] {
     color: black;
     transition: all 0.4s;
 }
-
 .password_entry:hover {
     background-color: rgb(28, 153, 214);
     color: white;
 }
-
 .password_entry_link:last-child .password_entry {
     margin-bottom: 0;
 }
-
 .password_entry_title {
     font-size: 1em;
     font-weight: bold;
     margin-bottom: 5px;
 }
-
 .password_entry_login {
     font-size: 0.9em;
     text-align: right;
 }
-
 .password_entry_link {
     text-decoration: none;
 }
 #password-details h1 {
     margin-bottom: 15px;
 }
-
 #password-editing-form p {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px 0;
 }
-
 label[for="id_title"],
 label[for="id_website"],
 label[for="id_username"],
@@ -691,44 +607,35 @@ label[for="id_password"] {
     display: block;
     width: 95px;
 }
-
 label[for="id_notes"] {
     display: block:
     width: 80px;
 }
-
 label[for="id_created_at"],
 label[for="id_last_updated"] {
     display: block;
     width: 199px;
 }
-
 #password-editing-form input {
     margin: 0;
 }
-
 #id_title {
     width: 338px;
 }
-
 #id_website, #id_username {
     width: 307px;
 }
-
 #id_password {
     width: 239px;
 }
-
 #pass-detail-notes textarea {
     margin-left: 28px;
     width: 336px;
     height: 90px;
 }
-
 #id_created_at, #id_last_updated {
     width: 182px;
 }
-
 #password-editing-form .icon-button {
     font-size: 16px;
     padding: 5px 10px;
@@ -738,21 +645,17 @@ label[for="id_last_updated"] {
     background-color: white;
     color: rgb(28, 153, 214);
 }
-
 #password-editing-form .icon-button:hover {
     background-color: rgb(28, 153, 214);
     color: white;
 }
-
 #pass-detail-notes {
     display: flex;
 }
-
 #save-password-button {
     margin: 0;
     padding: 10px 35px;
 }
-
 #delete-password-button {
     font-family: 'Roboto Slab', sans-serif;
     font-size: 16px;
@@ -762,13 +665,11 @@ label[for="id_last_updated"] {
     text-decoration: none;
     border: 2px solid white;
 }
-
 #delete-password-button:hover {
     background-color: white;
     color: rgb(28, 153, 214);
     border-color: rgb(28, 153, 214);
 }
-
 .duplicate_password {
     color: firebrick;
     font-size: 0.8em;
@@ -776,7 +677,6 @@ label[for="id_last_updated"] {
     text-align: right;
     display: block;
 }
-
 .duplicate_input {
     background-color: rgba(255, 0, 0, 0.1);
 }
@@ -788,44 +688,34 @@ label[for="id_last_updated"] {
     .container {
         width: 760px;
     }
-
     .content {
         padding-top: 80px;
     }
-
     .content .container {
         padding: 4% 2% 2% 2%;
     }
-
     .menu ul.main-menu li a {
         font-size: 1em;
     }
-
     .menu ul.main-menu li a i {
         font-size: 1.2em;
     }
-
     .img-main {
         width: 70%;
         height: 450px;
     }
-
     #profile-info h1 {
         font-size: 26px;
     }
-
     .slogan a {
         padding: 15px 70px;
     }
-
     .container h1 {
         font-size: 24px;
         margin-bottom: 15px;
     }
-
     #pass-list-container {
         justify-content: space-between;
-
     }
     #password-list {
         width: 40%;
@@ -833,11 +723,9 @@ label[for="id_last_updated"] {
     #password-list h1 {
         margin-bottom: 20px;
     }
-
     #password-list form input {
         width: 211px;
     }
-
     #password-editing-form input,
     #password-editing-form label {
         font-size: 14px;
@@ -845,70 +733,58 @@ label[for="id_last_updated"] {
     #password-editing-form .icon-button {
         font-size: 14px;
     }
-
     #pass-detail-notes textarea {
         width: 301px;
         margin-left: 20px;
     }
-
     label[for="id_title"],
     label[for="id_website"],
     label[for="id_username"],
     label[for="id_password"] {
         width: 80px;
     }
-
     #id_title {
     width: 301px;
     }
-
     #id_website, #id_username {
         width: 270px;
     }
-
     #id_password {
         width: 205px;
     }
-
     #delete-password-button {
         font-size: 14px;
     }
-
     .auth-container section {
         padding: 10px;
     }
-
+    .auth-container label[for="id_login"],
+    .auth-container label[for="id_password"] {
+        width: 195px;
+    }
     .auth-container p {
         font-size: 15px;
-        justify-content: left;
     }
-
     .auth-container a {
         font-size: 14px;
         padding: 7px 30px;
     }
-
     .auth-container ul {
         margin-top: 5px;
         padding: 10px;
     }
-
     .auth-container button {
         font-size: 14px;
     }
-
     #recovery-codes-container a {
         width: 200px;
     }
-
     .pass-gen {
         width: 50%;
     }
-
     .passwd-generator label {
         font-size: 16px;
     }
-
     button {
         font-size: 14px;
     }
@@ -917,7 +793,6 @@ label[for="id_last_updated"] {
      #update-last-name-form label {
         width: 70px;
      }
-
     .profile-field label,
     .profile-field p {
         font-size: 15px;
@@ -928,23 +803,18 @@ label[for="id_last_updated"] {
     .profile-info-input {
         width: 235px;
     }
-
     #change-password-form {
         margin-left: 13px;
     }
     #change-password-form label {
         font-size: 15px;
     }
-
     #change-password-form input {
         width: 250px;
     }
     #change-password-form ul {
         font-size: 15px;
     }
-
-
-
     .footer .container p {
         font-size: 14px;
     }
@@ -955,58 +825,45 @@ label[for="id_last_updated"] {
     button {
         font-size: 12px;
     }
-
     .content {
         padding-top: 50px;
     }
-
     .container {
         width: 352px;
     }
-
     .content .container {
         padding: 6% 1% 1% 1%;
     }
-
     .menu-logo {
         width: 35%;
     }
-
     .menu {
         width: 63%;
         margin-left: 2%;
     }
-
     .menu ul.main-menu li a {
         padding: 15px;
     }
-
     .main-menu li span {
         display: none;
     }
-
     .container h1 {
         font-size: 18px;
         text-align: center;
     }
-
     .left_side_main {
         width: 100%;
     }
-
     .right_side_main {
         width: 100%;
     }
-
     .img-main {
         width: 45%;
         height: 350px;
     }
-
     .slogan h1 {
         margin: 0;
     }
-
     .slogan a {
         width: 120px;
         padding: 10px;
@@ -1014,17 +871,14 @@ label[for="id_last_updated"] {
         display: block;
         margin: 0 auto;
     }
-
     #profile-info h1 {
         padding-top: 5px;
         font-size: 20px;
         text-align: center;
     }
-
     .profile-field label {
         font-size: 13px;
     }
-
     input {
         font-size: 0.8em;
     }
@@ -1033,107 +887,77 @@ label[for="id_last_updated"] {
      #update-last-name-form label {
         width: 65px;
      }
-
     .profile-field #id_email {
         width: 231px;
     }
     .profile-info-input {
         width: 203px;
     }
-
-    /*.profile-field input[type="email"] {
-        width: 250px;
-    }
-
-    .profile-field input[type="text"] {
-        width: 225px;
-    }*/
-
     #profile-info .icon-button {
         font-size: 12px;
     }
-
     .profile-field p {
         font-size: 13px;
     }
     #change-password-form label {
         width: 153px;
     }
-
     button[type="button"] {
         font-size: 12px;
         margin: 10px auto;
         display: block;
     }
-
     #change-password-form {
         width: 323px;
         margin-left: 0;
         padding: 5px;
     }
-
     #change-password-form p label {
         font-size: 13px;
     }
-
     #change-password-form input {
     width: 150px;
     font-size: 0.7em;
-}
-    /*#change-password-form p input[type="password"] {
-        width: 144px;
-    }*/
-
+    }
     #change-password-form ul {
         font-size: 13px;
     }
-
     #profile-password-form .save-password {
         font-size: 12px;
         margin: 10px auto;
         display: block;
     }
-
     #profile-password-form ul {
         padding: 5px 5px 5px 20px;
     }
-
     #password-list {
         width: 100%;
     }
-
     #password-details {
         width: 100%;
     }
-
     #pass-list-container h1 {
         font-size: 22px;
     }
-
     #password-list form button {
         font-size: 12px;
         margin: 0 0 0 -1px;
     }
-
     #password-list form input {
         width: 268px;
     }
-
     label[for="id_title"],
     label[for="id_website"],
     label[for="id_username"],
     label[for="id_password"] {
         width: 70px;
     }
-
     #id_title {
         width: 260px;
     }
-
     #id_website, #id_username {
         width: 228px;
     }
-
     #pass-detail-notes textarea {
         width: 259px;
         margin-left: 20px;
@@ -1141,21 +965,17 @@ label[for="id_last_updated"] {
     #id_created_at, #id_last_updated {
         width: 155px;
     }
-
     #password-editing-form input,
     #password-editing-form label {
         font-size: 12px;
     }
-
     #password-details h1 {
         margin-top: 20px;
         margin-bottom: 0;
     }
-
     #password-details form p {
         display: flex;
     }
-
     #password-editing-form .icon-button {
         font-size: 12px;
         margin: 0 0 0 -1px;
@@ -1163,107 +983,89 @@ label[for="id_last_updated"] {
     #id_password {
         width: 159px;
     }
-
     #delete-password-button {
         font-size: 12px;
     }
-
     .sub-content {
         width: 100%;
     }
-
     .passwd-generator label {
         font-size: 14px;
     }
-
     label[for="id_pass_quantity"],
     label[for="id_pass_length"] {
         width: 245px;
     }
-
     label[for="id_include_digits"],
     label[for="id_include_lowercase"],
     label[for="id_include_uppercase"],
     label[for="id_include_symbols"] {
         width: 283px;
     }
-
     input#id_custom_symbols {
         width: 294px;
     }
-
     .passwd-generate-button {
         margin-bottom: 20px;
     }
-
     .pass-gen-list {
         padding: 0 7px;
     }
     .auth-container section {
         padding: 5px;
-
+    }
+    .auth-container form label[for="id_email"] {
+        display: none;
+    }
+    .auth-container label[for="id_password1"],
+    .auth-container label[for="id_password2"] {
+        display: none;
     }
     .auth-container ul {
         margin-top: 0;
         flex-direction: column;
     }
-
     .auth-container section p {
         font-size: 14px;
-        /*line-height: 2;*/
-        /*justify-content: center;*/
     }
-
     .auth-container h2 {
         font-size: 16px;
         text-align: center;
     }
-
     .auth-container a {
         font-size: 12px;
         padding: 5px 20px;
         margin: 5px auto;
         text-align: center;
     }
-
     .auth-container p {
         justify-content: center;
+        text-align: center;
     }
-
-
     .auth-container button {
         font-size: 12px;
         padding: 5px 24px;
-
     }
-
     .auth-container input[type="email"],
     .auth-container input[type="password"] {
         margin-left: 0;
     }
-
     .auth-container li {
         font-size: 14px;
         margin: 0;
     }
-
     .auth-container .two-factor-auth-txt-not-active {
         text-align: center;
     }
-
     #recovery-codes-container p {
     width: 100%;
     }
-
     #recovery-codes-container a {
         width: 170px;
     }
-
     .footer .container {
         padding: 10px 0;
-
     }
-
     .footer .container p {
         font-size: 12px;
     }
