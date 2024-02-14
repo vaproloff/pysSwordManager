@@ -262,6 +262,11 @@ ul.messages li.error {
     justify-content: center;
     align-items: center;
 }
+.pass-gen-list > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .pass-gen-list .icon-button {
     font-size: 14px;
     background-color: rgb(28, 153, 214);
@@ -269,7 +274,7 @@ ul.messages li.error {
     color: white;
     border: 1px solid rgb(28, 153, 214);
     border-left: none;
-    margin: 0 0 5px 0;
+    margin: 5px 0 5px 0;
 }
 .pass-gen-list .icon-button:hover {
     background-color: white;
