@@ -370,25 +370,12 @@ input.pass-gen-input {
 /*----------------*/
 
 /* Страницы авторизаций */
-/*.content .container h1 {
-    text-align: center;
-}*/
-
-.auth-container {
-    /*max-width: 850px;
-    width: 100%;
-    margin: 0 auto;*/
-}
-
-/*.auth-container h1, h2 {
-    text-align: center;
-}*/
 
 .auth-container p {
     display: flex;
     align-items: center;
     gap: 10px;
-    /*justify-content: center;*/ /* сделаю по центру - надо протестить во всех формах, связанных с .auth-container */
+    justify-content: flex-start; /* сделаю по центру - надо протестить во всех формах, связанных с .auth-container */
     flex-wrap: wrap;
     padding: 5px;
     font-size: 17px;
@@ -425,14 +412,20 @@ input.pass-gen-input {
 }
 
 .auth-container section {
-    display: flex;
+    /* display: flex;   => убираю флекс, думаю это лишнее
     flex-wrap: wrap;
     flex-direction: column;
-    align-items: center;
+    align-items: center;*/
     margin-bottom: 20px;
     border: 1px solid rgb(28, 153, 214);
     padding: 20px;
 }
+
+.auth-container section p {
+    text-align: left; /* на всякий случай пока */
+}
+
+
 
 .auth-container input[type="text"],
 .auth-container input[type="password"],
@@ -446,14 +439,13 @@ input.pass-gen-input {
 
 .auth-container ul {
     list-style: none;
-    padding: 10px;
+    padding: 10px 0;
     display: flex;
     flex-wrap: wrap;
-    /*justify-content: center;*/
-}
+    }
 
 .auth-container li {
-    /*margin: 15px 0;*/ /*убрала лишний отступ в настройках двухфакторки*/
+    margin: 0 10px 0 0; /*убрала лишний отступ в настройках двухфакторки*/
 }
 
 .auth-container a {
@@ -957,11 +949,6 @@ label[for="id_last_updated"] {
         padding: 7px 30px;
     }
 
-    .auth-container ul {
-        /*margin-top: 5px;*/
-        padding: 10px;
-    }
-
     .auth-container button {
         font-size: 14px;
     }
@@ -1283,6 +1270,7 @@ label[for="id_last_updated"] {
 
     .auth-container section p {
         font-size: 14px;
+        text-align: center;
     }
 
     .auth-container h2 {
