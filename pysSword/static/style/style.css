@@ -503,10 +503,8 @@ input.pass-gen-input {
 }
 
 /* Профиль пользователя */
-.flex-center {
+.flex-left {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
 }
 
@@ -520,7 +518,7 @@ input.pass-gen-input {
 }
 
 .profile-field #id_email {
-    width: 275px;
+    width: 280px;
 }
 
 #update-first-name-form label {
@@ -553,7 +551,10 @@ input.pass-gen-input {
 }
 
 #profile-info div .icon-button {
-    margin-left: -5px;
+    margin-left: -1px;
+}
+.change-user-password {
+    margin: 15px 0 20px -1px;
 }
 
 #mfa-text-enabled {
@@ -583,10 +584,7 @@ input.pass-gen-input {
 }
 
 #change-password-form {
-    width: 650px;
     padding: 20px;
-    margin-top: 15px;
-    margin-left: 125px;
     border: 1px solid rgb(28, 153, 214);
 }
 
@@ -988,10 +986,6 @@ label[for="id_last_updated"] {
         width: 235px;
     }
 
-    #change-password-form {
-        margin-left: 13px;
-    }
-
     #change-password-form label {
         font-size: 15px;
     }
@@ -1024,7 +1018,7 @@ label[for="id_last_updated"] {
     }
 
     .content .container {
-        padding: 6% 2% 1% 2%;
+        padding: 6% 1% 1% 1%;
     }
 
     .menu-logo {
@@ -1121,7 +1115,6 @@ label[for="id_last_updated"] {
     }
 
     #change-password-form {
-        width: 323px;
         margin-left: 0;
         padding: 5px;
     }

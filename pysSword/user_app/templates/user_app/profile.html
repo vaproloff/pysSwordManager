@@ -16,13 +16,13 @@
             {% endif %}
         </h1>
 
-        <div class="profile-field flex-center">
+        <div class="profile-field flex-left">
             <label for="id_email">Email:</label>
             <input type="email" id="id_email" value="{{ user.email }}" disabled>
         </div>
 
         <div class="profile-field">
-            <form class="flex-center" method="post" action="{% url 'profile' %}" id="update-first-name-form">
+            <form class="flex-left" method="post" action="{% url 'profile' %}" id="update-first-name-form">
                 {% csrf_token %}
                 <input type="hidden" name="form_type" value="first_name">
                 <label for="id_first_name">Имя:</label>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="profile-field">
-            <form class="flex-center" method="post" action="{% url 'profile' %}" id="update-last-name-form">
+            <form class="flex-left" method="post" action="{% url 'profile' %}" id="update-last-name-form">
                 {% csrf_token %}
                 <input type="hidden" name="form_type" value="last_name">
                 <label for="id_last_name">Фамилия:</label>
@@ -43,7 +43,7 @@
             </form>
         </div>
 
-        <div class="profile-field flex-center">
+        <div class="profile-field">
             <p>
                 Двухфакторная аутентификация
                 {% if "totp" in MFA_SUPPORTED_TYPES and authenticators.totp %}
@@ -56,9 +56,8 @@
         </div>
     </div>
 
-    <div class="flex-center">
-        <button type="button" onclick="showChangePasswordForm()">Изменить пароль</button>
-    </div>
+    <button class="change-user-password" type="button" onclick="showChangePasswordForm()">Изменить пароль</button>
+
     <div id="profile-password-form" style="display: none;">
         <form method="post" action="{% url 'profile' %}" id="change-password-form">
             {% csrf_token %}
