@@ -19,12 +19,13 @@ h1 {
 
 button {
     font-family: 'Roboto Slab', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     background-color: rgb(28, 153, 214);
-    padding: 10px 40px;
+    padding: 8px 36px;
     color: white;
     border: 2px solid white;
-    margin-top: 20px;
+    display: block;
+    margin: 15px 0 5px;
     transition: all 0.5s;
 }
 
@@ -72,7 +73,6 @@ textarea {
     border-radius: 0;
     padding: 5px;
     background-color: rgb(240, 250, 255);
-    margin-left: 5px;
     outline: none;
 }
 
@@ -110,13 +110,12 @@ textarea:focus {
 }
 
 .content .container {
-    padding: 50px 50px;
+    padding: 50px;
     list-style: none;
     box-sizing: border-box;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
-/*если удалить .content, то появляется рамка с тенью*/
 .content .container_pure {
     box-shadow: none;
 }
@@ -136,27 +135,17 @@ textarea:focus {
     justify-content: space-around;
 }
 
-.content-columns {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/*фишка для генератора паролей*/
-.sub-content {
-    width: 50%;
-}
-
 /*----------------*/
+
+/* Главное меню */
+
 .menu-logo {
     width: 20%;
 }
 
-/* Главное меню */
 .menu {
     width: 79%;
     margin-left: 1%;
-
 }
 
 .menu ul.main-menu {
@@ -272,7 +261,6 @@ ul.messages li.error {
     color: white;
     text-decoration: none;
     border: 3px solid white;
-
 }
 
 .slogan a:hover {
@@ -285,9 +273,38 @@ ul.messages li.error {
 /*----------------*/
 
 /* Генератор паролей */
+.content-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+
+.pass-gen {
+    width: 36%;
+}
+
 .passwd-generator > div {
+    display: flex;
+    align-items: center;
     margin: 2px 0;
-    height: 35px;
+    min-height: 35px;
+}
+
+.pass-gen-header {
+    text-align: center;
+}
+
+.pass-gen-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pass-gen-list > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pass-gen-list .icon-button {
@@ -297,7 +314,7 @@ ul.messages li.error {
     color: white;
     border: 1px solid rgb(28, 153, 214);
     border-left: none;
-    margin: 0 0 5px 0;
+    margin: 5px 0 5px 0;
 }
 
 .pass-gen-list .icon-button:hover {
@@ -308,11 +325,37 @@ ul.messages li.error {
 .pass-gen-list input {
     font-family: 'Roboto Mono', sans-serif;
     margin: 1px 0;
-    min-width: 150px;
+    width: 250px;
+}
+
+label[for="id_pass_quantity"],
+label[for="id_pass_length"] {
+    font-size: 18px;
+    display: block;
+    width: 260px;
+}
+
+label[for="id_include_digits"],
+label[for="id_include_lowercase"],
+label[for="id_include_uppercase"],
+label[for="id_include_symbols"] {
+    font-size: 18px;
+    display: block;
+    width: 299px;
+}
+
+label[for="id_custom_symbols"] {
+    display: none;
+}
+
+input#id_pass_quantity,
+input#id_pass_length {
+    width: 45px;
 }
 
 input#id_custom_symbols {
-    width: 300px;
+    margin: 0;
+    width: 310px;
 }
 
 input.pass-gen-input {
@@ -324,46 +367,87 @@ input.pass-gen-input {
 
 /* Страницы авторизаций */
 
-.auth-container section {
-    margin-bottom: 20px;
+.auth-container p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 5px 0;
+    font-size: 17px;
 }
 
-.auth-container p {
-    padding: 5px 0;
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.auth-container label[for="id_login"] {
+    display: block;
+    text-align: left;
+    width: 218px;
+}
+
+.auth-container label[for="id_password"] {
+    display: block;
+    width: 67px;
+}
+
+.auth-container #id_login,
+.auth-container #id_password {
+    margin-left: 0;
+}
+
+.auth-container label[for="id_password1"],
+.auth-container label[for="id_password2"] {
+    display: block;
+    text-align: left;
+}
+
+.auth-container section {
+    margin-bottom: 20px;
+    border: 1px solid rgb(28, 153, 214);
+    padding: 20px;
+}
+
+.auth-container section p {
+    text-align: left; /* на всякий случай пока */
 }
 
 .auth-container input[type="text"],
 .auth-container input[type="password"],
 .auth-container input[type="email"] {
-    min-width: 200px;
+    min-width: 250px;
 }
 
 .auth-container button {
-    margin-top: 10px;
+    margin: 10px 0;
 }
 
 .auth-container ul {
     list-style: none;
-    border: 1px solid rgb(28, 153, 214);
-    padding: 20px 100px 20px 20px;
-    margin-top: 10px;
+    padding: 10px 0;
     display: flex;
     flex-wrap: wrap;
 }
 
 .auth-container li {
-    margin: 15px 0;
+    margin: 0 10px 0 0;
 }
 
 .auth-container a {
     font-family: 'Roboto Slab', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     background-color: rgb(28, 153, 214);
-    padding: 8px 40px;
+    padding: 7px 29px;
     color: white;
     text-decoration: none;
-    border: 2px solid white;
-    margin-right: 10px;
+    border: 2px solid rgb(28, 153, 214);
+    display: block;
+    text-align: center;
+    transition: all 0.5s;
 }
 
 .auth-container a:hover {
@@ -372,17 +456,63 @@ input.pass-gen-input {
     border-color: rgb(28, 153, 214);
 }
 
-#recovery-codes-container p {
-    margin-bottom: 20px;
+#recovery-codes-container {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#recovery-codes-container p {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+#recovery-codes-container a {
+    text-align: center;
+    padding: 10px;
+    width: 225px;
+    margin-bottom: 5px;
 }
 
 /*----------------*/
 
-/* Профиль пользователя */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-#profile-info .profile-field {
+/* Профиль пользователя */
+.flex-left {
+    display: flex;
+    align-items: center;
+}
+
+.profile-field {
     padding: 5px 0;
+}
+
+.profile-field label[for="id_email"] {
+    display: block;
+    width: 80px;
+}
+
+.profile-field #id_email {
+    width: 280px;
+}
+
+#update-first-name-form label {
+    display: block;
+    width: 80px;
+}
+
+.profile-info-input {
+    width: 245px;
+}
+
+#update-last-name-form label {
+    display: block;
+    width: 80px;
 }
 
 #profile-info .icon-button {
@@ -401,13 +531,16 @@ input.pass-gen-input {
 }
 
 #profile-info div .icon-button {
-    margin-left: -5px;
+    margin-left: -1px;
+}
+
+.change-user-password {
+    margin: 15px 0 20px -1px;
 }
 
 #mfa-text-enabled {
     font-weight: bold;
     color: forestgreen;
-    margin-left: 5px;
 }
 
 #mfa-text-disabled {
@@ -432,18 +565,39 @@ input.pass-gen-input {
 }
 
 #change-password-form {
-    padding-top: 20px;
-
+    padding: 20px;
+    border: 1px solid rgb(28, 153, 214);
 }
 
 #change-password-form p {
+    display: flex;
+    align-items: center;
     padding: 5px 0;
+}
+
+#change-password-form label {
+    display: block;
+    width: 190px;
+    text-align: left;
+}
+
+#change-password-form input {
+    width: 300px;
+    font-size: 0.9em;
+}
+
+#change-password-form ul {
+    padding: 15px 0 15px 15px;
+}
+
+#change-password-form button {
+    display: block;
+    margin: 15px 0 5px -1px;
 }
 
 /*----------------*/
 
-/* Менеджер паролей */
-
+/*** Менеджер паролей ***/
 #pass-list-container {
     display: flex;
     flex-direction: row;
@@ -452,17 +606,19 @@ input.pass-gen-input {
 }
 
 #password-list {
-    width: 40%;
+    width: 35%;
 }
 
 #password-details {
-    width: 58%;
-    padding-left: 2%;
-
+    width: 50%;
 }
 
 #password-list form {
     margin-bottom: 10px;
+}
+
+#password-list form p {
+    display: flex;
 }
 
 label[for=id_search_term] {
@@ -470,7 +626,7 @@ label[for=id_search_term] {
 }
 
 #password-list form input {
-    width: 190px;
+    width: 243px;
     margin: 0;
 }
 
@@ -479,7 +635,7 @@ label[for=id_search_term] {
     padding: 5px 10px;
     border-width: 1px;
     border-color: rgb(28, 153, 214);
-    margin: 0 0 0 -5px;
+    margin: 0 0 0 -1px;
     background-color: white;
     color: rgb(28, 153, 214);
 }
@@ -492,6 +648,14 @@ label[for=id_search_term] {
 #password-list-list {
     max-height: calc(100vh - 348px);
     overflow-y: auto;
+}
+
+#password-list-list .password_entry_title {
+    text-align: left;
+}
+
+#password-list-list .password_entry_login {
+    text-align: right;
 }
 
 .password_entry {
@@ -527,8 +691,56 @@ label[for=id_search_term] {
     text-decoration: none;
 }
 
+#password-details h1 {
+    margin-bottom: 15px;
+}
+
 #password-editing-form p {
+    display: flex;
+    align-items: center;
     padding: 5px 0;
+}
+
+label[for="id_title"],
+label[for="id_website"],
+label[for="id_username"],
+label[for="id_password"],
+label[for="id_notes"] {
+    display: block;
+    width: 100px;
+    text-align: left;
+}
+
+label[for="id_created_at"],
+label[for="id_last_updated"] {
+    display: block;
+    width: 199px;
+    text-align: left;
+}
+
+#password-editing-form input {
+    margin: 0;
+}
+
+#id_title {
+    width: 338px;
+}
+
+#id_website, #id_username {
+    width: 307px;
+}
+
+#id_password {
+    width: 239px;
+}
+
+#pass-detail-notes textarea {
+    width: 338px;
+    height: 90px;
+}
+
+#id_created_at, #id_last_updated {
+    width: 182px;
 }
 
 #password-editing-form .icon-button {
@@ -550,15 +762,20 @@ label[for=id_search_term] {
     display: flex;
 }
 
+#save-password-button {
+    margin: 0 auto;
+    padding: 10px 35px;
+}
+
 #delete-password-button {
     font-family: 'Roboto Slab', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     background-color: rgb(28, 153, 214);
     padding: 10px 40px;
     color: white;
     text-decoration: none;
     border: 2px solid white;
-    margin-left: 10px;
+    margin: 0 auto;
 }
 
 #delete-password-button:hover {
@@ -571,8 +788,8 @@ label[for=id_search_term] {
     color: firebrick;
     font-size: 0.8em;
     font-style: italic;
-    text-align: right;
-    display: block;
+    text-align: center !important;
+    display: block !important;
 }
 
 .duplicate_input {
@@ -581,9 +798,9 @@ label[for=id_search_term] {
 
 /*----------------*/
 
-/*Адаптация сайта*/
+/**** Адаптация веб-приложения ****/
+/**** Стили для планшета ****/
 @media (max-width: 1024px) {
-    /*Стили для планшета*/
     .container {
         width: 760px;
     }
@@ -593,7 +810,7 @@ label[for=id_search_term] {
     }
 
     .content .container {
-        padding: 4% 3% 3% 3%;
+        padding: 4% 2% 2% 2%;
     }
 
     .menu ul.main-menu li a {
@@ -613,37 +830,169 @@ label[for=id_search_term] {
         font-size: 26px;
     }
 
-    #password-list h1 {
-        font-size: 26px;
-    }
-
-    #password-details h1 {
-        font-size: 26px;
-    }
-
-    .container h1 {
-        font-size: 26px;
+    .slogan a {
+        padding: 15px 70px;
     }
 
     .container h1 {
         font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    #pass-list-container {
+        justify-content: space-between;
+    }
+
+    #password-list {
+        width: 40%;
+    }
+
+    #password-details {
+        width: 55%;
+    }
+
+    #password-list h1 {
+        margin-bottom: 20px;
+    }
+
+    #password-list form input {
+        width: 211px;
+    }
+
+    #password-editing-form input,
+    #password-editing-form label {
+        font-size: 14px;
+    }
+
+    /*-----------------------------------*/
+    label[for="id_title"],
+    label[for="id_website"],
+    label[for="id_username"],
+    label[for="id_password"],
+    label[for="id_notes"] {
+        width: 85px;
+    }
+
+    label[for="id_created_at"],
+    label[for="id_last_updated"] {
+        width: 180px;
+    }
+
+    label[for="id_created_at"],
+    label[for="id_last_updated"] {
+        width: 168px;
+    }
+
+    #id_title, #pass-detail-notes textarea {
+        width: 290px;
+    }
+
+    #id_website, #id_username {
+        width: 260px;
+    }
+
+    #id_password {
+        width: 195px;
+    }
+
+    #id_created_at, #id_last_updated {
+        width: 165px;
+    }
+
+    /*---------------------------------------------------------------*/
+    #password-editing-form .icon-button {
+        font-size: 14px;
+    }
+
+
+    #delete-password-button {
+        font-size: 14px;
+    }
+
+    .auth-container section {
+        padding: 10px;
+    }
+
+    .auth-container label[for="id_login"] {
+        width: 193px;
+    }
+
+    .auth-container label[for="id_password"] {
+        display: block;
+        width: 60px;
+    }
+
+    .auth-container p {
+        font-size: 15px;
     }
 
     .auth-container a {
-        padding: 5px 30px;
+        font-size: 14px;
+        padding: 7px 30px;
     }
 
-    .auth-container ul {
-        margin-top: 5px;
-        padding: 10px;
-
-
+    .auth-container button {
+        font-size: 14px;
     }
 
+    #recovery-codes-container a {
+        width: 200px;
+    }
+
+    .pass-gen {
+        width: 50%;
+    }
+
+    .passwd-generator label {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    .profile-field label[for="id_email"],
+    #update-first-name-form label,
+    #update-last-name-form label {
+        width: 70px;
+    }
+
+    .profile-field label,
+    .profile-field p {
+        font-size: 15px;
+    }
+
+    .profile-field #id_email {
+        width: 270px;
+    }
+
+    .profile-info-input {
+        width: 235px;
+    }
+
+    #change-password-form label {
+        font-size: 15px;
+    }
+
+    #change-password-form input {
+        width: 250px;
+    }
+
+    #change-password-form ul {
+        font-size: 15px;
+    }
+
+    .footer .container p {
+        font-size: 14px;
+    }
 }
 
+/***** стили для мобильного телефона*****/
 @media (min-width: 360px) and (max-width: 767px) {
-    /*стили для мобильного телефона*/
+    button {
+        font-size: 12px;
+    }
+
     .content {
         padding-top: 50px;
     }
@@ -674,7 +1023,7 @@ label[for=id_search_term] {
     }
 
     .container h1 {
-        font-size: 22px;
+        font-size: 18px;
         text-align: center;
     }
 
@@ -691,6 +1040,18 @@ label[for=id_search_term] {
         height: 350px;
     }
 
+    .slogan h1 {
+        margin: 0;
+    }
+
+    .slogan a {
+        width: 120px;
+        padding: 10px;
+        font-size: 14px;
+        display: block;
+        margin: 0 auto;
+    }
+
     #profile-info h1 {
         padding-top: 5px;
         font-size: 20px;
@@ -698,19 +1059,25 @@ label[for=id_search_term] {
     }
 
     .profile-field label {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     input {
         font-size: 0.8em;
     }
 
-    .profile-field input[type="email"] {
-        width: 250px;
+    .profile-field label[for="id_email"],
+    #update-first-name-form label,
+    #update-last-name-form label {
+        width: 65px;
     }
 
-    .profile-field input[type="text"] {
-        width: 200px;
+    .profile-field #id_email {
+        width: 231px;
+    }
+
+    .profile-info-input {
+        width: 203px;
     }
 
     #profile-info .icon-button {
@@ -721,33 +1088,42 @@ label[for=id_search_term] {
         font-size: 13px;
     }
 
+    #change-password-form label {
+        width: 153px;
+    }
+
     button[type="button"] {
         font-size: 12px;
-        margin: 0 auto;
+        margin: 10px auto;
         display: block;
     }
 
-    #change-password-form p label {
-        font-size: 14px;
+    #change-password-form {
+        margin-left: 0;
+        padding: 5px;
     }
 
-    #change-password-form p input[type="password"] {
-        width: 144px;
+    #change-password-form p label {
+        font-size: 13px;
+    }
+
+    #change-password-form input {
+        width: 150px;
+        font-size: 0.7em;
     }
 
     #change-password-form ul {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     #profile-password-form .save-password {
         font-size: 12px;
-        margin: 0 auto;
+        margin: 10px auto;
         display: block;
     }
 
     #profile-password-form ul {
-        border: 1px solid rgb(28, 153, 214);
-        padding: 10px 5px 5px 20px;
+        padding: 5px 5px 5px 20px;
     }
 
     #password-list {
@@ -756,7 +1132,6 @@ label[for=id_search_term] {
 
     #password-details {
         width: 100%;
-        padding-left: 0;
     }
 
     #pass-list-container h1 {
@@ -768,16 +1143,37 @@ label[for=id_search_term] {
         margin: 0 0 0 -1px;
     }
 
-    input {
-        font-size: 0.8em;
-    }
-
     #password-list form input {
-        width: 200px;
+        width: 268px;
     }
 
-    #password-list form p {
-        display: flex;
+    label[for="id_title"],
+    label[for="id_website"],
+    label[for="id_username"],
+    label[for="id_password"],
+    label[for="id_notes"] {
+        width: 70px;
+    }
+
+    #id_title, #pass-detail-notes textarea {
+        width: 244px;
+    }
+
+    #id_website, #id_username {
+        width: 212px;
+    }
+
+    #id_password {
+        width: 144px;
+    }
+
+    #id_created_at, #id_last_updated {
+        width: 147px;
+    }
+
+    #password-editing-form input,
+    #password-editing-form label {
+        font-size: 12px;
     }
 
     #password-details h1 {
@@ -794,83 +1190,117 @@ label[for=id_search_term] {
         margin: 0 0 0 -1px;
     }
 
-    #password-details form p label {
-        font-size: 14px;
+
+    #delete-password-button {
+        font-size: 12px;
     }
 
     .sub-content {
         width: 100%;
     }
 
-    .passwd-generator {
-        padding: 12px;
-    }
-
     .passwd-generator label {
         font-size: 14px;
     }
 
+    label[for="id_pass_quantity"],
+    label[for="id_pass_length"] {
+        width: 245px;
+    }
+
+    label[for="id_include_digits"],
+    label[for="id_include_lowercase"],
+    label[for="id_include_uppercase"],
+    label[for="id_include_symbols"] {
+        width: 283px;
+    }
+
     input#id_custom_symbols {
-        width: 226px;
+        width: 294px;
     }
 
     .passwd-generate-button {
-        margin: 0 auto;
-        display: block;
+        margin-bottom: 20px;
     }
 
     .pass-gen-list {
-        border: 1px solid rgb(28, 153, 214);
-        padding: 20px 60px 20px 60px;
+        padding: 0 7px;
     }
 
-    .auth-container p {
-        font-size: 14px;
-        line-height: 2;
+    .auth-container section {
+        padding: 5px;
+    }
 
+    .auth-container form label[for="id_email"] {
+        display: none;
+    }
+
+    .auth-container label[for="id_password1"],
+    .auth-container label[for="id_password2"] {
+        display: none;
+    }
+
+    .auth-container ul {
+        margin-top: 0;
+        flex-direction: column;
+    }
+
+    .auth-container section p {
+        font-size: 14px;
+        text-align: center;
     }
 
     .auth-container h2 {
-        font-size: 20px;
+        font-size: 16px;
         text-align: center;
     }
 
     .auth-container a {
         font-size: 12px;
-        text-align: center;
         padding: 5px 20px;
+        margin: 5px auto;
+        text-align: center;
+    }
 
+    .auth-container p {
+        justify-content: center;
+        gap: 5px;
+        /*text-align: center;*/
     }
 
     .auth-container button {
         font-size: 12px;
-        padding: 5px 20px;
-        margin-top: 10px;
-        margin-left: 80px;
+        padding: 7px 27px;
+        margin: 10px auto;
     }
 
-    .auth-container input[type="email"] {
-        margin-left: 0;
-    }
-
+    .auth-container input[type="email"],
     .auth-container input[type="password"] {
-        margin-bottom: 10px;
+        margin-left: 0;
     }
 
     .auth-container li {
         font-size: 14px;
+        margin: 0;
     }
 
     .auth-container .two-factor-auth-txt-not-active {
         text-align: center;
     }
 
+    #recovery-codes-container p {
+        width: 100%;
+    }
+
+    #recovery-codes-container a {
+        width: 170px;
+    }
+
     .footer .container {
         padding: 10px 0;
-
     }
 
     .footer .container p {
-        font-size: 14px;
+        font-size: 12px;
     }
 }

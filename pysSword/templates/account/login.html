@@ -12,8 +12,8 @@
     {% endelement %}
     <div class="auth-container">
         <p>
-            {% blocktrans %}If you have not created an account yet, then please
-    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+            {% blocktrans %}Если у вас ещё нет учётной записи, пожалуйста, сначала
+    <a href="{{ signup_url }}">зарегистрируйтесь</a>{% endblocktrans %}
         </p>
         {% url 'account_login' as login_url %}
         {% element form form=form method="post" action=login_url tags="entrance,login" %}
