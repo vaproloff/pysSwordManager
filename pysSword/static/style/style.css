@@ -21,7 +21,7 @@ button {
     font-family: 'Roboto Slab', sans-serif;
     font-size: 16px;
     background-color: rgb(28, 153, 214);
-    padding: 7px 35px;
+    padding: 8px 36px;
     color: white;
     border: 2px solid white;
     display: block;
@@ -117,9 +117,9 @@ textarea:focus {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
-.container p {
+/*.container p {
     text-align: center;
-}
+}*/
 
 /*если удалить .content, то появляется рамка с тенью*/
 .content .container_pure {
@@ -370,9 +370,9 @@ input.pass-gen-input {
 /*----------------*/
 
 /* Страницы авторизаций */
-.content .container h1 {
+/*.content .container h1 {
     text-align: center;
-}
+}*/
 
 .auth-container {
     /*max-width: 850px;
@@ -380,9 +380,9 @@ input.pass-gen-input {
     margin: 0 auto;*/
 }
 
-.auth-container h1, h2 {
+/*.auth-container h1, h2 {
     text-align: center;
-}
+}*/
 
 .auth-container p {
     display: flex;
@@ -397,7 +397,7 @@ input.pass-gen-input {
 .auth-container form {
     display: flex;
     flex-direction: column;
-    /*align-items: center;*/
+    align-items: flex-start;
     flex-wrap: wrap;
 }
 
@@ -441,9 +441,7 @@ input.pass-gen-input {
 }
 
 .auth-container button {
-    display: block;
-    margin: 10px auto 10px auto;
-    font-size: 16px;
+    margin: 10px 0;
 }
 
 .auth-container ul {
@@ -468,6 +466,7 @@ input.pass-gen-input {
     border: 2px solid rgb(28, 153, 214);
     display: block;
     text-align: center;
+    transition: all 0.5s;
     /*margin: 10px auto 10px auto; !*выравнивание по центру*!*/
 }
 
@@ -736,15 +735,11 @@ label[for=id_search_term] {
 label[for="id_title"],
 label[for="id_website"],
 label[for="id_username"],
-label[for="id_password"] {
-    display: block;
-    width: 95px;
-    text-align: left;
-}
-
+label[for="id_password"],
 label[for="id_notes"] {
     display: block;
-    width: 80px;
+    width: 100px;
+    text-align: left;
 }
 
 label[for="id_created_at"],
@@ -771,8 +766,7 @@ label[for="id_last_updated"] {
 }
 
 #pass-detail-notes textarea {
-    margin-left: 28px;
-    width: 336px;
+    width: 338px;
     height: 90px;
 }
 
@@ -883,6 +877,9 @@ label[for="id_last_updated"] {
     #password-list {
         width: 40%;
     }
+    #password-details {
+        width: 55%;
+    }
 
     #password-list h1 {
         margin-bottom: 20px;
@@ -896,34 +893,43 @@ label[for="id_last_updated"] {
     #password-editing-form label {
         font-size: 14px;
     }
+    /*-----------------------------------*/
+    label[for="id_title"],
+    label[for="id_website"],
+    label[for="id_username"],
+    label[for="id_password"],
+    label[for="id_notes"] {
+        width: 85px;
+    }
+
+    label[for="id_created_at"],
+    label[for="id_last_updated"] {
+        width: 180px;
+    }
+    label[for="id_created_at"],
+    label[for="id_last_updated"] {
+        width: 168px;
+    }
+
+    #id_title, #pass-detail-notes textarea {
+        width: 290px;
+    }
+
+    #id_website, #id_username {
+        width: 260px;
+    }
+
+    #id_password {
+        width: 195px;
+    }
+
+    /*---------------------------------------------------------------*/
+
 
     #password-editing-form .icon-button {
         font-size: 14px;
     }
 
-    #pass-detail-notes textarea {
-        width: 301px;
-        margin-left: 20px;
-    }
-
-    label[for="id_title"],
-    label[for="id_website"],
-    label[for="id_username"],
-    label[for="id_password"] {
-        width: 80px;
-    }
-
-    #id_title {
-        width: 301px;
-    }
-
-    #id_website, #id_username {
-        width: 270px;
-    }
-
-    #id_password {
-        width: 205px;
-    }
 
     #delete-password-button {
         font-size: 14px;
@@ -1180,22 +1186,22 @@ label[for="id_last_updated"] {
     label[for="id_title"],
     label[for="id_website"],
     label[for="id_username"],
-    label[for="id_password"] {
+    label[for="id_password"],
+    label[for="id_notes"] {
         width: 70px;
     }
 
-    #id_title {
-        width: 260px;
+    #id_title, #pass-detail-notes textarea {
+        width: 244px;
     }
 
     #id_website, #id_username {
-        width: 228px;
+        width: 212px;
+    }
+    #id_password {
+        width: 144px;
     }
 
-    #pass-detail-notes textarea {
-        width: 259px;
-        margin-left: 20px;
-    }
 
     #id_created_at, #id_last_updated {
         width: 155px;
@@ -1220,9 +1226,6 @@ label[for="id_last_updated"] {
         margin: 0 0 0 -1px;
     }
 
-    #id_password {
-        width: 159px;
-    }
 
     #delete-password-button {
         font-size: 12px;
@@ -1302,7 +1305,8 @@ label[for="id_last_updated"] {
 
     .auth-container button {
         font-size: 12px;
-        padding: 5px 24px;
+        padding: 7px 27px;
+        margin: 10px auto;
     }
 
     .auth-container input[type="email"],
