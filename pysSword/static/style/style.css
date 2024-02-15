@@ -67,7 +67,6 @@ input[type="checkbox"]:checked {
 
 textarea {
     font-family: 'Roboto Mono', sans-serif;
-    text-align: center;
     color: black;
     font-size: 0.8em;
     border: 1px solid rgb(28, 153, 214);
@@ -117,11 +116,6 @@ textarea:focus {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
-/*.container p {
-    text-align: center;
-}*/
-
-/*если удалить .content, то появляется рамка с тенью*/
 .content .container_pure {
     box-shadow: none;
 }
@@ -142,11 +136,13 @@ textarea:focus {
 }
 
 /*----------------*/
+
+/* Главное меню */
+
 .menu-logo {
     width: 20%;
 }
 
-/* Главное меню */
 .menu {
     width: 79%;
     margin-left: 1%;
@@ -375,7 +371,7 @@ input.pass-gen-input {
     display: flex;
     align-items: center;
     gap: 10px;
-    justify-content: flex-start; /* сделаю по центру - надо протестить во всех формах, связанных с .auth-container */
+    justify-content: flex-start;
     flex-wrap: wrap;
     padding: 5px 0;
     font-size: 17px;
@@ -388,7 +384,7 @@ input.pass-gen-input {
     flex-wrap: wrap;
 }
 
-.auth-container label[for="id_login"] { /* просто экспериментировала*/
+.auth-container label[for="id_login"] {
     display: block;
     text-align: left;
     width: 218px;
@@ -407,15 +403,10 @@ input.pass-gen-input {
 .auth-container label[for="id_password1"],
 .auth-container label[for="id_password2"] {
     display: block;
-    /*width: 180px;*/
     text-align: left;
 }
 
 .auth-container section {
-    /* display: flex;   => убираю флекс, думаю это лишнее
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;*/
     margin-bottom: 20px;
     border: 1px solid rgb(28, 153, 214);
     padding: 20px;
@@ -424,8 +415,6 @@ input.pass-gen-input {
 .auth-container section p {
     text-align: left; /* на всякий случай пока */
 }
-
-
 
 .auth-container input[type="text"],
 .auth-container input[type="password"],
@@ -442,10 +431,10 @@ input.pass-gen-input {
     padding: 10px 0;
     display: flex;
     flex-wrap: wrap;
-    }
+}
 
 .auth-container li {
-    margin: 0 10px 0 0; /*убрала лишний отступ в настройках двухфакторки*/
+    margin: 0 10px 0 0;
 }
 
 .auth-container a {
@@ -459,7 +448,6 @@ input.pass-gen-input {
     display: block;
     text-align: center;
     transition: all 0.5s;
-    /*margin: 10px auto 10px auto; !*выравнивание по центру*!*/
 }
 
 .auth-container a:hover {
@@ -549,6 +537,7 @@ input.pass-gen-input {
 #profile-info div .icon-button {
     margin-left: -1px;
 }
+
 .change-user-password {
     margin: 15px 0 20px -1px;
 }
@@ -712,7 +701,6 @@ label[for=id_search_term] {
 
 #password-editing-form p {
     display: flex;
-    /*justify-content: space-between;*/
     align-items: center;
     padding: 5px 0;
 }
@@ -862,6 +850,7 @@ label[for="id_last_updated"] {
     #password-list {
         width: 40%;
     }
+
     #password-details {
         width: 55%;
     }
@@ -878,6 +867,7 @@ label[for="id_last_updated"] {
     #password-editing-form label {
         font-size: 14px;
     }
+
     /*-----------------------------------*/
     label[for="id_title"],
     label[for="id_website"],
@@ -891,6 +881,7 @@ label[for="id_last_updated"] {
     label[for="id_last_updated"] {
         width: 180px;
     }
+
     label[for="id_created_at"],
     label[for="id_last_updated"] {
         width: 168px;
@@ -909,12 +900,10 @@ label[for="id_last_updated"] {
     }
 
     #id_created_at, #id_last_updated {
-    width: 165px;
-}
+        width: 165px;
+    }
 
     /*---------------------------------------------------------------*/
-
-
     #password-editing-form .icon-button {
         font-size: 14px;
     }
@@ -928,7 +917,7 @@ label[for="id_last_updated"] {
         padding: 10px;
     }
 
-    .auth-container label[for="id_login"] { /* просто экспериментировала*/
+    .auth-container label[for="id_login"] {
         width: 193px;
     }
 
@@ -1177,6 +1166,7 @@ label[for="id_last_updated"] {
     #id_website, #id_username {
         width: 212px;
     }
+
     #id_password {
         width: 144px;
     }
