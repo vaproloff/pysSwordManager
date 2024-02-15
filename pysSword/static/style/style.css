@@ -908,6 +908,10 @@ label[for="id_last_updated"] {
         width: 195px;
     }
 
+    #id_created_at, #id_last_updated {
+    width: 165px;
+}
+
     /*---------------------------------------------------------------*/
 
 
@@ -1177,9 +1181,8 @@ label[for="id_last_updated"] {
         width: 144px;
     }
 
-
     #id_created_at, #id_last_updated {
-        width: 155px;
+        width: 147px;
     }
 
     #password-editing-form input,
