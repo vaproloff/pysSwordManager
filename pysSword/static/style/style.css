@@ -377,7 +377,7 @@ input.pass-gen-input {
     gap: 10px;
     justify-content: flex-start; /* сделаю по центру - надо протестить во всех формах, связанных с .auth-container */
     flex-wrap: wrap;
-    padding: 5px;
+    padding: 5px 0;
     font-size: 17px;
 }
 
@@ -488,10 +488,6 @@ input.pass-gen-input {
     padding: 10px;
     width: 225px;
     margin-bottom: 5px;
-}
-
-.auth-container .two-factor-auth-txt-not-active {
-    justify-content: center;
 }
 
 /*----------------*/
@@ -606,13 +602,12 @@ input.pass-gen-input {
 }
 
 #change-password-form ul {
-    padding: 20px;
-    margin: 5px;
+    padding: 15px 0 15px 15px;
 }
 
 #change-password-form button {
     display: block;
-    margin: 10px auto 0 auto;
+    margin: 15px 0 5px -1px;
 }
 
 /*----------------*/
@@ -979,7 +974,7 @@ label[for="id_last_updated"] {
     }
 
     .profile-field #id_email {
-        width: 265px;
+        width: 270px;
     }
 
     .profile-info-input {
