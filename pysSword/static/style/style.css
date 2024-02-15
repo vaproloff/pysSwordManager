@@ -460,15 +460,11 @@ input.pass-gen-input {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 #recovery-codes-container p {
     width: 30%;
     margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 #recovery-codes-container a {
