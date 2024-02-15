@@ -33,7 +33,12 @@ def password_generator(request):
         form = PasswordGeneratorForm(request.POST, instance=settings)
         if form.is_valid():
             if request.user.is_authenticated:
-                form.save()
+                if settings is None:
+                    instance = form.save(commit=False)
+                    instance.user = request.user
+                    instance.save()
+                else:
+                    form.save()
                 logger.info(f'Password generator setting saved successfully ({request.user.email})')
                 messages.success(request, 'Настройки генератора паролей сохранены успешно!')
 
