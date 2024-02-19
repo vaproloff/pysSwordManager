@@ -1260,12 +1260,16 @@ label[for="id_last_updated"] {
         padding: 5px 20px;
         margin: 5px auto;
         text-align: center;
+        display: block;
+
     }
 
     .auth-container p {
+        font-size: 14px;
         justify-content: center;
         gap: 5px;
-        /*text-align: center;*/
+        align-items: center;
+        text-align: center;
     }
 
     .auth-container button {
@@ -1274,10 +1278,15 @@ label[for="id_last_updated"] {
         margin: 10px auto;
     }
 
-    .auth-container input[type="email"],
+    .auth-container label[for="id_login"],
+    .auth-container label[for="id_password"] {
+        display: none;
+    }
+
+    /*.auth-container input[type="email"],
     .auth-container input[type="password"] {
         margin-left: 0;
-    }
+    }*/
 
     .auth-container li {
         font-size: 14px;
