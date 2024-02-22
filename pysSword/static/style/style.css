@@ -1264,6 +1264,11 @@ label[for="id_last_updated"] {
 
     }
 
+    .auth-container form {
+        align-items: center;
+    }
+
+
     .auth-container p {
         font-size: 14px;
         justify-content: center;
