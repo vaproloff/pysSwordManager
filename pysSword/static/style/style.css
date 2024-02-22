@@ -1007,6 +1007,7 @@ label[for="id_last_updated"] {
 
     .menu-logo {
         width: 35%;
+        margin-left: 5px;
     }
 
     .menu {
@@ -1242,6 +1243,8 @@ label[for="id_last_updated"] {
 
     .auth-container ul {
         margin-top: 0;
+        margin: 5px 15px;
+        padding: 0;
         flex-direction: column;
     }
 
@@ -1258,14 +1261,38 @@ label[for="id_last_updated"] {
     .auth-container a {
         font-size: 12px;
         padding: 5px 20px;
-        margin: 5px auto;
+        margin: 10px 35px;
         text-align: center;
+        display: block;
+
+    }
+
+    .auth-container form {
+        align-items: center;
+
+    }
+
+    .auth-container #id_remember {
+        margin-left: 5px;
+    }
+
+
+    .auth-container input {
+        margin-left: 0;
+
+    }
+
+    #recovery-codes-container {
+        align-items: center;
     }
 
     .auth-container p {
-        justify-content: center;
-        gap: 5px;
-        /*text-align: center;*/
+        display: block;
+        font-size: 14px;
+        /*justify-content: center;
+        /*gap: 5px;*/
+        align-items: center;
+        text-align: center;
     }
 
     .auth-container button {
@@ -1274,14 +1301,20 @@ label[for="id_last_updated"] {
         margin: 10px auto;
     }
 
-    .auth-container input[type="email"],
+    .auth-container label[for="id_login"],
+    .auth-container label[for="id_password"] {
+        display: none;
+    }
+
+    /*.auth-container input[type="email"],
     .auth-container input[type="password"] {
         margin-left: 0;
-    }
+    }*/
 
     .auth-container li {
         font-size: 14px;
         margin: 0;
+        padding: 5px 0;
     }
 
     .auth-container .two-factor-auth-txt-not-active {
@@ -1290,6 +1323,8 @@ label[for="id_last_updated"] {
 
     #recovery-codes-container p {
         width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     #recovery-codes-container a {
