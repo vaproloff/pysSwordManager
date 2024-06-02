@@ -1,6 +1,5 @@
 import logging
 
-from allauth.account.reauthentication import record_authentication
 from allauth.mfa import app_settings
 from allauth.account.decorators import reauthentication_required
 from allauth.account.forms import ChangePasswordForm
@@ -30,7 +29,6 @@ def user_profile(request):
     :param request: HttpRequest object representing the request made to the server.
     :return: HttpResponse object rendering the user profile page with relevant forms and data.
     """
-    record_authentication(request, request.user)
 
     if request.method == 'POST':
         form_type = request.POST.get('form_type')
